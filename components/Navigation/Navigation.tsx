@@ -6,7 +6,6 @@ import {
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton,
     Flex,
     HStack,
     IconButton,
@@ -28,7 +27,7 @@ const Navigation: FC = () => {
 
     return (
         <>
-            <Box px={8} py={12}>
+            <Box px={24} py={14}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
                         size={'md'}
