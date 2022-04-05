@@ -95,15 +95,7 @@ const Canvas = () => {
         });
     }, []);
 
-    return (
-        <div
-            style={{
-                textAlign: 'center',
-            }}
-        >
-            <canvas id="canvas1" width={'100%'} height={'750px'}></canvas>
-        </div>
-    );
+    return <canvas id="canvas1" style={{ zIndex: -10, opacity: 0.6 }}></canvas>;
 };
 
 export default Canvas;

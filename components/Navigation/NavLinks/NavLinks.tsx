@@ -20,7 +20,7 @@ const fill = keyframes`
 
 const NavLink: FC = ({ children }: { children: ReactNode }) => {
     const prefersReducedMotion = usePrefersReducedMotion()
-    const animation = prefersReducedMotion ? undefined : `${fill} 1s forwards`
+    const animation = prefersReducedMotion ? undefined : `${fill} 0.2s forwards`
     return (
         <Link
             px={2}

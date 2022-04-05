@@ -27,7 +27,11 @@ const Navigation: FC = () => {
 
     return (
         <>
-            <Box px={24} py={14}>
+            <Box px={24} py={14} position={'absolute'}
+                top={0}
+                zIndex={20}
+                right={0}
+                left={0}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <IconButton
                         size={'md'}
@@ -37,11 +41,11 @@ const Navigation: FC = () => {
                         onClick={isOpen ? onClose : onOpen}
                         _focus={{ outline: 'none' }}
                     />
-                    <Text display={{ base:'none',md: 'block' }}>Logo</Text>
-                    <HStack spacing={8} alignItems={'center'}>
+                    <Text display={{ base: 'none', md: 'block' }}>Logo</Text>
+                    <HStack spacing={10} alignItems={'center'}>
                         <HStack
                             as={'nav'}
-                            spacing={4}
+                            spacing={8}
                             display={{ base: 'none', md: 'flex' }}>
                             {Links.map((link) => (
                                 <NavLink key={link}>{link}</NavLink>
