@@ -1,34 +1,27 @@
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
     AspectRatio,
     Box,
     Button,
     Divider,
     Flex,
-    FormControl,
-    FormLabel,
+    Heading,
     HStack,
     IconButton,
-    Input,
-    InputGroup,
-    InputLeftElement,
-    Link,
-    Textarea,
-    Tooltip,
-    useClipboard,
-    SimpleGrid,
-    Heading,
     Image,
+    Link,
+    SimpleGrid,
     Stack,
     StackDivider,
     Text,
+    Tooltip,
+    useClipboard,
     useColorModeValue,
-    VStack,
 } from '@chakra-ui/react';
-import {ArrowForwardIcon} from '@chakra-ui/icons';
-import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
-import { MdEmail, MdOutlineEmail } from 'react-icons/md';
 import { NextPage } from 'next';
 import React from 'react';
+import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
 
 const Home: NextPage = () => {
@@ -36,7 +29,13 @@ const Home: NextPage = () => {
     return (
         <>
             <Canvas />
-            {/* <Stack spacing={32} pos={'absolute'} top={'19%'} left={'15%'} zIndex={20}>
+            <Stack
+                spacing={32}
+                pos={'absolute'}
+                top={{ base: '3%', md: '4%', lg: '5%' }}
+                left={'15%'}
+                zIndex={20}
+            >
                 <Stack spacing={3}>
                     <Text
                         textTransform={'uppercase'}
@@ -86,7 +85,7 @@ const Home: NextPage = () => {
                         </Text>
                     </Box>
                 </HStack>
-            </Stack> */}
+            </Stack>
             <Stack
                 minH={'75vh'}
                 direction={{ base: 'column' }}
