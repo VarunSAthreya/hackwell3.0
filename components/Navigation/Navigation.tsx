@@ -18,6 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 import NavLink from './NavLinks/NavLinks';
+import Logo from '../UI/Logo/Logo';
 
 const Links = ['Dashboard', 'Projects', 'Team'];
 
@@ -27,12 +28,20 @@ const Navigation: FC = () => {
 
     return (
         <>
-            <Box px={24} py={14} position={'absolute'}
+            <Box
+                px={24}
+                py={14}
+                position={'absolute'}
                 top={0}
                 zIndex={20}
                 right={0}
-                left={0}>
-                <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+                left={0}
+            >
+                <Flex
+                    h={16}
+                    alignItems={'center'}
+                    justifyContent={'space-between'}
+                >
                     <IconButton
                         size={'md'}
                         icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
@@ -41,31 +50,50 @@ const Navigation: FC = () => {
                         onClick={isOpen ? onClose : onOpen}
                         _focus={{ outline: 'none' }}
                     />
-                    <Text display={{ base: 'none', md: 'block' }}>Logo</Text>
+                    <Logo />
                     <HStack spacing={10} alignItems={'center'}>
                         <HStack
                             as={'nav'}
                             spacing={8}
-                            display={{ base: 'none', md: 'flex' }}>
+                            display={{ base: 'none', md: 'flex' }}
+                        >
                             {Links.map((link) => (
                                 <NavLink key={link}>{link}</NavLink>
                             ))}
                         </HStack>
                     </HStack>
                     <Flex alignItems={'center'}>
-                        <Button onClick={toggleColorMode} _focus={{ outline: 'none' }}>
+                        <Button
+                            onClick={toggleColorMode}
+                            _focus={{ outline: 'none' }}
+                        >
                             {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                         </Button>
                     </Flex>
                 </Flex>
 
                 {isOpen ? (
-                    <Drawer placement={'left'} size={'full'} onClose={onClose} isOpen={isOpen}>
+                    <Drawer
+                        placement={'left'}
+                        size={'full'}
+                        onClose={onClose}
+                        isOpen={isOpen}
+                    >
                         <DrawerOverlay />
-                        <DrawerContent bg={useColorModeValue("#f8f9fa", "#121212")}>
-                            <DrawerHeader borderBottomWidth='2px' display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
-                                <Text>Logo</Text>
-                                <Button onClick={onClose} _focus={{ outline: 'none' }}>
+                        <DrawerContent
+                            bg={useColorModeValue('#f8f9fa', '#121212')}
+                        >
+                            <DrawerHeader
+                                borderBottomWidth="2px"
+                                display={'flex'}
+                                justifyContent={'space-between'}
+                                alignItems={'center'}
+                            >
+                                <Logo />
+                                <Button
+                                    onClick={onClose}
+                                    _focus={{ outline: 'none' }}
+                                >
                                     <CloseIcon />
                                 </Button>
                             </DrawerHeader>
@@ -82,6 +110,6 @@ const Navigation: FC = () => {
             </Box>
         </>
     );
-}
+};
 
 export default Navigation;
