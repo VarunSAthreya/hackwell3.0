@@ -8,7 +8,9 @@ const Canvas = (): JSX.Element => {
         myImage.addEventListener('load', function () {
             const canvas = document.getElementById('canvas1') as any;
             const ctx = canvas.getContext('2d');
-            canvas.width = window.innerWidth - 20;
+            let width = window.innerWidth;
+            if (width > 500) width -= 20;
+            canvas.width = width;
             canvas.height = window.innerHeight;
 
             ctx.drawImage(myImage, 0, 0, canvas.width, canvas.height);
