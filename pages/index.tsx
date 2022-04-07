@@ -1,21 +1,38 @@
 import {
+    AspectRatio,
     Box,
+    Button,
     Divider,
     Flex,
+    FormControl,
+    FormLabel,
+    HStack,
+    IconButton,
+    Input,
+    InputGroup,
+    InputLeftElement,
+    Link,
+    Textarea,
+    Tooltip,
+    useClipboard,
     SimpleGrid,
     Heading,
-    HStack,
     Image,
     Stack,
     StackDivider,
     Text,
     useColorModeValue,
+    VStack,
 } from '@chakra-ui/react';
+import {ArrowForwardIcon} from '@chakra-ui/icons';
+import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from 'react-icons/bs';
+import { MdEmail, MdOutlineEmail } from 'react-icons/md';
 import { NextPage } from 'next';
 import React from 'react';
 import Canvas from '../components/UI/Canvas/Canvas';
 
 const Home: NextPage = () => {
+    const { hasCopied, onCopy } = useClipboard('example@example.com');
     return (
         <>
             <Canvas />
@@ -216,14 +233,15 @@ const Home: NextPage = () => {
                 <Box></Box>
             </Stack>
             {/*IMPORTANT DATES*/}
-            <Box
-            display={'flex'}
-                minH={'75vh'}
-                alignItems="center"
-            >
-                <Flex alignItems={'center'} justify={'center'} transform="rotate(-90deg)" width={'20%'}>
+            <Box display={'flex'} minH={'85vh'} alignItems="center">
+                <Flex
+                    alignItems={'center'}
+                    justify={'center'}
+                    transform="rotate(-90deg)"
+                    width={'25%'}
+                >
                     <Divider bg={'red'} height={'2px'} />
-                    <Box border="2px solid red" width="500px">
+                    <Box border="2px solid red" width="400px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
@@ -233,7 +251,6 @@ const Home: NextPage = () => {
                             position="relative"
                             top="7px"
                             left="7px"
-                            
                         >
                             IMPORTANT DATES
                         </Heading>
@@ -241,7 +258,7 @@ const Home: NextPage = () => {
                     <Divider bg={'red'} height={'2px'} />
                 </Flex>
                 <Stack
-                width={'80%'}
+                    width={'80%'}
                     spacing={8}
                     p={10}
                     divider={
@@ -323,7 +340,7 @@ const Home: NextPage = () => {
             <Stack
                 minH={'75vh'}
                 direction={{ base: 'column' }}
-                my={10}
+                my={20}
                 spacing={12}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
@@ -346,9 +363,204 @@ const Home: NextPage = () => {
                     </Box>
                     <Divider bg={'red'} height={'2px'} />
                 </Flex>
-                <Box p={8} display={'flex'} justifyContent={'center'}>
-                    <Image width={'50%'} src={'../assests/images/Honeywell_logo.png'}/>
-                </Box>
+                <Stack
+                    minH={'40vh'}
+                    direction={{ base: 'column', md: 'row' }}
+                    align={'center'}
+                >
+                    <Flex p={8} flex={1} align={'center'} justify={'center'}>
+                        <Stack spacing={6} w={'full'} maxW={'lg'}>
+                            <Heading fontSize={{ base: '3xl' }}>
+                                ABOUT SPONSERS
+                            </Heading>
+                            <Text
+                                fontSize={{ base: 'md', lg: 'lg' }}
+                                color={'gray.500'}
+                                lineHeight={1.8}
+                            >
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Nulla porttitor, eros vitae
+                                congue rhoncus, diam magna dapibus libero, vel
+                                ullamcorper neque metus a ante. Maecenas quis
+                                neque non turpis aliquet aliquam. Nunc at
+                                vehicula turpis. Donec sodales nunc risus,
+                                porttitor eleifend ligula egestas vel. Maecenas
+                                quis neque non turpis aliquet aliquam. Nunc at
+                                vehicula turpis. Donec sodales nunc risus,
+                                porttitor eleifend ligula egestas vel.
+                            </Text>
+                            <Box>
+                                <Button
+                                    rightIcon={<ArrowForwardIcon />}
+                                    color="black"
+                                    bg="white"
+                                    _hover={{
+                                        bg: 'white',
+                                        color: 'red',
+                                    }}
+                                    _focus={{ outline: 'none' }}
+                                    _active={{ bg: 'white' }}
+                                >
+                                    LEARN MORE ABOUT US
+                                </Button>
+                            </Box>
+                        </Stack>
+                    </Flex>
+                    <Flex flex={1}>
+                        <Image
+                            width={'75%'}
+                            height={'50%'}
+                            src={'../assests/images/Logo/Honeywell_logo.png'}
+                        />
+                    </Flex>
+                </Stack>
+            </Stack>
+            {/*CONTACT US*/}
+            <Stack
+                minH={'75vh'}
+                direction={{ base: 'column' }}
+                my={10}
+                spacing={12}
+            >
+                <Flex alignItems={'center'} justifyContent={'center'}>
+                    <Divider bg={'red'} height={'2px'} />
+                    <Box border="2px solid red" width="500px">
+                        <Heading
+                            fontSize={{ base: '3xl', md: '4xl' }}
+                            textAlign={'center'}
+                            border={'2px solid red'}
+                            p={3}
+                            width="400px"
+                            position="relative"
+                            top="7px"
+                            left="7px"
+                            padding="1rem"
+                            transform="translateZ(-10px)"
+                        >
+                            CONTACT US
+                        </Heading>
+                    </Box>
+                    <Divider bg={'red'} height={'2px'} />
+                </Flex>
+                <HStack spacing={12}>
+                    <Box width={'45%'} padding={16} ml={14}>
+                        <AspectRatio ratio={14 / 12}>
+                            <iframe
+                                style={{ borderRadius: '15px' }}
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng"
+                            />
+                        </AspectRatio>
+                    </Box>
+                    <Box
+                        borderRadius="lg"
+                        mr={{ base: 5 }}
+                        p={{ base: 16 }}
+                        width={'55%'}
+                    >
+                        <Stack spacing={6} maxW={'lg'} align="flex-end">
+                            <Heading fontSize={{ base: '2xl' }} textAlign="end">
+                                JSS ACADEMY OF TECHNICAL EDUCATION BENGALURU
+                            </Heading>
+                            <Text
+                                fontSize={{ base: 'md', lg: 'lg' }}
+                                color={'gray.500'}
+                                textAlign="end"
+                                lineHeight={1.8}
+                            >
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Nulla porttitor, eros vitae
+                                congue rhoncus, diam magna dapibus libero, vel
+                                ullamcorper neque metus a ante. Maecenas quis
+                                neque non turpis aliquet aliquam. Nunc at
+                                vehicula turpis. Donec sodales nunc risus,
+                                porttitor eleifend ligula egestas vel. Maecenas
+                                quis neque non turpis aliquet aliquam. Nunc at
+                                vehicula turpis. Donec sodales nunc risus,
+                                porttitor eleifend ligula egestas vel.
+                            </Text>
+                            <Stack direction={'row'} spacing={5}>
+                                <Tooltip
+                                    label={
+                                        hasCopied
+                                            ? 'Email Copied!'
+                                            : 'Copy Email'
+                                    }
+                                    closeOnClick={false}
+                                    hasArrow
+                                >
+                                    <IconButton
+                                        aria-label="email"
+                                        variant="ghost"
+                                        size="lg"
+                                        fontSize="3xl"
+                                        icon={<MdEmail />}
+                                        _hover={{
+                                            bg: 'blue.500',
+                                            color: useColorModeValue(
+                                                'white',
+                                                'gray.700'
+                                            ),
+                                        }}
+                                        onClick={onCopy}
+                                        isRound
+                                    />
+                                </Tooltip>
+
+                                <Link href="#">
+                                    <IconButton
+                                        aria-label="github"
+                                        variant="ghost"
+                                        size="lg"
+                                        fontSize="3xl"
+                                        icon={<BsGithub />}
+                                        _hover={{
+                                            bg: 'blue.500',
+                                            color: useColorModeValue(
+                                                'white',
+                                                'gray.700'
+                                            ),
+                                        }}
+                                        isRound
+                                    />
+                                </Link>
+
+                                <Link href="#">
+                                    <IconButton
+                                        aria-label="twitter"
+                                        variant="ghost"
+                                        size="lg"
+                                        icon={<BsTwitter size="28px" />}
+                                        _hover={{
+                                            bg: 'blue.500',
+                                            color: useColorModeValue(
+                                                'white',
+                                                'gray.700'
+                                            ),
+                                        }}
+                                        isRound
+                                    />
+                                </Link>
+
+                                <Link href="#">
+                                    <IconButton
+                                        aria-label="linkedin"
+                                        variant="ghost"
+                                        size="lg"
+                                        icon={<BsLinkedin size="28px" />}
+                                        _hover={{
+                                            bg: 'blue.500',
+                                            color: useColorModeValue(
+                                                'white',
+                                                'gray.700'
+                                            ),
+                                        }}
+                                        isRound
+                                    />
+                                </Link>
+                            </Stack>
+                        </Stack>
+                    </Box>
+                </HStack>
             </Stack>
         </>
     );
