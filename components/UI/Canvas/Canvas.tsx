@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ImageCode } from '../../../assests/ImageCode';
+import { ImageCode } from '../../../util/ImageCode';
 
 const Canvas = (): JSX.Element => {
     useEffect(() => {
