@@ -198,12 +198,9 @@ const Home: NextPage = () => {
                 <SimpleGrid
                     columns={3}
                     p={10}
-                    backgroundImage={
-                        "url('https://helios-i.mashable.com/imagery/articles/01WbLCTxpkwdaw7NAXLeqhj/hero-image.fill.size_1248x702.v1633622861.jpg')"
-                    }
+                    backgroundImage={'./assests/images/Main/theme.png'}
                     backgroundPosition={'center'}
                     backgroundRepeat={'no-repeat'}
-                    opacity={0.2}
                 >
                     <Box
                         borderRight={'1px solid white'}
