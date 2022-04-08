@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { ImageCode } from '../../../util/ImageCode';
+import { ImageCode1 } from '../../../util/ImageCode';
 
 const Canvas = (): JSX.Element => {
     useEffect(() => {
         const myImage = new Image();
-        myImage.src = ImageCode;
+        myImage.src = ImageCode1;
         myImage.addEventListener('load', function () {
             const canvas = document.getElementById('canvas1') as any;
             const ctx = canvas.getContext('2d');
