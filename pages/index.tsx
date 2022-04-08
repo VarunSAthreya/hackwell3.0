@@ -30,62 +30,92 @@ const Home: NextPage = () => {
         <>
             <Canvas />
             <Stack
-                spacing={32}
+                spacing={16}
                 pos={'absolute'}
-                top={{ base: '3%', md: '4%', lg: '5%' }}
+                top={{ base: '3%', md: '4%', lg: '4%' }}
                 left={'15%'}
                 zIndex={20}
             >
-                <Stack spacing={3}>
+                <Stack spacing={2}>
                     <Text
                         textTransform={'uppercase'}
-                        color={'red.500'}
+                        bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} 
+                        bgClip="text"
                         fontWeight={600}
-                        fontSize={'sm'}
-                        bg={'white'}
+                        fontSize={'2xl'}
                         p={2}
                         alignSelf={'flex-start'}
                         rounded={'md'}
                     >
                         JSSATE-B PRESENTS
                     </Text>
-                    <Heading fontSize={'6xl'} letterSpacing={4}>
-                        HACKWELL 3.0
-                    </Heading>
-                    <Text color={'gray.500'} fontSize={'lg'} letterSpacing={3}>
-                        Every Line Matters
-                    </Text>
+                    <Box>
+                        <Image
+                            src={'../assests/images/Logo/Hackwell_logo.png'}
+                            width={'550px'}
+                            height={'130px'}
+                        />
+                    </Box>
                 </Stack>
-                <HStack
-                    spacing={8}
-                    divider={<StackDivider borderColor={'whiteAlpha.500'} />}
-                >
-                    <Box>
-                        <Heading>22</Heading>
-                        <Text color={'gray.500'} fontSize={'lg'}>
-                            DAYS
-                        </Text>
-                    </Box>
-                    <Box>
-                        <Heading>22</Heading>
-                        <Text color={'gray.500'} fontSize={'lg'}>
-                            HRS
-                        </Text>
-                    </Box>
-                    <Box>
-                        <Heading>22</Heading>
-                        <Text color={'gray.500'} fontSize={'lg'}>
-                            MINS
-                        </Text>
-                    </Box>
-                    <Box>
-                        <Heading>22</Heading>
-                        <Text color={'gray.500'} fontSize={'lg'}>
-                            SECS
-                        </Text>
-                    </Box>
-                </HStack>
+                <Stack spacing={6}>
+                    <HStack
+                        spacing={8}
+                        divider={
+                            <StackDivider borderColor={'whiteAlpha.500'} />
+                        }
+                    >
+                        <Box>
+                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Text color={'white'} fontSize={'lg'}>
+                                DAYS
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Text color={'white'} fontSize={'lg'}>
+                                HRS
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Text color={'white'} fontSize={'lg'}>
+                                MINS
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Text color={'white'} fontSize={'lg'}>
+                                SECS
+                            </Text>
+                        </Box>
+                    </HStack>
+                    <Flex justifyContent={'flex-start'}>
+                        <Box border="2px solid gray" width="300px">
+                            <Heading
+                                fontSize={{ base: '1.8xl' }}
+                                textAlign={'center'}
+                                border={'2px solid gray'}
+                                p={3}
+                                width="300px"
+                                position="relative"
+                                top="7px"
+                                left="7px"
+                                padding="1rem"
+                                transform="translateZ(-10px)"
+                            >
+                                SPONSORED BY{' '}
+                                <Image
+                                    width={'300px'}
+                                    src={
+                                        '../assests/images/Logo/Honeywell_logo.png'
+                                    }
+                                />
+                            </Heading>
+                        </Box>
+                    </Flex>
+                </Stack>
             </Stack>
+            {/*ABOUT US*/}
             <Stack
                 minH={'75vh'}
                 direction={{ base: 'column' }}
@@ -93,12 +123,12 @@ const Home: NextPage = () => {
                 spacing={10}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'red'} height={'2px'} />
-                    <Box border="2px solid red" width="500px">
+                    <Divider bg={"#7928CA"} height={'2px'} />
+                    <Box border="2px solid #7928CA" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid red'}
+                            border={'2px solid #7928CA'}
                             p={3}
                             width="500px"
                             position="relative"
@@ -110,7 +140,7 @@ const Home: NextPage = () => {
                             ABOUT HACKWELL3.0
                         </Heading>
                     </Box>
-                    <Divider bg={'red'} height={'2px'} />
+                    <Divider bg={'#7928CA'} height={'2px'} />
                 </Flex>
                 <HStack p={8} justifyContent={'space-around'}>
                     <Stack spacing={6} w={'full'} maxW={'lg'}>
@@ -155,7 +185,7 @@ const Home: NextPage = () => {
                 spacing={10}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'red'} height={'2px'} width={'10%'} />
+                    <Divider bg={'#7928CA'} height={'2px'} width={'10%'} />
                     <Heading
                         fontSize={{ base: '3xl', md: '4xl' }}
                         textAlign={'center'}
@@ -163,7 +193,7 @@ const Home: NextPage = () => {
                     >
                         THEMES
                     </Heading>
-                    <Divider bg={'red'} height={'2px'} width={'10%'} />
+                    <Divider bg={'#7928CA'} height={'2px'} width={'10%'} />
                 </Flex>
                 <SimpleGrid
                     columns={3}
@@ -179,7 +209,8 @@ const Home: NextPage = () => {
                         borderRight={'1px solid white'}
                         borderBottom={'1px solid white'}
                         height="300px"
-                    ></Box>
+                    >
+                    </Box>
                     <Box
                         borderRight={'1px solid white'}
                         borderBottom={'1px solid white'}
@@ -210,12 +241,12 @@ const Home: NextPage = () => {
                 spacing={10}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'red'} height={'2px'} />
-                    <Box border="2px solid red" width="500px">
+                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Box border="2px solid #7928CA" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid red'}
+                            border={'2px solid #7928CA'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -227,7 +258,7 @@ const Home: NextPage = () => {
                             HACKWELL PHASES
                         </Heading>
                     </Box>
-                    <Divider bg={'red'} height={'2px'} />
+                    <Divider bg={'#7928CA'} height={'2px'} />
                 </Flex>
                 <Box></Box>
             </Stack>
@@ -239,12 +270,12 @@ const Home: NextPage = () => {
                     transform="rotate(-90deg)"
                     width={'25%'}
                 >
-                    <Divider bg={'red'} height={'2px'} />
-                    <Box border="2px solid red" width="400px">
+                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Box border="2px solid #7928CA" width="400px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid red'}
+                            border={'2px solid #7928CA'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -254,7 +285,7 @@ const Home: NextPage = () => {
                             IMPORTANT DATES
                         </Heading>
                     </Box>
-                    <Divider bg={'red'} height={'2px'} />
+                    <Divider bg={'#7928CA'} height={'2px'} />
                 </Flex>
                 <Stack
                     width={'80%'}
@@ -275,7 +306,7 @@ const Home: NextPage = () => {
                         justifyContent={'space-around'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="red.500" px={4}>
+                            <Heading color="#7928CA" px={4}>
                                 22
                             </Heading>
                             <Text fontSize="2xl">APR</Text>
@@ -291,7 +322,7 @@ const Home: NextPage = () => {
                         justifyContent={'space-around'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="red.500" px={4}>
+                            <Heading color="#7928CA" px={4}>
                                 22
                             </Heading>
                             <Text fontSize="2xl">APR</Text>
@@ -307,7 +338,7 @@ const Home: NextPage = () => {
                         justifyContent={'space-around'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="red.500" px={4}>
+                            <Heading color="#7928CA" px={4}>
                                 22
                             </Heading>
                             <Text fontSize="2xl">APR</Text>
@@ -323,7 +354,7 @@ const Home: NextPage = () => {
                         justifyContent={'space-around'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="red.500" px={4}>
+                            <Heading color="#7928CA" px={4}>
                                 22
                             </Heading>
                             <Text fontSize="2xl">APR</Text>
@@ -343,12 +374,12 @@ const Home: NextPage = () => {
                 spacing={12}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'red'} height={'2px'} />
-                    <Box border="2px solid red" width="500px">
+                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Box border="2px solid #7928CA" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid red'}
+                            border={'2px solid #7928CA'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -360,7 +391,7 @@ const Home: NextPage = () => {
                             OUR SPONSOR PARTNER
                         </Heading>
                     </Box>
-                    <Divider bg={'red'} height={'2px'} />
+                    <Divider bg={'#7928CA'} height={'2px'} />
                 </Flex>
                 <Stack
                     minH={'40vh'}
@@ -395,7 +426,7 @@ const Home: NextPage = () => {
                                     bg="white"
                                     _hover={{
                                         bg: 'white',
-                                        color: 'red',
+                                        color: '#7928CA',
                                     }}
                                     _focus={{ outline: 'none' }}
                                     _active={{ bg: 'white' }}
@@ -422,12 +453,12 @@ const Home: NextPage = () => {
                 spacing={12}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'red'} height={'2px'} />
-                    <Box border="2px solid red" width="500px">
+                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Box border="2px solid #7928CA" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid red'}
+                            border={'2px solid #7928CA'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -439,7 +470,7 @@ const Home: NextPage = () => {
                             CONTACT US
                         </Heading>
                     </Box>
-                    <Divider bg={'red'} height={'2px'} />
+                    <Divider bg={'#7928CA'} height={'2px'} />
                 </Flex>
                 <HStack spacing={12}>
                     <Box width={'45%'} padding={16} ml={14}>

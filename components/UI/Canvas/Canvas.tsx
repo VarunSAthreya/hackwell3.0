@@ -75,7 +75,7 @@ const Canvas = (): JSX.Element => {
                 }
                 draw() {
                     ctx.beginPath();
-                    ctx.fillStyle = 'red';
+                    ctx.fillStyle = '#CC01FF';
                     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                     ctx.fill();
                 }

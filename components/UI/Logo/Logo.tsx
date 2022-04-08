@@ -8,7 +8,7 @@ const Logo: FC = () => {
                 <Image
                     src={'/../assests/images/Logo/Hackwell_logo.png'}
                     alt="Logo"
-                    maxW={'200px'}
+                    maxW={'150px'}
                     h={'auto'}
                     _focus={{ outline: 'none' }}
                 />
