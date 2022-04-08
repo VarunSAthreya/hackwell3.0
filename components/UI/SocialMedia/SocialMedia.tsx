@@ -4,7 +4,7 @@ import { ISocialMedia } from '../../../@types';
 
 type Props = {
     data: ISocialMedia;
-}
+};
 
 const SocialMedia: FC<Props> = ({ data }: Props) => {
     const { icon, url, label } = data;
@@ -17,9 +17,8 @@ const SocialMedia: FC<Props> = ({ data }: Props) => {
             p={2}
             bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
             rounded={'full'}
-            _hover={{ bg: useColorModeValue('black', 'white'), color: useColorModeValue('white', 'black') }}
+            _hover={{ bg: '#CC01FF', color: 'black' }}
             _focus={{ outline: 'none' }}
-
         >
             <Icon w={10} h={6} mt={1} alignItems={'center'} as={icon} />
         </Link>
