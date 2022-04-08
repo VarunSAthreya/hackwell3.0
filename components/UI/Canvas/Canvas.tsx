@@ -15,7 +15,6 @@ const Canvas = (): JSX.Element => {
 
             ctx.drawImage(myImage, 0, 0, canvas.width, canvas.height);
             const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             let particlesArray = [];
             const numberOfParticles = 5000;
@@ -109,6 +108,7 @@ const Canvas = (): JSX.Element => {
             style={{
                 zIndex: -10,
                 opacity: 0.6,
+                height: '100vh',
             }}
         ></canvas>
     );
