@@ -14,18 +14,15 @@ import {
     Stack,
     StackDivider,
     Text,
-    Tooltip,
-    useClipboard,
     useColorModeValue,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import React from 'react';
-import { BsGithub, BsLinkedin, BsTwitter } from 'react-icons/bs';
+import { BsTelephoneFill, BsLinkedin } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
 
 const Home: NextPage = () => {
-    const { hasCopied, onCopy } = useClipboard('example@example.com');
     return (
         <>
             <Canvas />
@@ -39,7 +36,7 @@ const Home: NextPage = () => {
                 <Stack spacing={2}>
                     <Text
                         textTransform={'uppercase'}
-                        bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} 
+                        bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                         bgClip="text"
                         fontWeight={600}
                         fontSize={'2xl'}
@@ -65,25 +62,45 @@ const Home: NextPage = () => {
                         }
                     >
                         <Box>
-                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                            >
+                                22
+                            </Heading>
                             <Text color={'white'} fontSize={'lg'}>
                                 DAYS
                             </Text>
                         </Box>
                         <Box>
-                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                            >
+                                22
+                            </Heading>
                             <Text color={'white'} fontSize={'lg'}>
                                 HRS
                             </Text>
                         </Box>
                         <Box>
-                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                            >
+                                22
+                            </Heading>
                             <Text color={'white'} fontSize={'lg'}>
                                 MINS
                             </Text>
                         </Box>
                         <Box>
-                            <Heading bgGradient={'linear(to-l, #00FFDD,#CC01FF)'} bgClip="text">22</Heading>
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                            >
+                                22
+                            </Heading>
                             <Text color={'white'} fontSize={'lg'}>
                                 SECS
                             </Text>
@@ -120,15 +137,15 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
-                spacing={10}
+                spacing={20}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={"#7928CA"} height={'2px'} />
-                    <Box border="2px solid #7928CA" width="500px">
+                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <Box border="2px solid #CC01FF" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid #7928CA'}
+                            border={'2px solid #CC01FF'}
                             p={3}
                             width="500px"
                             position="relative"
@@ -140,40 +157,54 @@ const Home: NextPage = () => {
                             ABOUT HACKWELL3.0
                         </Heading>
                     </Box>
-                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
                 <HStack p={8} justifyContent={'space-around'}>
-                    <Stack spacing={6} w={'full'} maxW={'lg'}>
-                        <Text fontSize={{ base: 'md' }} color={'gray.500'}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla porttitor, eros vitae congue rhoncus,
-                            diam magna dapibus libero, vel ullamcorper neque
-                            metus
+                    <Stack spacing={3} w={'full'} maxW={'lg'}>
+                        <Text
+                            fontSize={{ base: 'md' }}
+                            color={'gray.500'}
+                            lineHeight={1.6}
+                            textTransform={'uppercase'}
+                        >
+                            hackwell 3.0 is a 48-hour Hackaton hosted by JSSATE
+                            in association with honeywell.
                         </Text>
-                        <Text fontSize={{ base: 'md' }} color={'gray.500'}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla porttitor, eros vitae congue rhoncus,
-                            diam magna dapibus libero, vel ullamcorper neque
-                            metus a ante. Maecenas quis neque non turpis aliquet
-                            aliquam. Nunc at vehicula turpis. Donec sodales nunc
-                            risus, porttitor eleifend ligula egestas vel.
+                        <Text
+                            fontSize={{ base: 'md' }}
+                            color={'gray.500'}
+                            lineHeight={1.6}
+                            textTransform={'uppercase'}
+                        >
+                            honeywell will be driving the event and also sponsor
+                            the cash prize worth INR 1.50.000 to the winner.
                         </Text>
-                        <Text fontSize={{ base: 'md' }} color={'gray.500'}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla porttitor, eros vitae congue rhoncus,
-                            diam magna dapibus libero, vel ullamcorper neque
-                            metus a ante. Maecenas quis neque non turpis aliquet
-                            aliquam. Nunc at vehicula turpis. Donec sodales nunc
-                            risus, porttitor eleifend ligula egestas vel.
+                        <Text
+                            fontSize={{ base: 'md' }}
+                            color={'gray.500'}
+                            lineHeight={1.6}
+                            textTransform={'uppercase'}
+                        >
+                            this event is intended to create a platform for
+                            students fro self-expression and creativity to
+                            foster a culture of learning, team work and
+                            innovation.
+                        </Text>
+                        <Text
+                            fontSize={{ base: 'md' }}
+                            color={'gray.500'}
+                            lineHeight={1.6}
+                            textTransform={'uppercase'}
+                        >
+                            Honeywell will provide mentors during the course of
+                            the event,guide the teams and also judge the
+                            solutions.
                         </Text>
                     </Stack>
                     <Image
                         alt={'Login Image'}
-                        objectFit={'cover'}
-                        boxSize="350px"
-                        src={
-                            'https://images.unsplash.com/photo-1527689368864-3a821dbccc34?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-                        }
+                        w={'400px'}
+                        src={'../assests/images/Logo/Hackwell_logo.png'}
                     />
                 </HStack>
             </Stack>
@@ -185,7 +216,7 @@ const Home: NextPage = () => {
                 spacing={10}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#7928CA'} height={'2px'} width={'10%'} />
+                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
                     <Heading
                         fontSize={{ base: '3xl', md: '4xl' }}
                         textAlign={'center'}
@@ -193,7 +224,7 @@ const Home: NextPage = () => {
                     >
                         THEMES
                     </Heading>
-                    <Divider bg={'#7928CA'} height={'2px'} width={'10%'} />
+                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
                 </Flex>
                 <SimpleGrid
                     columns={3}
@@ -203,31 +234,69 @@ const Home: NextPage = () => {
                     backgroundRepeat={'no-repeat'}
                 >
                     <Box
-                        borderRight={'1px solid white'}
-                        borderBottom={'1px solid white'}
+                        borderRight={'1px solid #2d3748'}
+                        borderBottom={'1px solid #2d3748'}
                         height="300px"
                     >
+                        <Heading
+                            fontSize={'2rem'}
+                            mt={3}
+                            textAlign={'center'}
+                            bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                            bgClip="text"
+                            textTransform={'uppercase'}
+                        >
+                            Artifical Intelligence
+                        </Heading>
                     </Box>
                     <Box
-                        borderRight={'1px solid white'}
-                        borderBottom={'1px solid white'}
+                        borderRight={'1px solid #2d3748'}
+                        borderBottom={'1px solid #2d3748'}
                         height="300px"
-                    ></Box>
+                    >
+                        <Heading
+                            fontSize={'2rem'}
+                            mt={3}
+                            textAlign={'center'}
+                            bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                            bgClip="text"
+                            textTransform={'uppercase'}
+                        >
+                            Internet of things
+                        </Heading>
+                    </Box>
                     <Box
-                        borderRight={'1px solid white'}
-                        borderBottom={'1px solid white'}
+                        borderRight={'1px solid #2d3748'}
+                        borderBottom={'1px solid #2d3748'}
                         height="300px"
-                    ></Box>
+                    >
+                        <Heading
+                            mt={3}
+                            fontSize={'2rem'}
+                            textAlign={'center'}
+                            bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                            bgClip="text"
+                            textTransform={'uppercase'}
+                        >
+                            Machine Learning
+                        </Heading>
+                    </Box>
                     <Box
-                        borderRight={'1px solid white'}
-                        borderBottom={'1px solid white'}
+                        borderRight={'1px solid #2d3748'}
+                        borderBottom={'1px solid #2d3748'}
                         height="300px"
-                    ></Box>
-                    <Box
-                        borderRight={'1px solid white'}
-                        borderBottom={'1px solid white'}
-                        height="300px"
-                    ></Box>
+                    >
+                        <Heading
+                            mt={3}
+                            fontSize={'2rem'}
+                            textAlign={'center'}
+                            bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                            bgClip="text"
+                            textTransform={'uppercase'}
+                        >
+                            Edge computing and analysis
+                        </Heading>
+                    </Box>
                 </SimpleGrid>
             </Stack>
             {/*PHASES*/}
@@ -238,12 +307,12 @@ const Home: NextPage = () => {
                 spacing={10}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#7928CA'} height={'2px'} />
-                    <Box border="2px solid #7928CA" width="500px">
+                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <Box border="2px solid #CC01FF" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid #7928CA'}
+                            border={'2px solid #CC01FF'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -255,7 +324,7 @@ const Home: NextPage = () => {
                             HACKWELL PHASES
                         </Heading>
                     </Box>
-                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
                 <Box></Box>
             </Stack>
@@ -267,12 +336,12 @@ const Home: NextPage = () => {
                     transform="rotate(-90deg)"
                     width={'25%'}
                 >
-                    <Divider bg={'#7928CA'} height={'2px'} />
-                    <Box border="2px solid #7928CA" width="400px">
+                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <Box border="2px solid #CC01FF" width="400px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid #7928CA'}
+                            border={'2px solid #CC01FF'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -282,10 +351,10 @@ const Home: NextPage = () => {
                             IMPORTANT DATES
                         </Heading>
                     </Box>
-                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
                 <Stack
-                    width={'80%'}
+                    width={'65%'}
                     spacing={8}
                     p={10}
                     divider={
@@ -300,65 +369,85 @@ const Home: NextPage = () => {
                     <HStack
                         display={'flex'}
                         alignItems={'center'}
-                        justifyContent={'space-around'}
+                        justifyContent={'space-between'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="#7928CA" px={4}>
-                                22
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                                px={4}
+                            >
+                                14th - 20th
                             </Heading>
-                            <Text fontSize="2xl">APR</Text>
+                            <Text fontSize="2xl" fontWeight="bold">
+                                APR
+                            </Text>
                         </Flex>
-                        <Text color={'gray.500'}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla porttitor, eros vitae congue rhoncus,
+                        <Text color={'gray.500'} textTransform="uppercase">
+                            Online Registration
                         </Text>
                     </HStack>
                     <HStack
                         display={'flex'}
                         alignItems={'center'}
-                        justifyContent={'space-around'}
+                        justifyContent={'space-between'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="#7928CA" px={4}>
-                                22
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                                px={4}
+                            >
+                                20th - 25th
                             </Heading>
-                            <Text fontSize="2xl">APR</Text>
+                            <Text fontSize="2xl" fontWeight="bold">
+                                APR
+                            </Text>
                         </Flex>
-                        <Text color={'gray.500'}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla porttitor, eros vitae congue rhoncus,
+                        <Text color={'gray.500'} textTransform="uppercase">
+                            announcement of shortlisted Teams
                         </Text>
                     </HStack>
                     <HStack
                         display={'flex'}
                         alignItems={'center'}
-                        justifyContent={'space-around'}
+                        justifyContent={'space-between'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="#7928CA" px={4}>
-                                22
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                                px={4}
+                            >
+                                28th
                             </Heading>
-                            <Text fontSize="2xl">APR</Text>
+                            <Text fontSize="2xl" fontWeight="bold">
+                                APR
+                            </Text>
                         </Flex>
-                        <Text color={'gray.500'}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla porttitor, eros vitae congue rhoncus,
+                        <Text color={'gray.500'} textTransform="uppercase">
+                            Hackaton Begins (Onlive Event)
                         </Text>
                     </HStack>
                     <HStack
                         display={'flex'}
                         alignItems={'center'}
-                        justifyContent={'space-around'}
+                        justifyContent={'space-between'}
                     >
                         <Flex align={'flex-end'}>
-                            <Heading color="#7928CA" px={4}>
-                                22
+                            <Heading
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                                px={4}
+                            >
+                                29th
                             </Heading>
-                            <Text fontSize="2xl">APR</Text>
+                            <Text fontSize="2xl" fontWeight="bold">
+                                APR
+                            </Text>
                         </Flex>
-                        <Text color={'gray.500'}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nulla porttitor, eros vitae congue rhoncus,
+                        <Text color={'gray.500'} textTransform="uppercase">
+                            Hackaton Ends
                         </Text>
                     </HStack>
                 </Stack>
@@ -371,12 +460,12 @@ const Home: NextPage = () => {
                 spacing={12}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#7928CA'} height={'2px'} />
-                    <Box border="2px solid #7928CA" width="500px">
+                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <Box border="2px solid #CC01FF" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid #7928CA'}
+                            border={'2px solid #CC01FF'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -388,7 +477,7 @@ const Home: NextPage = () => {
                             OUR SPONSOR PARTNER
                         </Heading>
                     </Box>
-                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
                 <Stack
                     minH={'40vh'}
@@ -405,31 +494,35 @@ const Home: NextPage = () => {
                                 color={'gray.500'}
                                 lineHeight={1.8}
                             >
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Nulla porttitor, eros vitae
-                                congue rhoncus, diam magna dapibus libero, vel
-                                ullamcorper neque metus a ante. Maecenas quis
-                                neque non turpis aliquet aliquam. Nunc at
-                                vehicula turpis. Donec sodales nunc risus,
-                                porttitor eleifend ligula egestas vel. Maecenas
-                                quis neque non turpis aliquet aliquam. Nunc at
-                                vehicula turpis. Donec sodales nunc risus,
-                                porttitor eleifend ligula egestas vel.
+                                Honeywell International Inc. is an American
+                                publicly traded, multinational conglomerate
+                                corporation headquartered in Charlotte, North
+                                Carolina. It primarily operates in four areas of
+                                business: aerospace, building technologies,
+                                performance materials and technologies, and
+                                safety and productivity solutions.
                             </Text>
                             <Box>
-                                <Button
-                                    rightIcon={<ArrowForwardIcon />}
-                                    color="black"
-                                    bg="white"
-                                    _hover={{
-                                        bg: 'white',
-                                        color: '#7928CA',
-                                    }}
-                                    _focus={{ outline: 'none' }}
-                                    _active={{ bg: 'white' }}
+                                <Link
+                                    href={'https://www.honeywell.com/us/en'}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    style={{ textDecoration: 'none' }}
                                 >
-                                    LEARN MORE ABOUT US
-                                </Button>
+                                    <Button
+                                        rightIcon={<ArrowForwardIcon />}
+                                        color="black"
+                                        bg="white"
+                                        _hover={{
+                                            bg: '#CC01FF',
+                                            color: 'white',
+                                        }}
+                                        _focus={{ outline: 'none' }}
+                                        _active={{ bg: '#CC01FF' }}
+                                    >
+                                        LEARN MORE ABOUT US
+                                    </Button>
+                                </Link>
                             </Box>
                         </Stack>
                     </Flex>
@@ -450,12 +543,12 @@ const Home: NextPage = () => {
                 spacing={12}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#7928CA'} height={'2px'} />
-                    <Box border="2px solid #7928CA" width="500px">
+                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <Box border="2px solid #CC01FF" width="500px">
                         <Heading
                             fontSize={{ base: '3xl', md: '4xl' }}
                             textAlign={'center'}
-                            border={'2px solid #7928CA'}
+                            border={'2px solid #CC01FF'}
                             p={3}
                             width="400px"
                             position="relative"
@@ -467,14 +560,14 @@ const Home: NextPage = () => {
                             CONTACT US
                         </Heading>
                     </Box>
-                    <Divider bg={'#7928CA'} height={'2px'} />
+                    <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
                 <HStack spacing={12}>
                     <Box width={'45%'} padding={16} ml={14}>
                         <AspectRatio ratio={14 / 12}>
                             <iframe
                                 style={{ borderRadius: '15px' }}
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng"
+                                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=JSSATE-B%20Campus,%20Dr.Vishnuvardhan%20Rd%20Uttarahalli-Kengeri%20Main%20Road,%20JSS%20Campus%20Rd,%20Srinivaspura,%20Bengaluru,%20Karnataka%20560060+(JSSATE-B)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                             />
                         </AspectRatio>
                     </Box>
@@ -484,36 +577,40 @@ const Home: NextPage = () => {
                         p={{ base: 16 }}
                         width={'55%'}
                     >
-                        <Stack spacing={6} maxW={'lg'} align="flex-end">
-                            <Heading fontSize={{ base: '2xl' }} textAlign="end">
+                        <Stack spacing={6} maxW={'lg'} align="flex-start">
+                            <Heading
+                                fontSize={{ base: '2xl' }}
+                                textAlign="left"
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                bgClip="text"
+                            >
                                 JSS ACADEMY OF TECHNICAL EDUCATION BENGALURU
                             </Heading>
                             <Text
                                 fontSize={{ base: 'md', lg: 'lg' }}
                                 color={'gray.500'}
-                                textAlign="end"
-                                lineHeight={1.8}
+                                lineHeight={1.6}
+                                textAlign="left"
                             >
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Nulla porttitor, eros vitae
-                                congue rhoncus, diam magna dapibus libero, vel
-                                ullamcorper neque metus a ante. Maecenas quis
-                                neque non turpis aliquet aliquam. Nunc at
-                                vehicula turpis. Donec sodales nunc risus,
-                                porttitor eleifend ligula egestas vel. Maecenas
-                                quis neque non turpis aliquet aliquam. Nunc at
-                                vehicula turpis. Donec sodales nunc risus,
-                                porttitor eleifend ligula egestas vel.
+                                JSS Academy of Technical Education (JSSATE) was
+                                established in the year 1997 at Bengaluru and is
+                                under the umbrella of JSS Mahavidyapeetha,
+                                Mysuru. JSSATE is the result of the vision of
+                                our President, His Holiness Jagadguru Sri
+                                Shivarathri Deshikendra Mahaswamiji to
+                                proactively participate in establishing a world
+                                class Institution for Technical Education. The
+                                Campus is located on a sprawling 21.17 acres
+                                land surrounded by lush green plantation on the
+                                South-Western edge of Bangalore City. The
+                                institution is affiliated to Visvesvaraya
+                                Technological University (VTU), Belgaum, India.
                             </Text>
                             <Stack direction={'row'} spacing={5}>
-                                <Tooltip
-                                    label={
-                                        hasCopied
-                                            ? 'Email Copied!'
-                                            : 'Copy Email'
-                                    }
-                                    closeOnClick={false}
-                                    hasArrow
+                                <Link
+                                    href="mailto:info@jssateb.ac.in"
+                                    target="_blank"
+                                    rel="noreferrer"
                                 >
                                     <IconButton
                                         aria-label="email"
@@ -522,64 +619,42 @@ const Home: NextPage = () => {
                                         fontSize="3xl"
                                         icon={<MdEmail />}
                                         _hover={{
-                                            bg: 'blue.500',
-                                            color: useColorModeValue(
-                                                'white',
-                                                'gray.700'
-                                            ),
+                                            bg: '#CC01FF',
+                                            color: 'white',
                                         }}
-                                        onClick={onCopy}
+                                        _focus={{ outline: 'none' }}
+                                        _active={{ bg: '#CC01FF' }}
                                         isRound
                                     />
-                                </Tooltip>
+                                </Link>
 
-                                <Link href="#">
+                                <Link
+                                    href="tel:+918028611702"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
                                     <IconButton
                                         aria-label="github"
                                         variant="ghost"
                                         size="lg"
-                                        fontSize="3xl"
-                                        icon={<BsGithub />}
+                                        fontSize="2xl"
+                                        icon={<BsTelephoneFill />}
                                         _hover={{
-                                            bg: 'blue.500',
-                                            color: useColorModeValue(
-                                                'white',
-                                                'gray.700'
-                                            ),
+                                            bg: '#CC01FF',
+                                            color: 'white',
                                         }}
                                         isRound
                                     />
                                 </Link>
-
-                                <Link href="#">
-                                    <IconButton
-                                        aria-label="twitter"
-                                        variant="ghost"
-                                        size="lg"
-                                        icon={<BsTwitter size="28px" />}
-                                        _hover={{
-                                            bg: 'blue.500',
-                                            color: useColorModeValue(
-                                                'white',
-                                                'gray.700'
-                                            ),
-                                        }}
-                                        isRound
-                                    />
-                                </Link>
-
-                                <Link href="#">
+                                <Link href="https://www.linkedin.com/in/jssateb-bengaluru-3a432520a/?originalSubdomain=in">
                                     <IconButton
                                         aria-label="linkedin"
                                         variant="ghost"
                                         size="lg"
                                         icon={<BsLinkedin size="28px" />}
                                         _hover={{
-                                            bg: 'blue.500',
-                                            color: useColorModeValue(
-                                                'white',
-                                                'gray.700'
-                                            ),
+                                            bg: '#CC01FF',
+                                            color: 'white',
                                         }}
                                         isRound
                                     />
