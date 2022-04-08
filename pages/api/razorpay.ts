@@ -17,10 +17,10 @@ export default async function handler(
 
     console.log(req.body.price);
 
-    const payment_capture: number = 1;
+    const payment_capture = 1;
 
-    const amount: number = req.body.price;
-    const currency: string = 'INR';
+    const amount = req.body.price;
+    const currency = 'INR';
 
     const options = {
         amount: amount * 100,
@@ -38,6 +38,8 @@ export default async function handler(
                 id: response.id,
                 currency: response.currency,
                 amount: response.amount,
+                keyID: process.env.RAZORPAY_KEY_ID,
+                keySecret: process.env.RAZORPAY_KEY_SECRET,
             })
         );
     } catch (error) {
