@@ -9,6 +9,8 @@ import {
     HStack,
     IconButton,
     Image,
+    Grid,
+    GridItem,
     Link,
     SimpleGrid,
     Stack,
@@ -326,7 +328,156 @@ const Home: NextPage = () => {
                     </Box>
                     <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
-                <Box></Box>
+                <Box p={16} pb={4}>
+                    <Grid h="500px" templateColumns="repeat(2, 1fr)" gap={4}>
+                        <GridItem
+                            colSpan={1}
+                            rounded={10}
+                            border={'1px solid #CC01FF'}
+                        >
+                            <Heading
+                                textTransform={'uppercase'}
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                roundedTopRight={10}
+                                roundedTopLeft={10}
+                                color={'white'}
+                                p={5}
+                                textAlign={'center'}
+                                fontSize={'3xl'}
+                            >
+                                Phase 1
+                            </Heading>
+                            <Stack spacing={10} p={3}>
+                                <Box p={4}>
+                                    <Heading
+                                        mb={2}
+                                        textTransform={'uppercase'}
+                                        fontSize={'2xl'}
+                                    >
+                                        Register online
+                                    </Heading>
+                                    <Box display={'flex'}>
+                                        <Text
+                                            fontSize={{ base: 'md' }}
+                                            color={'gray.500'}
+                                            lineHeight={1.6}
+                                            textTransform={'uppercase'}
+                                            mr={2}
+                                        >
+                                            register your team(1-4)
+                                        </Text>
+                                        <Link
+                                            href={'/register'}
+                                            style={{ textDecoration: 'none' }}
+                                            _hover={{ color: '#CC01FF' }}
+                                            _focus={{ outline: 'none' }}
+                                        >
+                                            Click Here
+                                        </Link>
+                                    </Box>
+                                </Box>
+                                <Box p={4}>
+                                    <Heading
+                                        textAlign={'right'}
+                                        textTransform={'uppercase'}
+                                        fontSize={'2xl'}
+                                        mb={2}
+                                    >
+                                        Team profile screening
+                                    </Heading>
+                                    <Text
+                                        textAlign={'right'}
+                                        fontSize={{ base: 'md' }}
+                                        color={'gray.500'}
+                                        lineHeight={1.6}
+                                        textTransform={'uppercase'}
+                                    >
+                                        the submitted team profile will be
+                                        screened to shortlist the teams for
+                                        phase 2
+                                    </Text>
+                                </Box>
+                                <Box p={4}>
+                                    <Heading
+                                        mb={2}
+                                        textTransform={'uppercase'}
+                                        fontSize={'2xl'}
+                                    >
+                                        selection confirmation
+                                    </Heading>
+                                    <Text
+                                        fontSize={{ base: 'md' }}
+                                        color={'gray.500'}
+                                        lineHeight={1.6}
+                                        textTransform={'uppercase'}
+                                    >
+                                        the shortlisted teams for phase 2 will
+                                        receive a conformation email.
+                                    </Text>
+                                </Box>
+                            </Stack>
+                        </GridItem>
+                        <GridItem
+                            colSpan={1}
+                            rounded={10}
+                            border={'1px solid #CC01FF'}
+                        >
+                            <Heading
+                                textTransform={'uppercase'}
+                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                roundedTopRight={10}
+                                roundedTopLeft={10}
+                                color={'white'}
+                                p={5}
+                                textAlign={'center'}
+                                fontSize={'3xl'}
+                            >
+                                Phase 2
+                            </Heading>
+                            <Stack spacing={10} p={3}>
+                                <Box p={4}>
+                                    <Heading
+                                        mb={2}
+                                        textTransform={'uppercase'}
+                                        fontSize={'2xl'}
+                                    >
+                                        fee payment
+                                    </Heading>
+                                    <Text
+                                        fontSize={{ base: 'md' }}
+                                        color={'gray.500'}
+                                        lineHeight={1.6}
+                                        textTransform={'uppercase'}
+                                    >
+                                        shortlisted students must pay a
+                                        registeration fee of inr 300.
+                                    </Text>
+                                </Box>
+                                <Box p={4}>
+                                    <Heading
+                                        mb={2}
+                                        textAlign={'right'}
+                                        textTransform={'uppercase'}
+                                        fontSize={'2xl'}
+                                    >
+                                        finally 48 - hour hackaton
+                                    </Heading>
+                                    <Text
+                                        textAlign={'right'}
+                                        fontSize={{ base: 'md' }}
+                                        color={'gray.500'}
+                                        lineHeight={1.6}
+                                        textTransform={'uppercase'}
+                                    >
+                                        the shortlisted teams will be hacking on
+                                        the problem statements given on the day
+                                        of the event.
+                                    </Text>
+                                </Box>
+                            </Stack>
+                        </GridItem>
+                    </Grid>
+                </Box>
             </Stack>
             {/*IMPORTANT DATES*/}
             <Box display={'flex'} minH={'85vh'} alignItems="center">
@@ -486,7 +637,9 @@ const Home: NextPage = () => {
                 >
                     <Flex p={8} flex={1} align={'center'} justify={'center'}>
                         <Stack spacing={6} w={'full'} maxW={'lg'}>
-                            <Heading fontSize={{ base: '3xl' }}>
+                            <Heading
+                                fontSize={{ base: '3xl' }}
+                            >
                                 ABOUT SPONSERS
                             </Heading>
                             <Text
@@ -581,8 +734,6 @@ const Home: NextPage = () => {
                             <Heading
                                 fontSize={{ base: '2xl' }}
                                 textAlign="left"
-                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                bgClip="text"
                             >
                                 JSS ACADEMY OF TECHNICAL EDUCATION BENGALURU
                             </Heading>
