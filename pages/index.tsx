@@ -18,12 +18,47 @@ import {
     Text,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsCalendarDate, BsLinkedin, BsTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
 
 const Home: NextPage = () => {
+    const [finished, setFinished] = useState(false);
+    const [days, setDays] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+
+    useEffect(() => {
+        const target = new Date('04/28/2022 00:00:00');
+
+        const interval = setInterval(() => {
+            const now = new Date();
+            const difference = target.getTime() - now.getTime();
+
+            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+            setDays(d);
+
+            const h = Math.floor(
+                (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            setHours(h);
+
+            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            setMinutes(m);
+
+            const s = Math.floor((difference % (1000 * 60)) / 1000);
+            setSeconds(s);
+
+            if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
+                setFinished(true);
+            }
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <>
             <Canvas />
@@ -56,69 +91,71 @@ const Home: NextPage = () => {
                     </Box>
                 </Stack>
                 <Stack spacing={6}>
-                    <HStack
-                        spacing={{ base: 4, md: 6, lg: 8 }}
-                        divider={
-                            <StackDivider borderColor={'whiteAlpha.500'} />
-                        }
-                    >
-                        <Box>
-                            <Heading
-                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                bgClip="text"
-                            >
-                                22
-                            </Heading>
-                            <Text
-                                color={'white'}
-                                fontSize={{ base: 'md', lg: 'lg' }}
-                            >
-                                DAYS
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading
-                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                bgClip="text"
-                            >
-                                22
-                            </Heading>
-                            <Text
-                                color={'white'}
-                                fontSize={{ base: 'md', lg: 'lg' }}
-                            >
-                                HRS
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading
-                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                bgClip="text"
-                            >
-                                22
-                            </Heading>
-                            <Text
-                                color={'white'}
-                                fontSize={{ base: 'md', lg: 'lg' }}
-                            >
-                                MINS
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading
-                                bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                bgClip="text"
-                            >
-                                22
-                            </Heading>
-                            <Text
-                                color={'white'}
-                                fontSize={{ base: 'md', lg: 'lg' }}
-                            >
-                                SECS
-                            </Text>
-                        </Box>
-                    </HStack>
+                    {!finished && (
+                        <HStack
+                            spacing={{ base: 4, md: 6, lg: 8 }}
+                            divider={
+                                <StackDivider borderColor={'whiteAlpha.500'} />
+                            }
+                        >
+                            <Box>
+                                <Heading
+                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                    bgClip="text"
+                                >
+                                    {days}
+                                </Heading>
+                                <Text
+                                    color={'white'}
+                                    fontSize={{ base: 'md', lg: 'lg' }}
+                                >
+                                    DAYS
+                                </Text>
+                            </Box>
+                            <Box>
+                                <Heading
+                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                    bgClip="text"
+                                >
+                                    {hours}
+                                </Heading>
+                                <Text
+                                    color={'white'}
+                                    fontSize={{ base: 'md', lg: 'lg' }}
+                                >
+                                    HRS
+                                </Text>
+                            </Box>
+                            <Box>
+                                <Heading
+                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                    bgClip="text"
+                                >
+                                    {minutes}
+                                </Heading>
+                                <Text
+                                    color={'white'}
+                                    fontSize={{ base: 'md', lg: 'lg' }}
+                                >
+                                    MINS
+                                </Text>
+                            </Box>
+                            <Box>
+                                <Heading
+                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
+                                    bgClip="text"
+                                >
+                                    {seconds}
+                                </Heading>
+                                <Text
+                                    color={'white'}
+                                    fontSize={{ base: 'md', lg: 'lg' }}
+                                >
+                                    SECS
+                                </Text>
+                            </Box>
+                        </HStack>
+                    )}
                     <Flex justifyContent={'flex-start'}>
                         <Box
                             border="2px solid gray"
