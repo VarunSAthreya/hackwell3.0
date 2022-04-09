@@ -7,6 +7,7 @@ import {
     FormErrorMessage,
     Grid,
     GridItem,
+    Link,
     Heading,
     Input,
     InputGroup,
@@ -15,6 +16,7 @@ import {
     Stack,
     Text,
     VStack,
+    Icon,
 } from '@chakra-ui/react';
 import { addDoc, collection } from 'firebase/firestore';
 import { NextPage } from 'next';
@@ -22,6 +24,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { db } from '../lib/firebase';
+import {BiNotepad} from 'react-icons/bi'
 
 interface IMember {
     name: string;
@@ -68,18 +71,25 @@ const Register: NextPage = () => {
         <Stack
             minH={'75vh'}
             direction={{ base: 'column' }}
-            my={10}
-            spacing={12}
+            spacing={{ base: 36, lg: 24 }}
         >
-            <Flex alignItems={'center'} justifyContent={'center'}>
-                <Divider bg={'red'} height={'2px'} />
-                <Box border="2px solid red" width="500px">
+            <Flex
+                alignItems={'center'}
+                justifyContent={'center'}
+                position={'relative'}
+                top={{ base: '140px', md: '160px' }}
+            >
+                <Divider bg={'#CC01FF'} height={'2px'} />
+                <Box
+                    border="2px solid #CC01FF"
+                    width={{ base: '220px', lg: '400px' }}
+                >
                     <Heading
-                        fontSize={{ base: '3xl', md: '4xl' }}
+                        fontSize={{ base: '1.1rem', md: '4xl' }}
                         textAlign={'center'}
-                        border={'2px solid red'}
+                        border={'2px solid #CC01FF'}
                         p={3}
-                        width="400px"
+                        width={{ base: '220px', lg: '400px' }}
                         position="relative"
                         top="7px"
                         left="7px"
@@ -89,33 +99,60 @@ const Register: NextPage = () => {
                         REGISTER
                     </Heading>
                 </Box>
-                <Divider bg={'red'} height={'2px'} />
+                <Divider bg={'#CC01FF'} height={'2px'} />
             </Flex>
             <Flex>
                 <Box
-                    color="black"
+                    color="white"
                     borderRadius="lg"
                     w={'100%'}
-                    m={{ sm: 4, md: 16, lg: 10 }}
+                    m={{ sm: 4, md: 16, lg: 8 }}
                     p={{ sm: 5, md: 5, lg: 16 }}
                 >
                     <VStack spacing={5}>
-                        <Box p={4} borderRadius={8}>
+                        <Box
+                            p={4}
+                            borderRadius={8}
+                            bg={'#232323'}
+                            my={10}
+                            mx={3}
+                        >
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 {/* Team Details */}
                                 <Grid templateColumns="repeat(2, 1fr)">
-                                    <GridItem p={4} colSpan={2}>
-                                        <Text
-                                            bgGradient={
-                                                'linear(to-l, #00FFDD,#CC01FF)'
-                                            }
-                                            bgClip="text"
-                                            fontSize="3xl"
-                                            fontWeight="extrabold"
-                                            textTransform={'uppercase'}
+                                    <GridItem
+                                        p={{ base: 1, md: 4 }}
+                                        py={5}
+                                        colSpan={2}
+                                    >
+                                        <Flex
+                                            alignItems={'center'}
+                                            justifyContent={'center'}
                                         >
-                                            Team Details
-                                        </Text>
+                                            <Divider
+                                                bg={'#CC01FF'}
+                                                height={'2px'}
+                                                width={'10%'}
+                                            />
+                                            <Text
+                                                bgGradient={
+                                                    'linear(to-l, #00FFDD,#CC01FF)'
+                                                }
+                                                bgClip="text"
+                                                fontSize="3xl"
+                                                mx={2}
+                                                fontWeight="extrabold"
+                                                textAlign={'center'}
+                                                textTransform={'uppercase'}
+                                            >
+                                                Team Details
+                                            </Text>
+                                            <Divider
+                                                bg={'#CC01FF'}
+                                                height={'2px'}
+                                                width={'10%'}
+                                            />
+                                        </Flex>
                                     </GridItem>
                                     <GridItem p={4} colSpan={2}>
                                         <FormControl
@@ -142,7 +179,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.college !== undefined
@@ -168,7 +208,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.teamSize !== undefined
@@ -179,6 +222,7 @@ const Register: NextPage = () => {
                                                     Team Size:
                                                 </InputLeftAddon>
                                                 <Select
+                                                rounded={0}
                                                     placeholder="Team Size"
                                                     {...register('teamSize', {
                                                         required:
@@ -228,21 +272,53 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
+                                    <GridItem p={4} colSpan={2}>
+                                        <Box display={'flex'} alignItems={'center'} bg={'white'} padding={3} borderRadius={'10px'}>
+                                            <Icon as={BiNotepad} color={'#CC01FF'} mr={5}/>
+                                        <Link
+                                            color={'#CC01FF'}
+                                            href={'https://rzp.io/l/FxLro0IXf'}
+                                            _focus={{ outline: 'none' }}
+                                        >
+                                           Click Here To Pay
+                                        </Link>
+                                        </Box>
+                                    </GridItem>
                                 </Grid>
                                 {/* Member Details */}
                                 <Grid templateColumns="repeat(2, 1fr)">
                                     <GridItem p={4} colSpan={2}>
-                                        <Text
-                                            bgGradient={
-                                                'linear(to-l, #00FFDD,#CC01FF)'
-                                            }
-                                            bgClip="text"
-                                            fontSize="3xl"
-                                            fontWeight="extrabold"
-                                            textTransform={'uppercase'}
+                                        <Flex
+                                            alignItems={'center'}
+                                            justifyContent={'center'}
                                         >
-                                            Member Details
-                                        </Text>
+                                            <Divider
+                                                bg={'#CC01FF'}
+                                                height={'2px'}
+                                                width={'10%'}
+                                            />
+                                            <Text
+                                                bgGradient={
+                                                    'linear(to-l, #00FFDD,#CC01FF)'
+                                                }
+                                                bgClip="text"
+                                                fontSize={{
+                                                    base: '2xl',
+                                                    md: '3xl',
+                                                }}
+                                                mx={2}
+                                                fontWeight="extrabold"
+                                                textAlign={'center'}
+                                                textTransform={'uppercase'}
+                                            >
+                                                Members Details
+                                            </Text>
+                                            <Divider
+                                                bg={'#CC01FF'}
+                                                height={'2px'}
+                                                width={'10%'}
+                                            />
+                                        </Flex>
                                     </GridItem>
                                     <GridItem p={4} colSpan={2}>
                                         <Text
@@ -257,7 +333,10 @@ const Register: NextPage = () => {
                                             Member 1
                                         </Text>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member1?.name !==
@@ -288,7 +367,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member1?.email !==
@@ -319,7 +401,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member1?.phone !==
@@ -350,7 +435,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member1?.year !==
@@ -362,6 +450,7 @@ const Register: NextPage = () => {
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member1.year',
@@ -432,6 +521,7 @@ const Register: NextPage = () => {
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member1.tsize',
@@ -506,7 +596,10 @@ const Register: NextPage = () => {
                                             Member 2
                                         </Text>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member2?.name !==
@@ -533,7 +626,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member2?.email !==
@@ -560,7 +656,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member2?.phone !==
@@ -587,7 +686,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member2?.year !==
@@ -599,6 +701,7 @@ const Register: NextPage = () => {
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member2.year'
@@ -661,6 +764,7 @@ const Register: NextPage = () => {
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member2.tsize'
@@ -727,7 +831,10 @@ const Register: NextPage = () => {
                                             Member 3
                                         </Text>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member3?.name !==
@@ -754,7 +861,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member3?.email !==
@@ -781,7 +891,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member3?.phone !==
@@ -808,7 +921,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member3?.year !==
@@ -820,6 +936,7 @@ const Register: NextPage = () => {
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member3.year'
@@ -882,6 +999,7 @@ const Register: NextPage = () => {
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member3.tsize'
@@ -948,7 +1066,10 @@ const Register: NextPage = () => {
                                             Member 4
                                         </Text>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member4?.name !==
@@ -975,7 +1096,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member4?.email !==
@@ -1002,7 +1126,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member4?.phone !==
@@ -1029,7 +1156,10 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
-                                    <GridItem p={4}>
+                                    <GridItem
+                                        p={4}
+                                        colSpan={{ base: 2, md: 1 }}
+                                    >
                                         <FormControl
                                             isInvalid={
                                                 errors.member4?.year !==
@@ -1041,6 +1171,7 @@ const Register: NextPage = () => {
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member4.year'
@@ -1103,6 +1234,7 @@ const Register: NextPage = () => {
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
+                                                    rounded={0}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member4.tsize'
