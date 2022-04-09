@@ -55,7 +55,7 @@ const Home: NextPage = () => {
                         />
                     </Box>
                 </Stack>
-                <Stack spacing={6}>
+                <Stack spacing={8}>
                     <HStack
                         spacing={{ base: 4, md: 6, lg: 8 }}
                         divider={
@@ -188,43 +188,39 @@ const Home: NextPage = () => {
                 >
                     <Stack spacing={{ base: 5, lg: 3 }} w={'full'} maxW={'lg'}>
                         <Text
-                            fontSize={{ base: 'md' }}
-                            color={'gray.500'}
+                            fontSize={{ base: 'md', lg: 'lg' }}
+                            color={'gray.200'}
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
-                            textTransform={'uppercase'}
                         >
-                            hackwell 3.0 is a 48-hour Hackaton hosted by JSSATE
+                            Hackwell 3.0 is a 48-hour Hackaton hosted by JSSATE
                             in association with honeywell.
                         </Text>
                         <Text
-                            fontSize={{ base: 'md' }}
-                            color={'gray.500'}
+                            fontSize={{ base: 'md', lg: 'lg' }}
+                            color={'gray.200'}
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
-                            textTransform={'uppercase'}
                         >
-                            honeywell will be driving the event and also sponsor
+                            Honeywell will be driving the event and also sponsor
                             the cash prize worth INR 1.50.000 to the winner.
                         </Text>
                         <Text
-                            fontSize={{ base: 'md' }}
-                            color={'gray.500'}
+                            fontSize={{ base: 'md', lg: 'lg' }}
+                            color={'gray.200'}
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
-                            textTransform={'uppercase'}
                         >
-                            this event is intended to create a platform for
+                            This event is intended to create a platform for
                             students fro self-expression and creativity to
                             foster a culture of learning, team work and
                             innovation.
                         </Text>
                         <Text
-                            fontSize={{ base: 'md' }}
-                            color={'gray.500'}
+                            fontSize={{ base: 'md', lg: 'lg' }}
+                            color={'gray.200'}
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
-                            textTransform={'uppercase'}
                         >
                             Honeywell will provide mentors during the course of
                             the event,guide the teams and also judge the
@@ -233,8 +229,8 @@ const Home: NextPage = () => {
                     </Stack>
                     <Image
                         alt={'Login Image'}
-                        w={{ base: '300px', lg: '400px' }}
-                        h={{ base: '125px', lg: '150px' }}
+                        w={{ base: '300px', lg: '450px' }}
+                        h={{ base: '125px', lg: '125px' }}
                         src={'../assests/images/Logo/Hackwell_logo.png'}
                     />
                 </Stack>
@@ -878,7 +874,7 @@ const Home: NextPage = () => {
                             </Heading>
                             <Text
                                 fontSize={{ base: 'md', lg: 'lg' }}
-                                color={'gray.500'}
+                                color={'gray.200'}
                                 lineHeight={1.8}
                                 textAlign={{ base: 'center', lg: 'left' }}
                             >
@@ -994,7 +990,7 @@ const Home: NextPage = () => {
                             </Heading>
                             <Text
                                 fontSize={{ base: 'md', lg: 'lg' }}
-                                color={'gray.500'}
+                                color={'gray.200'}
                                 lineHeight={1.6}
                                 textAlign="left"
                             >
