@@ -11,19 +11,18 @@ import {
     IconButton,
     Button,
     Stack,
-    Text,
+    Link,
     useDisclosure,
     useColorModeValue,
-    useColorMode,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { BiRegistered } from 'react-icons/bi';
 import NavLink from './NavLinks/NavLinks';
 import Logo from '../UI/Logo/Logo';
 
-const Links = ['Dashboard', 'Projects', 'Team'];
+const Links = ['About', 'Themes', 'Phases', 'Sponsor', 'Contact Us'];
 
 const Navigation: FC = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
@@ -63,12 +62,26 @@ const Navigation: FC = () => {
                         </HStack>
                     </HStack>
                     <Flex alignItems={'center'}>
-                        <Button
-                            onClick={toggleColorMode}
-                            _focus={{ outline: 'none' }}
+                        <Link
+                            href={'/register'}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ textDecoration: 'none' }}
                         >
-                            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                        </Button>
+                            <Button
+                                rightIcon={<BiRegistered />}
+                                color="black"
+                                bg="white"
+                                _hover={{
+                                    bg: '#CC01FF',
+                                    color: 'white',
+                                }}
+                                _focus={{ outline: 'none' }}
+                                _active={{ bg: '#CC01FF' }}
+                            >
+                                REGISTERATION
+                            </Button>
+                        </Link>
                     </Flex>
                 </Flex>
 

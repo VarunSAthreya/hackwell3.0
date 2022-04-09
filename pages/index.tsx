@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import React from 'react';
-import { BsTelephoneFill, BsLinkedin,BsCalendarDate } from 'react-icons/bs';
+import { BsTelephoneFill, BsLinkedin, BsCalendarDate } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
 
@@ -154,6 +154,7 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
+                id="about"
                 spacing={{ base: 10, lg: 20 }}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
@@ -244,18 +245,31 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
+                id="themes"
                 spacing={10}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
-                    <Heading
-                        fontSize={{ base: '1.5rem', md: '4xl' }}
-                        textAlign={'center'}
-                        p={3}
+                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <Box
+                        border="2px solid #CC01FF"
+                        width={{ base: '220px', lg: '500px' }}
                     >
-                        THEMES
-                    </Heading>
-                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
+                        <Heading
+                            fontSize={{ base: '1.1rem', md: '4xl' }}
+                            textAlign={'center'}
+                            border={'2px solid #CC01FF'}
+                            p={3}
+                            width={{ base: '220px', lg: '500px' }}
+                            position="relative"
+                            top="7px"
+                            left="7px"
+                            padding="1rem"
+                            transform="translateZ(-10px)"
+                        >
+                            THEMES
+                        </Heading>
+                    </Box>
+                    <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
                 <SimpleGrid
                     columns={{ base: 2, lg: 3 }}
@@ -287,7 +301,7 @@ const Home: NextPage = () => {
                             src={
                                 '../assests/images/Themes/artificial-intelligence.png'
                             }
-                            boxSize={{base:'170px',lg:'200px'}}
+                            boxSize={{ base: '170px', lg: '200px' }}
                             p={6}
                             rounded={5}
                         />
@@ -315,7 +329,7 @@ const Home: NextPage = () => {
                             src={
                                 '../assests/images/Themes/internet-of-things.png'
                             }
-                            boxSize={{base:'170px',lg:'200px'}}
+                            boxSize={{ base: '170px', lg: '200px' }}
                             p={6}
                             rounded={5}
                         />
@@ -341,7 +355,7 @@ const Home: NextPage = () => {
                         </Heading>
                         <Image
                             src={'../assests/images/Themes/neural.png'}
-                            boxSize={{base:'170px',lg:'200px'}}
+                            boxSize={{ base: '170px', lg: '200px' }}
                             p={6}
                             rounded={5}
                         />
@@ -367,7 +381,7 @@ const Home: NextPage = () => {
                         </Heading>
                         <Image
                             src={'../assests/images/Themes/cloud-service.png'}
-                            boxSize={{base:'170px',lg:'200px'}}
+                            boxSize={{ base: '170px', lg: '200px' }}
                             p={6}
                             rounded={5}
                         />
@@ -379,6 +393,7 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
+                id="phases"
                 spacing={10}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
@@ -545,7 +560,7 @@ const Home: NextPage = () => {
                                         </Text>
                                     </Box>
                                     <Image
-                                    ml={1}
+                                        ml={1}
                                         src={
                                             '../assests/images/Phases/mail.png'
                                         }
@@ -824,6 +839,7 @@ const Home: NextPage = () => {
                 direction={{ base: 'column' }}
                 my={20}
                 spacing={12}
+                id="sponsor"
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
                     <Divider bg={'#CC01FF'} height={'2px'} />
@@ -921,6 +937,7 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
+                id="contact us"
                 spacing={12}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
