@@ -22,7 +22,6 @@ const NavLink: FC = ({ children }: { children: ReactNode }) => {
     const animation = prefersReducedMotion
         ? undefined
         : `${fill} 0.2s forwards`;
-    console.log(children);
     return (
         <Link
             px={2}

@@ -14,6 +14,7 @@ import {
     Link,
     useDisclosure,
     useColorModeValue,
+    useMediaQuery,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { BiRegistered } from 'react-icons/bi';
@@ -24,12 +25,13 @@ const Links = ['About', 'Themes', 'Phases', 'Sponsor', 'Contact Us'];
 
 const Navigation: FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [isMobile] = useMediaQuery('(min-width: 480px)');
 
     return (
         <>
             <Box
-                px={24}
-                py={14}
+                px={{ base: 10, md: 18, lg: 24 }}
+                py={{ base: 10, md: 14 }}
                 position={'absolute'}
                 top={0}
                 zIndex={20}
@@ -49,7 +51,7 @@ const Navigation: FC = () => {
                         onClick={isOpen ? onClose : onOpen}
                         _focus={{ outline: 'none' }}
                     />
-                    <Logo />
+                    {isMobile ? <Logo /> : null}
                     <HStack spacing={10} alignItems={'center'}>
                         <HStack
                             as={'nav'}
@@ -62,26 +64,46 @@ const Navigation: FC = () => {
                         </HStack>
                     </HStack>
                     <Flex alignItems={'center'}>
-                        <Link
-                            href={'/register'}
-                            target="_blank"
-                            rel="noreferrer"
-                            style={{ textDecoration: 'none' }}
-                        >
-                            <Button
-                                rightIcon={<BiRegistered />}
-                                color="black"
-                                bg="white"
-                                _hover={{
-                                    bg: '#CC01FF',
-                                    color: 'white',
-                                }}
-                                _focus={{ outline: 'none' }}
-                                _active={{ bg: '#CC01FF' }}
+                        {isMobile ? (
+                            <Link
+                                href={'/register'}
+                                style={{ textDecoration: 'none' }}
                             >
-                                REGISTERATION
-                            </Button>
-                        </Link>
+                                <Button
+                                    rightIcon={<BiRegistered />}
+                                    color="black"
+                                    bg="white"
+                                    p={2}
+                                    _hover={{
+                                        bg: '#CC01FF',
+                                        color: 'white',
+                                    }}
+                                    _focus={{ outline: 'none' }}
+                                    _active={{ bg: '#CC01FF' }}
+                                >
+                                    REGISTERATION
+                                </Button>
+                            </Link>
+                        ) : (
+                            <Link
+                                href={'/register'}
+                                style={{ textDecoration: 'none' }}
+                            >
+                                <IconButton
+                                    size={'md'}
+                                    icon={<BiRegistered />}
+                                    aria-label={'Open Registeration'}
+                                    color="black"
+                                    bg="white"
+                                    _hover={{
+                                        bg: '#CC01FF',
+                                        color: 'white',
+                                    }}
+                                    _focus={{ outline: 'none' }}
+                                    _active={{ bg: '#CC01FF' }}
+                                />
+                            </Link>
+                        )}
                     </Flex>
                 </Flex>
 
