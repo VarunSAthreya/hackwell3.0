@@ -266,7 +266,11 @@ const Home: NextPage = () => {
                     <Box
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
-                        height="300px"
+                        height="320px"
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="space-around"
+                        alignItems="center"
                     >
                         <Heading
                             fontSize={{ base: '1.2rem', lg: '2rem' }}
@@ -278,11 +282,23 @@ const Home: NextPage = () => {
                         >
                             Artifical Intelligence
                         </Heading>
+                        <Image
+                            src={
+                                '../assests/images/Themes/artificial-intelligence.png'
+                            }
+                            boxSize={{base:'170px',lg:'200px'}}
+                            p={6}
+                            rounded={5}
+                        />
                     </Box>
                     <Box
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
-                        height="300px"
+                        height="320px"
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="space-around"
+                        alignItems="center"
                     >
                         <Heading
                             fontSize={{ base: '1.2rem', lg: '2rem' }}
@@ -294,11 +310,23 @@ const Home: NextPage = () => {
                         >
                             Internet of things
                         </Heading>
+                        <Image
+                            src={
+                                '../assests/images/Themes/internet-of-things.png'
+                            }
+                            boxSize={{base:'170px',lg:'200px'}}
+                            p={6}
+                            rounded={5}
+                        />
                     </Box>
                     <Box
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
-                        height="300px"
+                        height="320px"
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="space-around"
+                        alignItems="center"
                     >
                         <Heading
                             mt={3}
@@ -310,11 +338,21 @@ const Home: NextPage = () => {
                         >
                             Machine Learning
                         </Heading>
+                        <Image
+                            src={'../assests/images/Themes/neural.png'}
+                            boxSize={{base:'170px',lg:'200px'}}
+                            p={6}
+                            rounded={5}
+                        />
                     </Box>
                     <Box
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
-                        height="300px"
+                        height="320px"
+                        display="flex"
+                        flexDirection="column"
+                        justifyContent="space-around"
+                        alignItems="center"
                     >
                         <Heading
                             mt={3}
@@ -326,6 +364,12 @@ const Home: NextPage = () => {
                         >
                             Edge computing and analysis
                         </Heading>
+                        <Image
+                            src={'../assests/images/Themes/cloud-service.png'}
+                            boxSize={{base:'170px',lg:'200px'}}
+                            p={6}
+                            rounded={5}
+                        />
                     </Box>
                 </SimpleGrid>
             </Stack>
@@ -385,84 +429,127 @@ const Home: NextPage = () => {
                             >
                                 Phase 1
                             </Heading>
-                            <Stack spacing={10} p={3}>
-                                <Box p={{ base: 2, lg: 4 }}>
-                                    <Heading
-                                        mb={2}
-                                        bgGradient={
-                                            'linear(to-l, #00FFDD,#CC01FF)'
+                            <Stack spacing={5} p={3}>
+                                <Box
+                                    p={{ base: 2, lg: 4 }}
+                                    display={'flex'}
+                                    alignItems={'center'}
+                                    justifyContent={'space-between'}
+                                >
+                                    <Box>
+                                        <Heading
+                                            mb={2}
+                                            bgGradient={
+                                                'linear(to-l, #00FFDD,#CC01FF)'
+                                            }
+                                            bgClip="text"
+                                            textTransform={'uppercase'}
+                                            fontSize={{ base: 'lg', lg: '2xl' }}
+                                        >
+                                            Register online
+                                        </Heading>
+                                        <Box display={'flex'}>
+                                            <Text
+                                                fontSize={{
+                                                    base: 'sm',
+                                                    lg: 'md',
+                                                }}
+                                                color={'gray.500'}
+                                                lineHeight={1.6}
+                                                textTransform={'uppercase'}
+                                                mr={2}
+                                            >
+                                                register your team(1-4)
+                                            </Text>
+                                            <Link
+                                                color={'#CC01FF'}
+                                                href={'/register'}
+                                                _focus={{ outline: 'none' }}
+                                            >
+                                                Click Here
+                                            </Link>
+                                        </Box>
+                                    </Box>
+                                    <Image
+                                        src={
+                                            '../assests/images/Phases/to-do-list.png'
                                         }
-                                        bgClip="text"
-                                        textTransform={'uppercase'}
-                                        fontSize={{ base: 'lg', lg: '2xl' }}
-                                    >
-                                        Register online
-                                    </Heading>
-                                    <Box display={'flex'}>
+                                        boxSize={'50px'}
+                                    />
+                                </Box>
+                                <Box
+                                    p={{ base: 2, lg: 4 }}
+                                    display={'flex'}
+                                    alignItems={'center'}
+                                    justifyContent={'space-between'}
+                                >
+                                    <Image
+                                        src={
+                                            '../assests/images/Phases/search.png'
+                                        }
+                                        boxSize={'50px'}
+                                    />
+                                    <Box>
+                                        <Heading
+                                            bgGradient={
+                                                'linear(to-l, #00FFDD,#CC01FF)'
+                                            }
+                                            bgClip="text"
+                                            textAlign={'right'}
+                                            textTransform={'uppercase'}
+                                            fontSize={{ base: 'lg', lg: '2xl' }}
+                                            mb={2}
+                                        >
+                                            Team profile screening
+                                        </Heading>
+                                        <Text
+                                            textAlign={'right'}
+                                            fontSize={{ base: 'sm', lg: 'md' }}
+                                            color={'gray.500'}
+                                            lineHeight={1.6}
+                                            textTransform={'uppercase'}
+                                        >
+                                            the submitted team profile will be
+                                            screened to shortlist the teams for
+                                            phase 2
+                                        </Text>
+                                    </Box>
+                                </Box>
+                                <Box
+                                    p={{ base: 2, lg: 4 }}
+                                    display={'flex'}
+                                    alignItems={'center'}
+                                    justifyContent={'space-between'}
+                                >
+                                    <Box>
+                                        <Heading
+                                            bgGradient={
+                                                'linear(to-l, #00FFDD,#CC01FF)'
+                                            }
+                                            bgClip="text"
+                                            mb={2}
+                                            textTransform={'uppercase'}
+                                            fontSize={{ base: 'lg', lg: '2xl' }}
+                                        >
+                                            selection confirmation
+                                        </Heading>
                                         <Text
                                             fontSize={{ base: 'sm', lg: 'md' }}
                                             color={'gray.500'}
                                             lineHeight={1.6}
                                             textTransform={'uppercase'}
-                                            mr={2}
                                         >
-                                            register your team(1-4)
+                                            the shortlisted teams for phase 2
+                                            will receive a conformation email.
                                         </Text>
-                                        <Link
-                                            color={'#CC01FF'}
-                                            href={'/register'}
-                                            _focus={{ outline: 'none' }}
-                                        >
-                                            Click Here
-                                        </Link>
                                     </Box>
-                                </Box>
-                                <Box p={{ base: 2, lg: 4 }}>
-                                    <Heading
-                                        bgGradient={
-                                            'linear(to-l, #00FFDD,#CC01FF)'
+                                    <Image
+                                    ml={1}
+                                        src={
+                                            '../assests/images/Phases/mail.png'
                                         }
-                                        bgClip="text"
-                                        textAlign={'right'}
-                                        textTransform={'uppercase'}
-                                        fontSize={{ base: 'lg', lg: '2xl' }}
-                                        mb={2}
-                                    >
-                                        Team profile screening
-                                    </Heading>
-                                    <Text
-                                        textAlign={'right'}
-                                        fontSize={{ base: 'sm', lg: 'md' }}
-                                        color={'gray.500'}
-                                        lineHeight={1.6}
-                                        textTransform={'uppercase'}
-                                    >
-                                        the submitted team profile will be
-                                        screened to shortlist the teams for
-                                        phase 2
-                                    </Text>
-                                </Box>
-                                <Box p={{ base: 2, lg: 4 }}>
-                                    <Heading
-                                        bgGradient={
-                                            'linear(to-l, #00FFDD,#CC01FF)'
-                                        }
-                                        bgClip="text"
-                                        mb={2}
-                                        textTransform={'uppercase'}
-                                        fontSize={{ base: 'lg', lg: '2xl' }}
-                                    >
-                                        selection confirmation
-                                    </Heading>
-                                    <Text
-                                        fontSize={{ base: 'sm', lg: 'md' }}
-                                        color={'gray.500'}
-                                        lineHeight={1.6}
-                                        textTransform={'uppercase'}
-                                    >
-                                        the shortlisted teams for phase 2 will
-                                        receive a conformation email.
-                                    </Text>
+                                        boxSize={'50px'}
+                                    />
                                 </Box>
                             </Stack>
                         </GridItem>
@@ -484,53 +571,79 @@ const Home: NextPage = () => {
                             >
                                 Phase 2
                             </Heading>
-                            <Stack spacing={10} p={3}>
-                                <Box p={{ base: 2, lg: 4 }}>
-                                    <Heading
-                                        bgGradient={
-                                            'linear(to-l, #00FFDD,#CC01FF)'
+                            <Stack spacing={5} p={3}>
+                                <Box
+                                    p={{ base: 2, lg: 4 }}
+                                    display={'flex'}
+                                    alignItems={'center'}
+                                    justifyContent={'space-between'}
+                                >
+                                    <Box>
+                                        <Heading
+                                            bgGradient={
+                                                'linear(to-l, #00FFDD,#CC01FF)'
+                                            }
+                                            bgClip="text"
+                                            mb={2}
+                                            textTransform={'uppercase'}
+                                            fontSize={{ base: 'lg', lg: '2xl' }}
+                                        >
+                                            fee payment
+                                        </Heading>
+                                        <Text
+                                            fontSize={{ base: 'sm', lg: 'md' }}
+                                            color={'gray.500'}
+                                            lineHeight={1.6}
+                                            textTransform={'uppercase'}
+                                        >
+                                            shortlisted students must pay a
+                                            registeration fee of inr 300.
+                                        </Text>
+                                    </Box>
+                                    <Image
+                                        src={
+                                            '../assests/images/Phases/payment-method.png'
                                         }
-                                        bgClip="text"
-                                        mb={2}
-                                        textTransform={'uppercase'}
-                                        fontSize={{ base: 'lg', lg: '2xl' }}
-                                    >
-                                        fee payment
-                                    </Heading>
-                                    <Text
-                                        fontSize={{ base: 'sm', lg: 'md' }}
-                                        color={'gray.500'}
-                                        lineHeight={1.6}
-                                        textTransform={'uppercase'}
-                                    >
-                                        shortlisted students must pay a
-                                        registeration fee of inr 300.
-                                    </Text>
+                                        boxSize={'50px'}
+                                    />
                                 </Box>
-                                <Box p={{ base: 2, lg: 4 }}>
-                                    <Heading
-                                        bgGradient={
-                                            'linear(to-l, #00FFDD,#CC01FF)'
+                                <Box
+                                    p={{ base: 2, lg: 4 }}
+                                    display={'flex'}
+                                    alignItems={'center'}
+                                    justifyContent={'space-between'}
+                                >
+                                    <Image
+                                        src={
+                                            '../assests/images/Phases/binary-code.png'
                                         }
-                                        bgClip="text"
-                                        mb={2}
-                                        textAlign={'right'}
-                                        textTransform={'uppercase'}
-                                        fontSize={{ base: 'lg', lg: '2xl' }}
-                                    >
-                                        finally 48 - hour hackaton
-                                    </Heading>
-                                    <Text
-                                        textAlign={'right'}
-                                        fontSize={{ base: 'sm', lg: 'md' }}
-                                        color={'gray.500'}
-                                        lineHeight={1.6}
-                                        textTransform={'uppercase'}
-                                    >
-                                        the shortlisted teams will be hacking on
-                                        the problem statements given on the day
-                                        of the event.
-                                    </Text>
+                                        boxSize={'50px'}
+                                    />
+                                    <Box>
+                                        <Heading
+                                            bgGradient={
+                                                'linear(to-l, #00FFDD,#CC01FF)'
+                                            }
+                                            bgClip="text"
+                                            mb={2}
+                                            textAlign={'right'}
+                                            textTransform={'uppercase'}
+                                            fontSize={{ base: 'lg', lg: '2xl' }}
+                                        >
+                                            finally 48 - hour hackaton
+                                        </Heading>
+                                        <Text
+                                            textAlign={'right'}
+                                            fontSize={{ base: 'sm', lg: 'md' }}
+                                            color={'gray.500'}
+                                            lineHeight={1.6}
+                                            textTransform={'uppercase'}
+                                        >
+                                            the shortlisted teams will be
+                                            hacking on the problem statements
+                                            given on the day of the event.
+                                        </Text>
+                                    </Box>
                                 </Box>
                             </Stack>
                         </GridItem>
