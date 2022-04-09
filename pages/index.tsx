@@ -5,22 +5,21 @@ import {
     Button,
     Divider,
     Flex,
+    Grid,
+    GridItem,
     Heading,
     HStack,
     IconButton,
     Image,
-    Grid,
-    GridItem,
     Link,
     SimpleGrid,
     Stack,
     StackDivider,
     Text,
-    useColorModeValue,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import React from 'react';
-import { BsTelephoneFill, BsLinkedin,BsCalendarDate } from 'react-icons/bs';
+import { BsCalendarDate, BsLinkedin, BsTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
 
@@ -121,13 +120,16 @@ const Home: NextPage = () => {
                         </Box>
                     </HStack>
                     <Flex justifyContent={'flex-start'}>
-                        <Box border="2px solid gray" width={{base:'200px',md:'300px'}}>
+                        <Box
+                            border="2px solid gray"
+                            width={{ base: '200px', md: '300px' }}
+                        >
                             <Heading
                                 fontSize={{ base: '1.8xl' }}
                                 textAlign={'center'}
                                 border={'2px solid gray'}
                                 p={3}
-                                width={{base:'200px',md:'300px'}}
+                                width={{ base: '200px', md: '300px' }}
                                 position="relative"
                                 top="7px"
                                 left="7px"
@@ -136,7 +138,7 @@ const Home: NextPage = () => {
                             >
                                 SPONSORED BY{' '}
                                 <Image
-                                    width={{base:'200px',md:'300px'}}
+                                    width={{ base: '200px', md: '300px' }}
                                     src={
                                         '../assests/images/Logo/Honeywell_logo.png'
                                     }
