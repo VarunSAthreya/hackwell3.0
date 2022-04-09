@@ -16,13 +16,12 @@ import {
     Text,
     VStack,
 } from '@chakra-ui/react';
+import { addDoc, collection } from 'firebase/firestore';
 import { NextPage } from 'next';
-import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import {
-    loadScript,
-    showRazorpay,
-} from '../components/UI/Button/PaymentButton';
+import { db } from '../lib/firebase';
 
 interface IMember {
     name: string;
@@ -38,6 +37,7 @@ type FormValues = {
     teamName: string;
     college: string;
     teamSize: number;
+    paymentId: string;
     member1: IMember;
     member2?: IMember;
     member3?: IMember;
@@ -50,23 +50,19 @@ const Register: NextPage = () => {
         handleSubmit,
         formState: { errors },
     } = useForm<FormValues>();
+    const router = useRouter();
 
     const tsize = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
     const teamSize = [1, 2, 3, 4];
     const year = [1, 2, 3, 4];
 
-    const onSubmit = (data: FormValues) => {
+    const onSubmit = async (data: FormValues) => {
         console.log({ data });
-        showRazorpay({
-            amount: data.teamSize * 300,
-            window,
-            teamData: data,
-        });
+        const docRef = await addDoc(collection(db, 'registered_teams'), data);
+        console.log('Document written with ID: ', docRef.id);
+        alert('Registered Successful');
+        router.push('/');
     };
-
-    useEffect(() => {
-        loadScript();
-    }, []);
 
     return (
         <Stack
@@ -97,7 +93,6 @@ const Register: NextPage = () => {
             </Flex>
             <Flex>
                 <Box
-                    bg="white"
                     color="black"
                     borderRadius="lg"
                     w={'100%'}
@@ -129,14 +124,11 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Team Name:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="text"
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="Team Name"
                                                     {...register('teamName', {
                                                         required:
@@ -157,15 +149,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     College Name:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="text"
                                                     placeholder="College Name"
-                                                    bgColor={'#CC01FF'}
                                                     {...register('college', {
                                                         required:
                                                             'Please Enter The College name',
@@ -186,13 +175,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Team Size:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="Team Size"
                                                     {...register('teamSize', {
                                                         required:
@@ -213,6 +199,32 @@ const Register: NextPage = () => {
                                             <FormErrorMessage>
                                                 {errors.teamSize &&
                                                     errors.teamSize.message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                    </GridItem>
+                                    <GridItem p={4} colSpan={2}>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.paymentId !== undefined
+                                            }
+                                        >
+                                            <InputGroup>
+                                                <InputLeftAddon>
+                                                    Razorpay Payment Id:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Razorpay Payment Id"
+                                                    {...register('paymentId', {
+                                                        required:
+                                                            'Please Enter The College name',
+                                                    })}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.paymentId &&
+                                                    errors.paymentId.message}
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
@@ -253,15 +265,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Name:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="text"
                                                     placeholder="Name"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member1.name',
                                                         {
@@ -287,15 +296,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Email:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="email"
                                                     placeholder="Email"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member1.email',
                                                         {
@@ -321,15 +327,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Phone Number:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="number"
                                                     placeholder="Phone Number"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member1.phone',
                                                         {
@@ -355,13 +358,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member1.year',
@@ -397,13 +397,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Address:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
                                                     type="text"
                                                     placeholder="Address"
                                                     {...register(
@@ -431,13 +428,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member1.tsize',
@@ -474,12 +468,12 @@ const Register: NextPage = () => {
                                         >
                                             <InputGroup>
                                                 <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
+
                                                 >
                                                     Resume:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
+
                                                     type="file"
                                                     placeholder="Resume"
                                                     {...register(
@@ -520,15 +514,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Name:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="text"
                                                     placeholder="Name"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member2.name'
                                                     )}
@@ -550,15 +541,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Email:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="email"
                                                     placeholder="Email"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member2.email'
                                                     )}
@@ -580,15 +568,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Phone Number:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="number"
                                                     placeholder="Phone Number"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member2.phone'
                                                     )}
@@ -610,13 +595,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member2.year'
@@ -648,13 +630,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Address:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
                                                     type="text"
                                                     placeholder="Address"
                                                     {...register(
@@ -678,13 +657,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member2.tsize'
@@ -717,12 +693,12 @@ const Register: NextPage = () => {
                                         >
                                             <InputGroup>
                                                 <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
+
                                                 >
                                                     Resume:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
+
                                                     type="file"
                                                     placeholder="Resume"
                                                     {...register(
@@ -759,15 +735,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Name:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="text"
                                                     placeholder="Name"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member3.name'
                                                     )}
@@ -789,15 +762,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Email:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="email"
                                                     placeholder="Email"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member3.email'
                                                     )}
@@ -819,15 +789,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Phone Number:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="number"
                                                     placeholder="Phone Number"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member3.phone'
                                                     )}
@@ -849,13 +816,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member3.year'
@@ -887,13 +851,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Address:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
                                                     type="text"
                                                     placeholder="Address"
                                                     {...register(
@@ -917,13 +878,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member3.tsize'
@@ -956,12 +914,12 @@ const Register: NextPage = () => {
                                         >
                                             <InputGroup>
                                                 <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
+
                                                 >
                                                     Resume:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
+
                                                     type="file"
                                                     placeholder="Resume"
                                                     {...register(
@@ -998,15 +956,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Name:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="text"
                                                     placeholder="Name"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member4.name'
                                                     )}
@@ -1028,15 +983,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Email:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="email"
                                                     placeholder="Email"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member4.email'
                                                     )}
@@ -1058,15 +1010,12 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Phone Number:
                                                 </InputLeftAddon>
                                                 <Input
                                                     type="number"
                                                     placeholder="Phone Number"
-                                                    bgColor={'#CC01FF'}
                                                     {...register(
                                                         'member4.phone'
                                                     )}
@@ -1088,13 +1037,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Year:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="Year"
                                                     {...register(
                                                         'member4.year'
@@ -1126,13 +1072,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     Address:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
                                                     type="text"
                                                     placeholder="Address"
                                                     {...register(
@@ -1156,13 +1099,10 @@ const Register: NextPage = () => {
                                             }
                                         >
                                             <InputGroup>
-                                                <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
-                                                >
+                                                <InputLeftAddon>
                                                     TShirt Size:
                                                 </InputLeftAddon>
                                                 <Select
-                                                    bgColor={'#CC01FF'}
                                                     placeholder="TShirt Size"
                                                     {...register(
                                                         'member4.tsize'
@@ -1195,12 +1135,12 @@ const Register: NextPage = () => {
                                         >
                                             <InputGroup>
                                                 <InputLeftAddon
-                                                    bgColor={'#CC01FF'}
+
                                                 >
                                                     Resume:
                                                 </InputLeftAddon>
                                                 <Input
-                                                    bgColor={'#CC01FF'}
+
                                                     type="file"
                                                     placeholder="Resume"
                                                     {...register(
