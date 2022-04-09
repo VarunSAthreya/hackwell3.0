@@ -5,22 +5,21 @@ import {
     Button,
     Divider,
     Flex,
+    Grid,
+    GridItem,
     Heading,
     HStack,
     IconButton,
     Image,
-    Grid,
-    GridItem,
     Link,
     SimpleGrid,
     Stack,
     StackDivider,
     Text,
-    useColorModeValue,
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import React from 'react';
-import { BsTelephoneFill, BsLinkedin, BsCalendarDate } from 'react-icons/bs';
+import { BsCalendarDate, BsLinkedin, BsTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
 
