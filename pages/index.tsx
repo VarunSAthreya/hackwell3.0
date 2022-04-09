@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import React from 'react';
-import { BsTelephoneFill, BsLinkedin } from 'react-icons/bs';
+import { BsTelephoneFill, BsLinkedin,BsCalendarDate } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
 
@@ -29,10 +29,10 @@ const Home: NextPage = () => {
         <>
             <Canvas />
             <Stack
-                spacing={16}
+                spacing={{ base: 10, md: 12, lg: 16 }}
                 pos={'absolute'}
                 top={{ base: '3%', md: '4%', lg: '4%' }}
-                left={'15%'}
+                left={{ base: '8%', lg: '15%' }}
                 zIndex={20}
             >
                 <Stack spacing={2}>
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
                         bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                         bgClip="text"
                         fontWeight={600}
-                        fontSize={'2xl'}
+                        fontSize={{ base: '1.5rem', md: '2xl' }}
                         p={2}
                         alignSelf={'flex-start'}
                         rounded={'md'}
@@ -51,14 +51,14 @@ const Home: NextPage = () => {
                     <Box>
                         <Image
                             src={'../assests/images/Logo/Hackwell_logo.png'}
-                            width={'550px'}
-                            height={'130px'}
+                            width={{ base: '300px', lg: '550px' }}
+                            height={{ base: '100px', lg: '130px' }}
                         />
                     </Box>
                 </Stack>
                 <Stack spacing={6}>
                     <HStack
-                        spacing={8}
+                        spacing={{ base: 4, md: 6, lg: 8 }}
                         divider={
                             <StackDivider borderColor={'whiteAlpha.500'} />
                         }
@@ -70,7 +70,10 @@ const Home: NextPage = () => {
                             >
                                 22
                             </Heading>
-                            <Text color={'white'} fontSize={'lg'}>
+                            <Text
+                                color={'white'}
+                                fontSize={{ base: 'md', lg: 'lg' }}
+                            >
                                 DAYS
                             </Text>
                         </Box>
@@ -81,7 +84,10 @@ const Home: NextPage = () => {
                             >
                                 22
                             </Heading>
-                            <Text color={'white'} fontSize={'lg'}>
+                            <Text
+                                color={'white'}
+                                fontSize={{ base: 'md', lg: 'lg' }}
+                            >
                                 HRS
                             </Text>
                         </Box>
@@ -92,7 +98,10 @@ const Home: NextPage = () => {
                             >
                                 22
                             </Heading>
-                            <Text color={'white'} fontSize={'lg'}>
+                            <Text
+                                color={'white'}
+                                fontSize={{ base: 'md', lg: 'lg' }}
+                            >
                                 MINS
                             </Text>
                         </Box>
@@ -103,19 +112,22 @@ const Home: NextPage = () => {
                             >
                                 22
                             </Heading>
-                            <Text color={'white'} fontSize={'lg'}>
+                            <Text
+                                color={'white'}
+                                fontSize={{ base: 'md', lg: 'lg' }}
+                            >
                                 SECS
                             </Text>
                         </Box>
                     </HStack>
                     <Flex justifyContent={'flex-start'}>
-                        <Box border="2px solid gray" width="300px">
+                        <Box border="2px solid gray" width={{base:'200px',md:'300px'}}>
                             <Heading
                                 fontSize={{ base: '1.8xl' }}
                                 textAlign={'center'}
                                 border={'2px solid gray'}
                                 p={3}
-                                width="300px"
+                                width={{base:'200px',md:'300px'}}
                                 position="relative"
                                 top="7px"
                                 left="7px"
@@ -124,7 +136,7 @@ const Home: NextPage = () => {
                             >
                                 SPONSORED BY{' '}
                                 <Image
-                                    width={'300px'}
+                                    width={{base:'200px',md:'300px'}}
                                     src={
                                         '../assests/images/Logo/Honeywell_logo.png'
                                     }
@@ -139,17 +151,20 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
-                spacing={20}
+                spacing={{ base: 10, lg: 20 }}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
                     <Divider bg={'#CC01FF'} height={'2px'} />
-                    <Box border="2px solid #CC01FF" width="500px">
+                    <Box
+                        border="2px solid #CC01FF"
+                        width={{ base: '220px', lg: '500px' }}
+                    >
                         <Heading
-                            fontSize={{ base: '3xl', md: '4xl' }}
+                            fontSize={{ base: '1.1rem', md: '4xl' }}
                             textAlign={'center'}
                             border={'2px solid #CC01FF'}
                             p={3}
-                            width="500px"
+                            width={{ base: '220px', lg: '500px' }}
                             position="relative"
                             top="7px"
                             left="7px"
@@ -161,11 +176,18 @@ const Home: NextPage = () => {
                     </Box>
                     <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
-                <HStack p={8} justifyContent={'space-around'}>
-                    <Stack spacing={3} w={'full'} maxW={'lg'}>
+                <Stack
+                    p={8}
+                    spacing={{ base: 10, lg: 3 }}
+                    justifyContent={'space-around'}
+                    direction={{ base: 'column-reverse', lg: 'row' }}
+                    alignItems={'center'}
+                >
+                    <Stack spacing={{ base: 5, lg: 3 }} w={'full'} maxW={'lg'}>
                         <Text
                             fontSize={{ base: 'md' }}
                             color={'gray.500'}
+                            textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                             textTransform={'uppercase'}
                         >
@@ -175,6 +197,7 @@ const Home: NextPage = () => {
                         <Text
                             fontSize={{ base: 'md' }}
                             color={'gray.500'}
+                            textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                             textTransform={'uppercase'}
                         >
@@ -184,6 +207,7 @@ const Home: NextPage = () => {
                         <Text
                             fontSize={{ base: 'md' }}
                             color={'gray.500'}
+                            textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                             textTransform={'uppercase'}
                         >
@@ -195,6 +219,7 @@ const Home: NextPage = () => {
                         <Text
                             fontSize={{ base: 'md' }}
                             color={'gray.500'}
+                            textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                             textTransform={'uppercase'}
                         >
@@ -205,10 +230,11 @@ const Home: NextPage = () => {
                     </Stack>
                     <Image
                         alt={'Login Image'}
-                        w={'400px'}
+                        w={{ base: '300px', lg: '400px' }}
+                        h={{ base: '125px', lg: '150px' }}
                         src={'../assests/images/Logo/Hackwell_logo.png'}
                     />
-                </HStack>
+                </Stack>
             </Stack>
             {/*THEMES*/}
             <Stack
@@ -220,7 +246,7 @@ const Home: NextPage = () => {
                 <Flex alignItems={'center'} justifyContent={'center'}>
                     <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
                     <Heading
-                        fontSize={{ base: '3xl', md: '4xl' }}
+                        fontSize={{ base: '1.5rem', md: '4xl' }}
                         textAlign={'center'}
                         p={3}
                     >
@@ -229,8 +255,8 @@ const Home: NextPage = () => {
                     <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
                 </Flex>
                 <SimpleGrid
-                    columns={3}
-                    p={10}
+                    columns={{ base: 2, lg: 3 }}
+                    p={{ base: 0, lg: 10 }}
                     backgroundImage={'./assests/images/Main/theme.png'}
                     backgroundPosition={'center'}
                     backgroundRepeat={'no-repeat'}
@@ -241,7 +267,7 @@ const Home: NextPage = () => {
                         height="300px"
                     >
                         <Heading
-                            fontSize={'2rem'}
+                            fontSize={{ base: '1.2rem', lg: '2rem' }}
                             mt={3}
                             textAlign={'center'}
                             bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
@@ -257,7 +283,7 @@ const Home: NextPage = () => {
                         height="300px"
                     >
                         <Heading
-                            fontSize={'2rem'}
+                            fontSize={{ base: '1.2rem', lg: '2rem' }}
                             mt={3}
                             textAlign={'center'}
                             bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
@@ -274,7 +300,7 @@ const Home: NextPage = () => {
                     >
                         <Heading
                             mt={3}
-                            fontSize={'2rem'}
+                            fontSize={{ base: '1.2rem', lg: '2rem' }}
                             textAlign={'center'}
                             bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                             bgClip="text"
@@ -290,7 +316,7 @@ const Home: NextPage = () => {
                     >
                         <Heading
                             mt={3}
-                            fontSize={'2rem'}
+                            fontSize={{ base: '1.2rem', lg: '2rem' }}
                             textAlign={'center'}
                             bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                             bgClip="text"
@@ -310,13 +336,16 @@ const Home: NextPage = () => {
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
                     <Divider bg={'#CC01FF'} height={'2px'} />
-                    <Box border="2px solid #CC01FF" width="500px">
+                    <Box
+                        border="2px solid #CC01FF"
+                        width={{ base: '220px', lg: '500px' }}
+                    >
                         <Heading
-                            fontSize={{ base: '3xl', md: '4xl' }}
+                            fontSize={{ base: '1.2rem', md: '4xl' }}
                             textAlign={'center'}
                             border={'2px solid #CC01FF'}
                             p={3}
-                            width="400px"
+                            width={{ base: '220px', lg: '500px' }}
                             position="relative"
                             top="7px"
                             left="7px"
@@ -328,12 +357,19 @@ const Home: NextPage = () => {
                     </Box>
                     <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
-                <Box p={16} pb={4}>
-                    <Grid h="500px" templateColumns="repeat(2, 1fr)" gap={4}>
+                <Box p={{ base: 6, lg: 16 }} pb={4}>
+                    <Grid
+                        templateColumns={{
+                            base: 'repeat(1, 1fr)',
+                            lg: 'repeat(2, 1fr)',
+                        }}
+                        gap={6}
+                    >
                         <GridItem
                             colSpan={1}
                             rounded={10}
-                            border={'1px solid #CC01FF'}
+                            backgroundColor={'white'}
+                            boxShadow={'#CC01FF 0px 5px 15px'}
                         >
                             <Heading
                                 textTransform={'uppercase'}
@@ -348,17 +384,21 @@ const Home: NextPage = () => {
                                 Phase 1
                             </Heading>
                             <Stack spacing={10} p={3}>
-                                <Box p={4}>
+                                <Box p={{ base: 2, lg: 4 }}>
                                     <Heading
                                         mb={2}
+                                        bgGradient={
+                                            'linear(to-l, #00FFDD,#CC01FF)'
+                                        }
+                                        bgClip="text"
                                         textTransform={'uppercase'}
-                                        fontSize={'2xl'}
+                                        fontSize={{ base: 'lg', lg: '2xl' }}
                                     >
                                         Register online
                                     </Heading>
                                     <Box display={'flex'}>
                                         <Text
-                                            fontSize={{ base: 'md' }}
+                                            fontSize={{ base: 'sm', lg: 'md' }}
                                             color={'gray.500'}
                                             lineHeight={1.6}
                                             textTransform={'uppercase'}
@@ -367,27 +407,30 @@ const Home: NextPage = () => {
                                             register your team(1-4)
                                         </Text>
                                         <Link
+                                            color={'#CC01FF'}
                                             href={'/register'}
-                                            style={{ textDecoration: 'none' }}
-                                            _hover={{ color: '#CC01FF' }}
                                             _focus={{ outline: 'none' }}
                                         >
                                             Click Here
                                         </Link>
                                     </Box>
                                 </Box>
-                                <Box p={4}>
+                                <Box p={{ base: 2, lg: 4 }}>
                                     <Heading
+                                        bgGradient={
+                                            'linear(to-l, #00FFDD,#CC01FF)'
+                                        }
+                                        bgClip="text"
                                         textAlign={'right'}
                                         textTransform={'uppercase'}
-                                        fontSize={'2xl'}
+                                        fontSize={{ base: 'lg', lg: '2xl' }}
                                         mb={2}
                                     >
                                         Team profile screening
                                     </Heading>
                                     <Text
                                         textAlign={'right'}
-                                        fontSize={{ base: 'md' }}
+                                        fontSize={{ base: 'sm', lg: 'md' }}
                                         color={'gray.500'}
                                         lineHeight={1.6}
                                         textTransform={'uppercase'}
@@ -397,16 +440,20 @@ const Home: NextPage = () => {
                                         phase 2
                                     </Text>
                                 </Box>
-                                <Box p={4}>
+                                <Box p={{ base: 2, lg: 4 }}>
                                     <Heading
+                                        bgGradient={
+                                            'linear(to-l, #00FFDD,#CC01FF)'
+                                        }
+                                        bgClip="text"
                                         mb={2}
                                         textTransform={'uppercase'}
-                                        fontSize={'2xl'}
+                                        fontSize={{ base: 'lg', lg: '2xl' }}
                                     >
                                         selection confirmation
                                     </Heading>
                                     <Text
-                                        fontSize={{ base: 'md' }}
+                                        fontSize={{ base: 'sm', lg: 'md' }}
                                         color={'gray.500'}
                                         lineHeight={1.6}
                                         textTransform={'uppercase'}
@@ -420,7 +467,8 @@ const Home: NextPage = () => {
                         <GridItem
                             colSpan={1}
                             rounded={10}
-                            border={'1px solid #CC01FF'}
+                            backgroundColor={'white'}
+                            boxShadow={'#CC01FF 0px 5px 15px'}
                         >
                             <Heading
                                 textTransform={'uppercase'}
@@ -435,16 +483,20 @@ const Home: NextPage = () => {
                                 Phase 2
                             </Heading>
                             <Stack spacing={10} p={3}>
-                                <Box p={4}>
+                                <Box p={{ base: 2, lg: 4 }}>
                                     <Heading
+                                        bgGradient={
+                                            'linear(to-l, #00FFDD,#CC01FF)'
+                                        }
+                                        bgClip="text"
                                         mb={2}
                                         textTransform={'uppercase'}
-                                        fontSize={'2xl'}
+                                        fontSize={{ base: 'lg', lg: '2xl' }}
                                     >
                                         fee payment
                                     </Heading>
                                     <Text
-                                        fontSize={{ base: 'md' }}
+                                        fontSize={{ base: 'sm', lg: 'md' }}
                                         color={'gray.500'}
                                         lineHeight={1.6}
                                         textTransform={'uppercase'}
@@ -453,18 +505,22 @@ const Home: NextPage = () => {
                                         registeration fee of inr 300.
                                     </Text>
                                 </Box>
-                                <Box p={4}>
+                                <Box p={{ base: 2, lg: 4 }}>
                                     <Heading
+                                        bgGradient={
+                                            'linear(to-l, #00FFDD,#CC01FF)'
+                                        }
+                                        bgClip="text"
                                         mb={2}
                                         textAlign={'right'}
                                         textTransform={'uppercase'}
-                                        fontSize={'2xl'}
+                                        fontSize={{ base: 'lg', lg: '2xl' }}
                                     >
                                         finally 48 - hour hackaton
                                     </Heading>
                                     <Text
                                         textAlign={'right'}
-                                        fontSize={{ base: 'md' }}
+                                        fontSize={{ base: 'sm', lg: 'md' }}
                                         color={'gray.500'}
                                         lineHeight={1.6}
                                         textTransform={'uppercase'}
@@ -480,145 +536,191 @@ const Home: NextPage = () => {
                 </Box>
             </Stack>
             {/*IMPORTANT DATES*/}
-            <Box display={'flex'} minH={'85vh'} alignItems="center">
-                <Flex
-                    alignItems={'center'}
-                    justify={'center'}
-                    transform="rotate(-90deg)"
-                    width={'25%'}
-                >
-                    <Divider bg={'#CC01FF'} height={'2px'} />
-                    <Box border="2px solid #CC01FF" width="400px">
-                        <Heading
-                            fontSize={{ base: '3xl', md: '4xl' }}
-                            textAlign={'center'}
-                            border={'2px solid #CC01FF'}
-                            p={3}
-                            width="400px"
-                            position="relative"
-                            top="7px"
-                            left="7px"
-                        >
-                            IMPORTANT DATES
-                        </Heading>
-                    </Box>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
-                </Flex>
-                <Stack
-                    width={'65%'}
-                    spacing={8}
-                    p={10}
-                    divider={
-                        <StackDivider
-                            borderColor={useColorModeValue(
-                                'gray.100',
-                                'gray.700'
-                            )}
-                        />
-                    }
-                >
-                    <HStack
-                        display={'flex'}
-                        alignItems={'center'}
-                        justifyContent={'space-between'}
+            <Stack
+                minH={{ base: '50vh' }}
+                direction={{ base: 'column' }}
+                my={{ base: 0, md: 10 }}
+                spacing={10}
+            >
+                <Flex alignItems={'center'} justifyContent={'center'}>
+                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
+                    <Heading
+                        fontSize={{ base: '1.5rem', md: '4xl' }}
+                        textAlign={'center'}
+                        p={3}
                     >
-                        <Flex align={'flex-end'}>
+                        IMPORTANT DATES
+                    </Heading>
+                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
+                </Flex>
+                <Box p={{ base: 4, md: 8, lg: 10 }}>
+                    <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8}>
+                        <Stack
+                            align={'center'}
+                            p={{ base: 4 }}
+                            borderRadius={5}
+                            bg={'white'}
+                            spacing={4}
+                            boxShadow={'#CC01FF 0px 5px 15px'}
+                        >
+                            <Flex
+                                w={16}
+                                h={16}
+                                align={'center'}
+                                justify={'center'}
+                                color={'white'}
+                                rounded={'full'}
+                                bg={'linear-gradient(#00FFDD,#CC01FF)'}
+                                my={2}
+                            >
+                                <BsCalendarDate />
+                            </Flex>
                             <Heading
                                 bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                                 bgClip="text"
+                                fontSize={{ base: '1.2rem', lg: '3xl' }}
                                 px={4}
                             >
                                 14th - 20th
                             </Heading>
-                            <Text fontSize="2xl" fontWeight="bold">
-                                APR
+                            <Text
+                                color={'gray.500'}
+                                textTransform="uppercase"
+                                textAlign={'center'}
+                            >
+                                Online Registeration Begins
                             </Text>
-                        </Flex>
-                        <Text color={'gray.500'} textTransform="uppercase">
-                            Online Registration
-                        </Text>
-                    </HStack>
-                    <HStack
-                        display={'flex'}
-                        alignItems={'center'}
-                        justifyContent={'space-between'}
-                    >
-                        <Flex align={'flex-end'}>
+                        </Stack>
+                        <Stack
+                            align={'center'}
+                            p={{ base: 4 }}
+                            borderRadius={5}
+                            bg={'white'}
+                            spacing={4}
+                            boxShadow={'#CC01FF 0px 5px 15px'}
+                        >
+                            <Flex
+                                w={16}
+                                h={16}
+                                align={'center'}
+                                justify={'center'}
+                                color={'white'}
+                                rounded={'full'}
+                                bg={'linear-gradient(#00FFDD,#CC01FF)'}
+                                my={2}
+                            >
+                                <BsCalendarDate />
+                            </Flex>
                             <Heading
                                 bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                                 bgClip="text"
+                                fontSize={{ base: '1.2rem', lg: '3xl' }}
                                 px={4}
                             >
                                 20th - 25th
                             </Heading>
-                            <Text fontSize="2xl" fontWeight="bold">
-                                APR
+                            <Text
+                                color={'gray.500'}
+                                textTransform="uppercase"
+                                textAlign={'center'}
+                            >
+                                announcement of shortlisted Teams
                             </Text>
-                        </Flex>
-                        <Text color={'gray.500'} textTransform="uppercase">
-                            announcement of shortlisted Teams
-                        </Text>
-                    </HStack>
-                    <HStack
-                        display={'flex'}
-                        alignItems={'center'}
-                        justifyContent={'space-between'}
-                    >
-                        <Flex align={'flex-end'}>
+                        </Stack>
+                        <Stack
+                            align={'center'}
+                            p={{ base: 4 }}
+                            borderRadius={5}
+                            bg={'white'}
+                            spacing={4}
+                            boxShadow={'#CC01FF 0px 5px 15px'}
+                        >
+                            <Flex
+                                w={16}
+                                h={16}
+                                align={'center'}
+                                justify={'center'}
+                                color={'white'}
+                                rounded={'full'}
+                                bg={'linear-gradient(#00FFDD,#CC01FF)'}
+                                my={2}
+                            >
+                                <BsCalendarDate />
+                            </Flex>
                             <Heading
                                 bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                                 bgClip="text"
+                                fontSize={{ base: '1.2rem', lg: '3xl' }}
                                 px={4}
                             >
                                 28th
                             </Heading>
-                            <Text fontSize="2xl" fontWeight="bold">
-                                APR
+                            <Text
+                                color={'gray.500'}
+                                textTransform="uppercase"
+                                textAlign={'center'}
+                            >
+                                Hackaton Begins (Online Event)
                             </Text>
-                        </Flex>
-                        <Text color={'gray.500'} textTransform="uppercase">
-                            Hackaton Begins (Onlive Event)
-                        </Text>
-                    </HStack>
-                    <HStack
-                        display={'flex'}
-                        alignItems={'center'}
-                        justifyContent={'space-between'}
-                    >
-                        <Flex align={'flex-end'}>
+                        </Stack>
+                        <Stack
+                            align={'center'}
+                            p={{ base: 4 }}
+                            borderRadius={5}
+                            bg={'white'}
+                            spacing={4}
+                            boxShadow={'#CC01FF 0px 5px 15px'}
+                        >
+                            <Flex
+                                w={16}
+                                h={16}
+                                align={'center'}
+                                justify={'center'}
+                                color={'white'}
+                                rounded={'full'}
+                                bg={'linear-gradient(#00FFDD,#CC01FF)'}
+                                my={2}
+                            >
+                                <BsCalendarDate />
+                            </Flex>
                             <Heading
                                 bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                                 bgClip="text"
+                                fontSize={{ base: '1.2rem', lg: '3xl' }}
                                 px={4}
                             >
                                 29th
                             </Heading>
-                            <Text fontSize="2xl" fontWeight="bold">
-                                APR
+                            <Text
+                                color={'gray.500'}
+                                textTransform="uppercase"
+                                textAlign={'center'}
+                            >
+                                Hackaton Ends
                             </Text>
-                        </Flex>
-                        <Text color={'gray.500'} textTransform="uppercase">
-                            Hackaton Ends
-                        </Text>
-                    </HStack>
-                </Stack>
-            </Box>
+                        </Stack>
+                    </SimpleGrid>
+                </Box>
+            </Stack>
             {/*SPONSERS */}
             <Stack
-                minH={'75vh'}
+                minH={{ base: '40vh', lg: '75vh' }}
                 direction={{ base: 'column' }}
                 my={20}
                 spacing={12}
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
                     <Divider bg={'#CC01FF'} height={'2px'} />
-                    <Box border="2px solid #CC01FF" width="500px">
+                    <Box
+                        border="2px solid #CC01FF"
+                        width={{ base: '220px', lg: '500px' }}
+                    >
                         <Heading
-                            fontSize={{ base: '3xl', md: '4xl' }}
+                            fontSize={{ base: '1.2rem', md: '4xl' }}
                             textAlign={'center'}
                             border={'2px solid #CC01FF'}
                             p={3}
-                            width="400px"
+                            width={{ base: '220px', lg: '500px' }}
                             position="relative"
                             top="7px"
                             left="7px"
@@ -632,13 +734,14 @@ const Home: NextPage = () => {
                 </Flex>
                 <Stack
                     minH={'40vh'}
-                    direction={{ base: 'column', md: 'row' }}
+                    direction={{ base: 'column-reverse', md: 'row' }}
                     align={'center'}
                 >
                     <Flex p={8} flex={1} align={'center'} justify={'center'}>
                         <Stack spacing={6} w={'full'} maxW={'lg'}>
                             <Heading
                                 fontSize={{ base: '3xl' }}
+                                textAlign={{ base: 'center', lg: 'left' }}
                             >
                                 ABOUT SPONSERS
                             </Heading>
@@ -646,6 +749,7 @@ const Home: NextPage = () => {
                                 fontSize={{ base: 'md', lg: 'lg' }}
                                 color={'gray.500'}
                                 lineHeight={1.8}
+                                textAlign={{ base: 'center', lg: 'left' }}
                             >
                                 Honeywell International Inc. is an American
                                 publicly traded, multinational conglomerate
@@ -655,7 +759,14 @@ const Home: NextPage = () => {
                                 performance materials and technologies, and
                                 safety and productivity solutions.
                             </Text>
-                            <Box>
+                            <Box
+                                alignItems={{ base: 'center' }}
+                                display={'flex'}
+                                justifyContent={{
+                                    base: 'center',
+                                    md: 'flex-start',
+                                }}
+                            >
                                 <Link
                                     href={'https://www.honeywell.com/us/en'}
                                     target="_blank"
@@ -679,9 +790,10 @@ const Home: NextPage = () => {
                             </Box>
                         </Stack>
                     </Flex>
-                    <Flex flex={1}>
+                    <Flex flex={1} justify={'center'}>
                         <Image
-                            width={'75%'}
+                            width={{ base: '90%', lg: '75%' }}
+                            p={4}
                             height={'50%'}
                             src={'../assests/images/Logo/Honeywell_logo.png'}
                         />
@@ -697,13 +809,16 @@ const Home: NextPage = () => {
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
                     <Divider bg={'#CC01FF'} height={'2px'} />
-                    <Box border="2px solid #CC01FF" width="500px">
+                    <Box
+                        border="2px solid #CC01FF"
+                        width={{ base: '200px', lg: '500px' }}
+                    >
                         <Heading
-                            fontSize={{ base: '3xl', md: '4xl' }}
+                            fontSize={{ base: '2xl', md: '4xl' }}
                             textAlign={'center'}
                             border={'2px solid #CC01FF'}
                             p={3}
-                            width="400px"
+                            width={{ base: '200px', lg: '500px' }}
                             position="relative"
                             top="7px"
                             left="7px"
@@ -715,8 +830,16 @@ const Home: NextPage = () => {
                     </Box>
                     <Divider bg={'#CC01FF'} height={'2px'} />
                 </Flex>
-                <HStack spacing={12}>
-                    <Box width={'45%'} padding={16} ml={14}>
+                <Stack
+                    spacing={{ base: 5, lg: 12 }}
+                    justifyContent={'space-around'}
+                    direction={{ base: 'column', lg: 'row' }}
+                >
+                    <Box
+                        width={{ base: '100%', lg: '45%' }}
+                        padding={{ base: 5, lg: 16 }}
+                        ml={{ base: 0, lg: 14 }}
+                    >
                         <AspectRatio ratio={14 / 12}>
                             <iframe
                                 style={{ borderRadius: '15px' }}
@@ -727,8 +850,8 @@ const Home: NextPage = () => {
                     <Box
                         borderRadius="lg"
                         mr={{ base: 5 }}
-                        p={{ base: 16 }}
-                        width={'55%'}
+                        p={{ base: 5, lg: 16 }}
+                        width={{ base: '100%', lg: '55%' }}
                     >
                         <Stack spacing={6} maxW={'lg'} align="flex-start">
                             <Heading
@@ -813,7 +936,7 @@ const Home: NextPage = () => {
                             </Stack>
                         </Stack>
                     </Box>
-                </HStack>
+                </Stack>
             </Stack>
         </>
     );

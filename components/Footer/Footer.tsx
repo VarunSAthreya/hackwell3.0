@@ -66,7 +66,7 @@ const Footer: FC = () => {
                 py={4}
                 my={4}
                 direction={{ base: 'column', md: 'row' }}
-                spacing={4}
+                spacing={{ base: 8, lg: 4 }}
                 justify={{ base: 'center', md: 'space-between' }}
                 align={{ base: 'center', md: 'center' }}
             >
@@ -79,7 +79,7 @@ const Footer: FC = () => {
                         return <SocialMedia data={data} key={index} />;
                     })}
                 </Stack>
-                <Stack align={'flex-start'} spacing={3}> 
+                <Stack align={{ base: 'center', lg: 'flex-start' }} spacing={3}>
                     <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
                         Designed And Developed By:
                     </Text>
