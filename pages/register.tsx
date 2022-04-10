@@ -14,14 +14,16 @@ import {
     InputLeftAddon,
     Link,
     Select,
+    Spinner,
     Stack,
     Text,
+    useToast,
     VStack,
 } from '@chakra-ui/react';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { BiNotepad } from 'react-icons/bi';
 import { db } from '../lib/firebase';
@@ -59,9 +61,12 @@ const Register: NextPage = () => {
     const tsize = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
     const teamSize = [1, 2, 3, 4];
     const year = [1, 2, 3, 4];
+    const [isLoading, setIsLoading] = useState(false);
+    const toast = useToast();
 
     const onSubmit = async (data: FormValues) => {
         console.log({ data });
+        setIsLoading(true);
         const documentSnapshot = await getDoc(
             doc(db, 'registered_teams', data.teamName)
         );
@@ -71,12 +76,21 @@ const Register: NextPage = () => {
                 type: 'manual',
                 message: 'Team name already exists',
             });
+            setIsLoading(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
         await setDoc(doc(db, 'registered_teams', data.teamName), data);
 
-        alert('Registered Successful');
+        toast({
+            title: 'Registration Successful',
+            description: 'Your team has been registered successfully',
+            status: 'success',
+            duration: 5000,
+            isClosable: true,
+        });
         router.push('/');
+        setIsLoading(false);
     };
 
     return (
@@ -397,6 +411,16 @@ const Register: NextPage = () => {
                                                         {
                                                             required:
                                                                 'Please enter the phone number',
+                                                            maxLength: {
+                                                                value: 10,
+                                                                message:
+                                                                    'Please enter a valid phone number',
+                                                            },
+                                                            minLength: {
+                                                                value: 10,
+                                                                message:
+                                                                    'Please enter a valid phone number',
+                                                            },
                                                         }
                                                     )}
                                                 />
@@ -1363,8 +1387,18 @@ const Register: NextPage = () => {
                                                 _focus={{ outline: 'none' }}
                                                 type="submit"
                                                 textTransform={'uppercase'}
+                                                disabled={isLoading}
                                             >
                                                 Register
+                                                {isLoading && (
+                                                    <Spinner
+                                                        ml={2}
+                                                        thickness="4px"
+                                                        speed="0.65s"
+                                                        emptyColor="#00FFDD"
+                                                        color="#CC01FF"
+                                                    />
+                                                )}
                                             </Button>
                                         </Flex>
                                     </GridItem>
