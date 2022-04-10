@@ -10,7 +10,7 @@ import {
     Link,
 } from '@chakra-ui/react';
 import { FC } from 'react';
-import { AiFillFacebook,AiOutlineInstagram,AiOutlineTwitter,AiFillYoutube } from 'react-icons/ai';
+import { AiFillFacebook,AiOutlineInstagram,AiOutlineTwitter,AiFillYoutube,AiOutlineMail } from 'react-icons/ai';
 import {BsGithub,BsLinkedin} from 'react-icons/bs'
 import SocialMedia from '../UI/SocialMedia/SocialMedia';
 import { ISocialMedia } from '../../@types';
@@ -20,24 +20,24 @@ const Footer: FC = () => {
 
     const Social: ISocialMedia[] = [
         {
-            icon: AiOutlineTwitter,
-            label: 'Twitter',
-            url: '#'
+            icon: AiOutlineMail,
+            label: 'Email',
+            url: 'mailto:jsshackwell@jssateb.ac.in'
         },
         {
-            icon: AiFillYoutube,
-            label: 'Youtube',
-            url: '#'
+            icon: AiOutlineTwitter,
+            label: 'Twitter',
+            url: 'https://twitter.com/jsshackwell'
         },
         {
             icon: AiOutlineInstagram,
             label: 'Instagram',
-            url: '#'
+            url: 'https://www.instagram.com/jsshackwell/'
         },
         {
             icon: AiFillFacebook,
             label: 'Facebook',
-            url: '#'
+            url: 'https://www.facebook.com/jsshackwell/'
         }
     ]
 
