@@ -7,24 +7,24 @@ import {
     FormErrorMessage,
     Grid,
     GridItem,
-    Link,
     Heading,
+    Icon,
     Input,
     InputGroup,
     InputLeftAddon,
+    Link,
     Select,
     Stack,
     Text,
     VStack,
-    Icon,
 } from '@chakra-ui/react';
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { BiNotepad } from 'react-icons/bi';
 import { db } from '../lib/firebase';
-import {BiNotepad} from 'react-icons/bi'
 
 interface IMember {
     name: string;
@@ -51,6 +51,7 @@ const Register: NextPage = () => {
     const {
         register,
         handleSubmit,
+        setError,
         formState: { errors },
     } = useForm<FormValues>();
     const router = useRouter();
@@ -61,8 +62,19 @@ const Register: NextPage = () => {
 
     const onSubmit = async (data: FormValues) => {
         console.log({ data });
-        const docRef = await addDoc(collection(db, 'registered_teams'), data);
-        console.log('Document written with ID: ', docRef.id);
+        const documentSnapshot = await getDoc(
+            doc(db, 'registered_teams', data.teamName)
+        );
+
+        if (documentSnapshot.exists()) {
+            setError('teamName', {
+                type: 'manual',
+                message: 'Team name already exists',
+            });
+            return;
+        }
+        await setDoc(doc(db, 'registered_teams', data.teamName), data);
+
         alert('Registered Successful');
         router.push('/');
     };
@@ -222,7 +234,7 @@ const Register: NextPage = () => {
                                                     Team Size:
                                                 </InputLeftAddon>
                                                 <Select
-                                                rounded={0}
+                                                    rounded={0}
                                                     placeholder="Team Size"
                                                     {...register('teamSize', {
                                                         required:
@@ -245,44 +257,6 @@ const Register: NextPage = () => {
                                                     errors.teamSize.message}
                                             </FormErrorMessage>
                                         </FormControl>
-                                    </GridItem>
-                                    <GridItem p={4} colSpan={2}>
-                                        <FormControl
-                                            isInvalid={
-                                                errors.paymentId !== undefined
-                                            }
-                                        >
-                                            <InputGroup>
-                                                <InputLeftAddon>
-                                                    Razorpay Payment Id:
-                                                </InputLeftAddon>
-                                                <Input
-                                                    type="text"
-                                                    placeholder="Razorpay Payment Id"
-                                                    {...register('paymentId', {
-                                                        required:
-                                                            'Please Enter The College name',
-                                                    })}
-                                                />
-                                            </InputGroup>
-
-                                            <FormErrorMessage>
-                                                {errors.paymentId &&
-                                                    errors.paymentId.message}
-                                            </FormErrorMessage>
-                                        </FormControl>
-                                    </GridItem>
-                                    <GridItem p={4} colSpan={2}>
-                                        <Box display={'flex'} alignItems={'center'} bg={'white'} padding={3} borderRadius={'10px'}>
-                                            <Icon as={BiNotepad} color={'#CC01FF'} mr={5}/>
-                                        <Link
-                                            color={'#CC01FF'}
-                                            href={'https://rzp.io/l/FxLro0IXf'}
-                                            _focus={{ outline: 'none' }}
-                                        >
-                                           Click Here To Pay
-                                        </Link>
-                                        </Box>
                                     </GridItem>
                                 </Grid>
                                 {/* Member Details */}
@@ -1288,6 +1262,90 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem> */}
+                                    <GridItem
+                                        p={{ base: 1, md: 4 }}
+                                        py={5}
+                                        colSpan={2}
+                                    >
+                                        <Flex
+                                            alignItems={'center'}
+                                            justifyContent={'center'}
+                                        >
+                                            <Divider
+                                                bg={'#CC01FF'}
+                                                height={'2px'}
+                                                width={'10%'}
+                                            />
+                                            <Text
+                                                bgGradient={
+                                                    'linear(to-l, #00FFDD,#CC01FF)'
+                                                }
+                                                bgClip="text"
+                                                fontSize="3xl"
+                                                mx={2}
+                                                fontWeight="extrabold"
+                                                textAlign={'center'}
+                                                textTransform={'uppercase'}
+                                            >
+                                                Payment Details
+                                            </Text>
+                                            <Divider
+                                                bg={'#CC01FF'}
+                                                height={'2px'}
+                                                width={'10%'}
+                                            />
+                                        </Flex>
+                                    </GridItem>
+                                    <GridItem p={4} colSpan={2}>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.paymentId !== undefined
+                                            }
+                                        >
+                                            <InputGroup>
+                                                <InputLeftAddon>
+                                                    Razorpay Payment Id:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Razorpay Payment Id"
+                                                    {...register('paymentId', {
+                                                        required:
+                                                            'Please Enter The Payment ID',
+                                                    })}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.paymentId &&
+                                                    errors.paymentId.message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                    </GridItem>
+                                    <GridItem p={4} colSpan={2}>
+                                        <Box
+                                            display={'flex'}
+                                            alignItems={'center'}
+                                            bg={'white'}
+                                            padding={3}
+                                            borderRadius={'10px'}
+                                        >
+                                            <Icon
+                                                as={BiNotepad}
+                                                color={'#CC01FF'}
+                                                mr={5}
+                                            />
+                                            <Link
+                                                color={'#CC01FF'}
+                                                href={
+                                                    'https://rzp.io/l/FxLro0IXf'
+                                                }
+                                                _focus={{ outline: 'none' }}
+                                            >
+                                                Click Here To Pay
+                                            </Link>
+                                        </Box>
+                                    </GridItem>
                                 </Grid>
                                 <Grid templateColumns="repeat(2, 1fr)">
                                     <GridItem p={4} colSpan={2} mt={4}>
