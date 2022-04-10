@@ -265,10 +265,10 @@ const Home: NextPage = () => {
                         </Text>
                     </Stack>
                     <Image
-                        alt={'Login Image'}
-                        w={{ base: '300px', lg: '450px' }}
-                        h={{ base: '125px', lg: '125px' }}
-                        src={'../assests/images/Logo/Hackwell_logo.png'}
+                        alt={'hackwell'}
+                        w={{ base: '300px', lg: '600px' }}
+                        h={{ base: '200px', lg: '400px' }}
+                        src={'../assests/images/Main/about.jpg'}
                     />
                 </Stack>
             </Stack>
