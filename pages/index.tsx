@@ -16,185 +16,70 @@ import {
     Stack,
     StackDivider,
     Text,
+    StackProps,
+    DividerProps,
+    ImageProps,
+    BoxProps,
+    AspectRatioProps,
+    GridItemProps,
+    SimpleGridProps
 } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import React, { useEffect, useState } from 'react';
 import { BsCalendarDate, BsLinkedin, BsTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
 import Canvas from '../components/UI/Canvas/Canvas';
+import { motion } from 'framer-motion';
+import {
+    stack,
+    divider,
+    innerStack,
+    image,
+    secondaryDivider,
+    aspectRatio,
+    secondaryStack,
+    gridItem,
+    secondaryGridItem,
+    simpleGrid,
+    ternaryStack,
+    secondaryImage,
+    box
+} from '../util/variants';
+import Main from '../layout/Main';
 
 const Home: NextPage = () => {
-    const [finished, setFinished] = useState(false);
-    const [days, setDays] = useState(0);
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(0);
-
-    useEffect(() => {
-        const target = new Date('04/28/2022 00:00:00');
-
-        const interval = setInterval(() => {
-            const now = new Date();
-            const difference = target.getTime() - now.getTime();
-
-            const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-            setDays(d);
-
-            const h = Math.floor(
-                (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-            );
-            setHours(h);
-
-            const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            setMinutes(m);
-
-            const s = Math.floor((difference % (1000 * 60)) / 1000);
-            setSeconds(s);
-
-            if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
-                setFinished(true);
-            }
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, []);
+    const MotionDivider = motion<DividerProps>(Divider);
+    const MotionStack = motion<StackProps>(Stack);
+    const MotionImage = motion<ImageProps>(Image);
+    const MotionBox = motion<BoxProps>(Box);
+    const MotionAspectRatio = motion<AspectRatioProps>(AspectRatio);
+    const MotionGridItem = motion<GridItemProps>(GridItem);
+    const MotionSimpleGrid = motion<SimpleGridProps>(SimpleGrid);
 
     return (
         <>
-            <Canvas />
-            <Stack
-                spacing={{ base: 10, md: 12, lg: 16 }}
-                pos={'absolute'}
-                top={{ base: '3%', md: '4%', lg: '4%' }}
-                left={{ base: '8%', lg: '15%' }}
-                zIndex={20}
-            >
-                <Stack spacing={2}>
-                    <Text
-                        textTransform={'uppercase'}
-                        bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                        bgClip="text"
-                        fontWeight={600}
-                        fontSize={{ base: '1.5rem', md: '2xl' }}
-                        p={2}
-                        alignSelf={'flex-start'}
-                        rounded={'md'}
-                    >
-                        JSSATE-B PRESENTS
-                    </Text>
-                    <Box>
-                        <Image
-                            src={'../assests/images/Logo/Hackwell_logo.png'}
-                            width={{ base: '300px', lg: '550px' }}
-                            height={{ base: '100px', lg: '130px' }}
-                        />
-                    </Box>
-                </Stack>
-                <Stack spacing={6}>
-                    {!finished && (
-                        <HStack
-                            spacing={{ base: 4, md: 6, lg: 8 }}
-                            divider={
-                                <StackDivider borderColor={'whiteAlpha.500'} />
-                            }
-                        >
-                            <Box>
-                                <Heading
-                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                    bgClip="text"
-                                >
-                                    {days}
-                                </Heading>
-                                <Text
-                                    color={'white'}
-                                    fontSize={{ base: 'md', lg: 'lg' }}
-                                >
-                                    DAYS
-                                </Text>
-                            </Box>
-                            <Box>
-                                <Heading
-                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                    bgClip="text"
-                                >
-                                    {hours}
-                                </Heading>
-                                <Text
-                                    color={'white'}
-                                    fontSize={{ base: 'md', lg: 'lg' }}
-                                >
-                                    HRS
-                                </Text>
-                            </Box>
-                            <Box>
-                                <Heading
-                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                    bgClip="text"
-                                >
-                                    {minutes}
-                                </Heading>
-                                <Text
-                                    color={'white'}
-                                    fontSize={{ base: 'md', lg: 'lg' }}
-                                >
-                                    MINS
-                                </Text>
-                            </Box>
-                            <Box>
-                                <Heading
-                                    bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
-                                    bgClip="text"
-                                >
-                                    {seconds}
-                                </Heading>
-                                <Text
-                                    color={'white'}
-                                    fontSize={{ base: 'md', lg: 'lg' }}
-                                >
-                                    SECS
-                                </Text>
-                            </Box>
-                        </HStack>
-                    )}
-                    <Flex justifyContent={'flex-start'}>
-                        <Box
-                            border="2px solid gray"
-                            width={{ base: '200px', md: '300px' }}
-                        >
-                            <Heading
-                                fontSize={{ base: '1.8xl' }}
-                                textAlign={'center'}
-                                border={'2px solid gray'}
-                                p={3}
-                                width={{ base: '200px', md: '300px' }}
-                                position="relative"
-                                top="7px"
-                                left="7px"
-                                padding="1rem"
-                                transform="translateZ(-10px)"
-                            >
-                                SPONSORED BY{' '}
-                                <Image
-                                    width={{ base: '200px', md: '300px' }}
-                                    src={
-                                        '../assests/images/Logo/Honeywell_logo.png'
-                                    }
-                                />
-                            </Heading>
-                        </Box>
-                    </Flex>
-                </Stack>
-            </Stack>
+            <Main />
             {/*ABOUT US*/}
-            <Stack
+            <MotionStack
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
                 id="about"
                 spacing={{ base: 10, lg: 20 }}
+                variants={stack}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                     <Box
                         border="2px solid #CC01FF"
                         width={{ base: '220px', lg: '500px' }}
@@ -211,10 +96,17 @@ const Home: NextPage = () => {
                             padding="1rem"
                             transform="translateZ(-10px)"
                         >
-                            ABOUT HACKWELL3.0
+                            ABOUT HACKWELL 
                         </Heading>
                     </Box>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                 </Flex>
                 <Stack
                     p={8}
@@ -223,7 +115,14 @@ const Home: NextPage = () => {
                     direction={{ base: 'column-reverse', lg: 'row' }}
                     alignItems={'center'}
                 >
-                    <Stack spacing={{ base: 5, lg: 3 }} w={'full'} maxW={'lg'}>
+                    <MotionStack
+                        spacing={{ base: 5, lg: 3 }}
+                        w={'full'}
+                        maxW={'lg'}
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={innerStack}
+                    >
                         <Text
                             fontSize={{ base: 'md', lg: 'lg' }}
                             color={'gray.200'}
@@ -263,25 +162,40 @@ const Home: NextPage = () => {
                             the event,guide the teams and also judge the
                             solutions.
                         </Text>
-                    </Stack>
-                    <Image
+                    </MotionStack>
+                    <MotionImage
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={image}
                         alt={'hackwell'}
+                        rounded={8}
                         w={{ base: '300px', lg: '600px' }}
                         h={{ base: '200px', lg: '400px' }}
                         src={'../assests/images/Main/about.jpg'}
                     />
                 </Stack>
-            </Stack>
+            </MotionStack>
             {/*THEMES*/}
-            <Stack
+            <MotionStack
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
                 id="themes"
                 spacing={10}
+                variants={stack}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                     <Box
                         border="2px solid #CC01FF"
                         width={{ base: '220px', lg: '500px' }}
@@ -301,16 +215,26 @@ const Home: NextPage = () => {
                             THEMES
                         </Heading>
                     </Box>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                 </Flex>
-                <SimpleGrid
+                <MotionSimpleGrid
                     columns={{ base: 2, lg: 3 }}
                     p={{ base: 0, lg: 10 }}
                     backgroundImage={'./assests/images/Main/theme.png'}
                     backgroundPosition={'center'}
                     backgroundRepeat={'no-repeat'}
+                    whileInView="whileInView"
+                    viewport={{ once: true }}
+                    variants={simpleGrid}
                 >
-                    <Box
+                    <MotionBox
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
                         height="320px"
@@ -318,6 +242,9 @@ const Home: NextPage = () => {
                         flexDirection="column"
                         justifyContent="space-around"
                         alignItems="center"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={box}
                     >
                         <Heading
                             fontSize={{ base: '1.2rem', lg: '2rem' }}
@@ -337,8 +264,8 @@ const Home: NextPage = () => {
                             p={6}
                             rounded={5}
                         />
-                    </Box>
-                    <Box
+                    </MotionBox>
+                    <MotionBox
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
                         height="320px"
@@ -346,6 +273,9 @@ const Home: NextPage = () => {
                         flexDirection="column"
                         justifyContent="space-around"
                         alignItems="center"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={box}
                     >
                         <Heading
                             fontSize={{ base: '1.2rem', lg: '2rem' }}
@@ -365,8 +295,8 @@ const Home: NextPage = () => {
                             p={6}
                             rounded={5}
                         />
-                    </Box>
-                    <Box
+                    </MotionBox>
+                    <MotionBox
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
                         height="320px"
@@ -374,6 +304,9 @@ const Home: NextPage = () => {
                         flexDirection="column"
                         justifyContent="space-around"
                         alignItems="center"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={box}
                     >
                         <Heading
                             mt={3}
@@ -391,8 +324,8 @@ const Home: NextPage = () => {
                             p={6}
                             rounded={5}
                         />
-                    </Box>
-                    <Box
+                    </MotionBox>
+                    <MotionBox
                         borderRight={'1px solid #2d3748'}
                         borderBottom={'1px solid #2d3748'}
                         height="320px"
@@ -400,6 +333,9 @@ const Home: NextPage = () => {
                         flexDirection="column"
                         justifyContent="space-around"
                         alignItems="center"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={box}
                     >
                         <Heading
                             mt={3}
@@ -417,19 +353,30 @@ const Home: NextPage = () => {
                             p={6}
                             rounded={5}
                         />
-                    </Box>
-                </SimpleGrid>
-            </Stack>
+                    </MotionBox>
+                </MotionSimpleGrid>
+            </MotionStack>
             {/*PHASES*/}
-            <Stack
+            <MotionStack
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
                 id="phases"
                 spacing={10}
+                variants={stack}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                     <Box
                         border="2px solid #CC01FF"
                         width={{ base: '220px', lg: '500px' }}
@@ -449,7 +396,14 @@ const Home: NextPage = () => {
                             HACKWELL PHASES
                         </Heading>
                     </Box>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                 </Flex>
                 <Box p={{ base: 6, lg: 16 }} pb={4}>
                     <Grid
@@ -459,11 +413,14 @@ const Home: NextPage = () => {
                         }}
                         gap={6}
                     >
-                        <GridItem
+                        <MotionGridItem
                             colSpan={1}
                             rounded={10}
                             backgroundColor={'white'}
                             boxShadow={'#CC01FF 0px 5px 15px'}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={gridItem}
                         >
                             <Heading
                                 textTransform={'uppercase'}
@@ -502,9 +459,8 @@ const Home: NextPage = () => {
                                                     base: 'sm',
                                                     lg: 'md',
                                                 }}
-                                                color={'gray.500'}
+                                                color={'gray.700'}
                                                 lineHeight={1.6}
-                                                textTransform={'uppercase'}
                                                 mr={2}
                                             >
                                                 register your team(1-4)
@@ -553,11 +509,10 @@ const Home: NextPage = () => {
                                         <Text
                                             textAlign={'right'}
                                             fontSize={{ base: 'sm', lg: 'md' }}
-                                            color={'gray.500'}
+                                            color={'gray.700'}
                                             lineHeight={1.6}
-                                            textTransform={'uppercase'}
                                         >
-                                            the submitted team profile will be
+                                            The submitted team profile will be
                                             screened to shortlist the teams for
                                             phase 2
                                         </Text>
@@ -583,11 +538,11 @@ const Home: NextPage = () => {
                                         </Heading>
                                         <Text
                                             fontSize={{ base: 'sm', lg: 'md' }}
-                                            color={'gray.500'}
+                                            color={'gray.700'}
                                             lineHeight={1.6}
-                                            textTransform={'uppercase'}
+                                            
                                         >
-                                            the shortlisted teams for phase 2
+                                            The shortlisted teams for phase 2
                                             will receive a conformation email.
                                         </Text>
                                     </Box>
@@ -600,12 +555,15 @@ const Home: NextPage = () => {
                                     />
                                 </Box>
                             </Stack>
-                        </GridItem>
-                        <GridItem
+                        </MotionGridItem>
+                        <MotionGridItem
                             colSpan={1}
                             rounded={10}
                             backgroundColor={'white'}
                             boxShadow={'#CC01FF 0px 5px 15px'}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={secondaryGridItem}
                         >
                             <Heading
                                 textTransform={'uppercase'}
@@ -640,12 +598,11 @@ const Home: NextPage = () => {
                                         </Heading>
                                         <Text
                                             fontSize={{ base: 'sm', lg: 'md' }}
-                                            color={'gray.500'}
+                                            color={'gray.700'}
                                             lineHeight={1.6}
-                                            textTransform={'uppercase'}
                                         >
-                                            shortlisted students must pay a
-                                            registeration fee of inr 300.
+                                            Shortlisted students must pay a
+                                            registeration fee of inr 250.
                                         </Text>
                                     </Box>
                                     <Image
@@ -683,9 +640,8 @@ const Home: NextPage = () => {
                                         <Text
                                             textAlign={'right'}
                                             fontSize={{ base: 'sm', lg: 'md' }}
-                                            color={'gray.500'}
+                                            color={'gray.700'}
                                             lineHeight={1.6}
-                                            textTransform={'uppercase'}
                                         >
                                             the shortlisted teams will be
                                             hacking on the problem statements
@@ -694,19 +650,31 @@ const Home: NextPage = () => {
                                     </Box>
                                 </Box>
                             </Stack>
-                        </GridItem>
+                        </MotionGridItem>
                     </Grid>
                 </Box>
-            </Stack>
+            </MotionStack>
             {/*IMPORTANT DATES*/}
-            <Stack
+            <MotionStack
                 minH={{ base: '50vh' }}
                 direction={{ base: 'column' }}
                 my={{ base: 0, md: 10 }}
                 spacing={10}
+                variants={stack}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        width={'10%'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={secondaryDivider}
+                    />
                     <Heading
                         fontSize={{ base: '1.5rem', md: '4xl' }}
                         textAlign={'center'}
@@ -714,17 +682,34 @@ const Home: NextPage = () => {
                     >
                         IMPORTANT DATES
                     </Heading>
-                    <Divider bg={'#CC01FF'} height={'2px'} width={'10%'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        width={'10%'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={secondaryDivider}
+                    />
                 </Flex>
                 <Box p={{ base: 4, md: 8, lg: 10 }}>
-                    <SimpleGrid columns={{ base: 2, md: 4 }} spacing={8}>
-                        <Stack
+                    <MotionSimpleGrid
+                        columns={{ base: 2, md: 4 }}
+                        spacing={8}
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={simpleGrid}
+                    >
+                        <MotionStack
                             align={'center'}
                             p={{ base: 4 }}
                             borderRadius={5}
                             bg={'white'}
                             spacing={4}
                             boxShadow={'#CC01FF 0px 5px 15px'}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={ternaryStack}
                         >
                             <Flex
                                 w={16}
@@ -753,14 +738,17 @@ const Home: NextPage = () => {
                             >
                                 Online Registeration Begins
                             </Text>
-                        </Stack>
-                        <Stack
+                        </MotionStack>
+                        <MotionStack
                             align={'center'}
                             p={{ base: 4 }}
                             borderRadius={5}
                             bg={'white'}
                             spacing={4}
                             boxShadow={'#CC01FF 0px 5px 15px'}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={ternaryStack}
                         >
                             <Flex
                                 w={16}
@@ -789,14 +777,17 @@ const Home: NextPage = () => {
                             >
                                 announcement of shortlisted Teams
                             </Text>
-                        </Stack>
-                        <Stack
+                        </MotionStack>
+                        <MotionStack
                             align={'center'}
                             p={{ base: 4 }}
                             borderRadius={5}
                             bg={'white'}
                             spacing={4}
                             boxShadow={'#CC01FF 0px 5px 15px'}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={ternaryStack}
                         >
                             <Flex
                                 w={16}
@@ -825,14 +816,17 @@ const Home: NextPage = () => {
                             >
                                 Hackaton Begins (Online Event)
                             </Text>
-                        </Stack>
-                        <Stack
+                        </MotionStack>
+                        <MotionStack
                             align={'center'}
                             p={{ base: 4 }}
                             borderRadius={5}
                             bg={'white'}
                             spacing={4}
                             boxShadow={'#CC01FF 0px 5px 15px'}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={ternaryStack}
                         >
                             <Flex
                                 w={16}
@@ -861,20 +855,31 @@ const Home: NextPage = () => {
                             >
                                 Hackaton Ends
                             </Text>
-                        </Stack>
-                    </SimpleGrid>
+                        </MotionStack>
+                    </MotionSimpleGrid>
                 </Box>
-            </Stack>
+            </MotionStack>
             {/*SPONSERS */}
-            <Stack
+            <MotionStack
                 minH={{ base: '40vh', lg: '75vh' }}
                 direction={{ base: 'column' }}
                 my={20}
                 spacing={12}
                 id="sponsor"
+                variants={stack}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                     <Box
                         border="2px solid #CC01FF"
                         width={{ base: '220px', lg: '500px' }}
@@ -894,20 +899,34 @@ const Home: NextPage = () => {
                             OUR SPONSOR PARTNER
                         </Heading>
                     </Box>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                 </Flex>
                 <Stack
                     minH={'40vh'}
                     direction={{ base: 'column-reverse', md: 'row' }}
                     align={'center'}
                 >
-                    <Flex p={8} flex={1} align={'center'} justify={'center'}>
-                        <Stack spacing={6} w={'full'} maxW={'lg'}>
+                    <Flex p={6} flex={1} align={'center'} justify={'center'}>
+                        <MotionStack
+                            spacing={6}
+                            w={'full'}
+                            maxW={'lg'}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={innerStack}
+                        >
                             <Heading
                                 fontSize={{ base: '3xl' }}
                                 textAlign={{ base: 'center', lg: 'left' }}
                             >
-                                ABOUT SPONSERS
+                                ABOUT SPONSOR
                             </Heading>
                             <Text
                                 fontSize={{ base: 'md', lg: 'lg' }}
@@ -952,10 +971,13 @@ const Home: NextPage = () => {
                                     </Button>
                                 </Link>
                             </Box>
-                        </Stack>
+                        </MotionStack>
                     </Flex>
                     <Flex flex={1} justify={'center'}>
-                        <Image
+                        <MotionImage
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={secondaryImage}
                             width={{ base: '90%', lg: '75%' }}
                             p={4}
                             height={'50%'}
@@ -963,17 +985,28 @@ const Home: NextPage = () => {
                         />
                     </Flex>
                 </Stack>
-            </Stack>
+            </MotionStack>
             {/*CONTACT US*/}
-            <Stack
+            <MotionStack
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
                 id="contact us"
                 spacing={12}
+                variants={stack}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
             >
                 <Flex alignItems={'center'} justifyContent={'center'}>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                     <Box
                         border="2px solid #CC01FF"
                         width={{ base: '200px', lg: '500px' }}
@@ -993,7 +1026,14 @@ const Home: NextPage = () => {
                             CONTACT US
                         </Heading>
                     </Box>
-                    <Divider bg={'#CC01FF'} height={'2px'} />
+                    <MotionDivider
+                        bg={'#CC01FF'}
+                        height={'2px'}
+                        initial="hidden"
+                        whileInView="whileInView"
+                        viewport={{ once: true }}
+                        variants={divider}
+                    />
                 </Flex>
                 <Stack
                     spacing={{ base: 5, lg: 12 }}
@@ -1005,12 +1045,17 @@ const Home: NextPage = () => {
                         padding={{ base: 5, lg: 16 }}
                         ml={{ base: 0, lg: 14 }}
                     >
-                        <AspectRatio ratio={14 / 12}>
+                        <MotionAspectRatio
+                            ratio={14 / 12}
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={aspectRatio}
+                        >
                             <iframe
                                 style={{ borderRadius: '15px' }}
                                 src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=JSSATE-B%20Campus,%20Dr.Vishnuvardhan%20Rd%20Uttarahalli-Kengeri%20Main%20Road,%20JSS%20Campus%20Rd,%20Srinivaspura,%20Bengaluru,%20Karnataka%20560060+(JSSATE-B)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                             />
-                        </AspectRatio>
+                        </MotionAspectRatio>
                     </Box>
                     <Box
                         borderRadius="lg"
@@ -1018,7 +1063,14 @@ const Home: NextPage = () => {
                         p={{ base: 5, lg: 16 }}
                         width={{ base: '100%', lg: '55%' }}
                     >
-                        <Stack spacing={6} maxW={'lg'} align="flex-start">
+                        <MotionStack
+                            spacing={6}
+                            maxW={'lg'}
+                            align="flex-start"
+                            whileInView="whileInView"
+                            viewport={{ once: true }}
+                            variants={secondaryStack}
+                        >
                             <Heading
                                 fontSize={{ base: '2xl' }}
                                 textAlign="left"
@@ -1099,10 +1151,10 @@ const Home: NextPage = () => {
                                     />
                                 </Link>
                             </Stack>
-                        </Stack>
+                        </MotionStack>
                     </Box>
                 </Stack>
-            </Stack>
+            </MotionStack>
         </>
     );
 };
