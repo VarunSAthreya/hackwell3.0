@@ -1,51 +1,48 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
     AspectRatio,
+    AspectRatioProps,
     Box,
+    BoxProps,
     Button,
     Divider,
+    DividerProps,
     Flex,
     Grid,
     GridItem,
+    GridItemProps,
     Heading,
-    HStack,
     IconButton,
     Image,
+    ImageProps,
     Link,
     SimpleGrid,
+    SimpleGridProps,
     Stack,
-    StackDivider,
-    Text,
     StackProps,
-    DividerProps,
-    ImageProps,
-    BoxProps,
-    AspectRatioProps,
-    GridItemProps,
-    SimpleGridProps
+    Text,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import { NextPage } from 'next';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BsCalendarDate, BsLinkedin, BsTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
-import Canvas from '../components/UI/Canvas/Canvas';
-import { motion } from 'framer-motion';
-import {
-    stack,
-    divider,
-    innerStack,
-    image,
-    secondaryDivider,
-    aspectRatio,
-    secondaryStack,
-    gridItem,
-    secondaryGridItem,
-    simpleGrid,
-    ternaryStack,
-    secondaryImage,
-    box
-} from '../util/variants';
 import Main from '../layout/Main';
+import {
+    aspectRatio,
+    box,
+    divider,
+    gridItem,
+    image,
+    innerStack,
+    secondaryDivider,
+    secondaryGridItem,
+    secondaryImage,
+    secondaryStack,
+    simpleGrid,
+    stack,
+    ternaryStack,
+} from '../util/variants';
 
 const Home: NextPage = () => {
     const MotionDivider = motion<DividerProps>(Divider);
@@ -96,7 +93,7 @@ const Home: NextPage = () => {
                             padding="1rem"
                             transform="translateZ(-10px)"
                         >
-                            ABOUT HACKWELL 
+                            ABOUT HACKWELL
                         </Heading>
                     </Box>
                     <MotionDivider
@@ -129,7 +126,7 @@ const Home: NextPage = () => {
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                         >
-                            Hackwell 3.0 is a 48-hour Hackaton hosted by JSSATE
+                            Hackwell 3.0 is a 48-hour Hackathon hosted by JSSATE
                             in association with honeywell.
                         </Text>
                         <Text
@@ -254,7 +251,7 @@ const Home: NextPage = () => {
                             bgClip="text"
                             textTransform={'uppercase'}
                         >
-                            Artifical Intelligence
+                            Artificial Intelligence
                         </Heading>
                         <Image
                             src={
@@ -540,7 +537,6 @@ const Home: NextPage = () => {
                                             fontSize={{ base: 'sm', lg: 'md' }}
                                             color={'gray.700'}
                                             lineHeight={1.6}
-                                            
                                         >
                                             The shortlisted teams for phase 2
                                             will receive a conformation email.
@@ -602,7 +598,7 @@ const Home: NextPage = () => {
                                             lineHeight={1.6}
                                         >
                                             Shortlisted students must pay a
-                                            registeration fee of inr 250.
+                                            registration fee of inr 250.
                                         </Text>
                                     </Box>
                                     <Image
@@ -635,7 +631,7 @@ const Home: NextPage = () => {
                                             textTransform={'uppercase'}
                                             fontSize={{ base: 'lg', lg: '2xl' }}
                                         >
-                                            finally 48 - hour hackaton
+                                            finally 48 - hour hackathon
                                         </Heading>
                                         <Text
                                             textAlign={'right'}
@@ -736,7 +732,7 @@ const Home: NextPage = () => {
                                 textTransform="uppercase"
                                 textAlign={'center'}
                             >
-                                Online Registeration Begins
+                                Online Registration Begins
                             </Text>
                         </MotionStack>
                         <MotionStack
@@ -814,7 +810,7 @@ const Home: NextPage = () => {
                                 textTransform="uppercase"
                                 textAlign={'center'}
                             >
-                                Hackaton Begins (Online Event)
+                                Hackathon Begins (Online Event)
                             </Text>
                         </MotionStack>
                         <MotionStack
@@ -853,13 +849,13 @@ const Home: NextPage = () => {
                                 textTransform="uppercase"
                                 textAlign={'center'}
                             >
-                                Hackaton Ends
+                                Hackathon Ends
                             </Text>
                         </MotionStack>
                     </MotionSimpleGrid>
                 </Box>
             </MotionStack>
-            {/*SPONSERS */}
+            {/*SPONSORS */}
             <MotionStack
                 minH={{ base: '40vh', lg: '75vh' }}
                 direction={{ base: 'column' }}

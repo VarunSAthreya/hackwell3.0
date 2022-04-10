@@ -1,45 +1,49 @@
 import {
     Box,
     Container,
+    Flex,
+    HStack,
+    Icon,
+    Link,
     Stack,
     Text,
-    Icon,
-    Flex,
     useColorModeValue,
-    HStack,
-    Link,
 } from '@chakra-ui/react';
 import { FC } from 'react';
-import { AiFillFacebook,AiOutlineInstagram,AiOutlineTwitter,AiFillYoutube,AiOutlineMail } from 'react-icons/ai';
-import {BsGithub,BsLinkedin} from 'react-icons/bs'
-import SocialMedia from '../UI/SocialMedia/SocialMedia';
+import {
+    AiFillFacebook,
+    AiOutlineInstagram,
+    AiOutlineMail,
+    AiOutlineTwitter,
+} from 'react-icons/ai';
+import { BsGithub, BsLinkedin } from 'react-icons/bs';
 import { ISocialMedia } from '../../@types';
 import Logo from '../UI/Logo/Logo';
+import SocialMedia from '../UI/SocialMedia/SocialMedia';
 
 const Footer: FC = () => {
-
     const Social: ISocialMedia[] = [
         {
             icon: AiOutlineMail,
             label: 'Email',
-            url: 'mailto:jsshackwell@jssateb.ac.in'
+            url: 'mailto:jsshackwell@jssateb.ac.in',
         },
         {
             icon: AiOutlineTwitter,
             label: 'Twitter',
-            url: 'https://twitter.com/jsshackwell'
+            url: 'https://twitter.com/jsshackwell',
         },
         {
             icon: AiOutlineInstagram,
             label: 'Instagram',
-            url: 'https://www.instagram.com/jsshackwell/'
+            url: 'https://www.instagram.com/jsshackwell/',
         },
         {
             icon: AiFillFacebook,
             label: 'Facebook',
-            url: 'https://www.facebook.com/jsshackwell/'
-        }
-    ]
+            url: 'https://www.facebook.com/jsshackwell/',
+        },
+    ];
 
     return (
         <Box p={18} color={useColorModeValue('gray.700', 'gray.200')}>
@@ -161,6 +165,6 @@ const Footer: FC = () => {
             </Container>
         </Box>
     );
-}
+};
 
 export default Footer;

@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                 />
                 <meta
                     name="description"
-                    content="Hackwell 3.0 is a 48-hour Hackaton hosted by JSSATE in association with honeywell."
+                    content="Hackwell 3.0 is a 48-hour Hackathon hosted by JSSATE in association with honeywell."
                 />
                 <meta name="robots" content="all" />
                 <link rel="shortcut icon" href="/favicon.ico" />

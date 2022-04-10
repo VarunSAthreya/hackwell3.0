@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import { Icon, Link, useColorModeValue } from '@chakra-ui/react';
+import { FC } from 'react';
 import { ISocialMedia } from '../../../@types';
 
 type Props = {

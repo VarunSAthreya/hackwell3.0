@@ -1,25 +1,25 @@
-import React, { FC } from 'react';
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import {
     Box,
+    Button,
     Drawer,
     DrawerBody,
+    DrawerContent,
     DrawerHeader,
     DrawerOverlay,
-    DrawerContent,
     Flex,
     HStack,
     IconButton,
-    Button,
-    Stack,
     Link,
-    useDisclosure,
+    Stack,
     useColorModeValue,
+    useDisclosure,
     useMediaQuery,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import React, { FC } from 'react';
 import { BiRegistered } from 'react-icons/bi';
-import NavLink from './NavLinks/NavLinks';
 import Logo from '../UI/Logo/Logo';
+import NavLink from './NavLinks/NavLinks';
 
 const Links = ['About', 'Themes', 'Phases', 'Sponsor', 'Contact Us'];
 
@@ -81,7 +81,7 @@ const Navigation: FC = () => {
                                     _focus={{ outline: 'none' }}
                                     _active={{ bg: '#CC01FF' }}
                                 >
-                                    REGISTERATION
+                                    REGISTRATION
                                 </Button>
                             </Link>
                         ) : (
@@ -92,7 +92,7 @@ const Navigation: FC = () => {
                                 <IconButton
                                     size={'md'}
                                     icon={<BiRegistered />}
-                                    aria-label={'Open Registeration'}
+                                    aria-label={'Open Registration'}
                                     color="black"
                                     bg="white"
                                     _hover={{

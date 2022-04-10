@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import { Box, Image, Link } from '@chakra-ui/react';
+import { FC } from 'react';
 
 const Logo: FC = () => {
     return (
