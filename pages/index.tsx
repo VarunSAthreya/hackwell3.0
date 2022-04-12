@@ -126,8 +126,8 @@ const Home: NextPage = () => {
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                         >
-                            Hackwell 3.0 is a 48-hour Hackathon hosted by JSSATE
-                            in association with honeywell.
+                            Hackwell 3.0 is a 48-hour Hackathon hosted by JSSATEB
+                            in association with Honeywell.
                         </Text>
                         <Text
                             fontSize={{ base: 'md', lg: 'lg' }}
@@ -136,7 +136,7 @@ const Home: NextPage = () => {
                             lineHeight={1.6}
                         >
                             Honeywell will be driving the event and also sponsor
-                            the cash prize worth INR 1.50.000 to the winner.
+                            the cash prize worth INR 1,50,000 to the winner.
                         </Text>
                         <Text
                             fontSize={{ base: 'md', lg: 'lg' }}
@@ -145,7 +145,7 @@ const Home: NextPage = () => {
                             lineHeight={1.6}
                         >
                             This event is intended to create a platform for
-                            students fro self-expression and creativity to
+                            student's self-expression and creativity to
                             foster a culture of learning, team work and
                             innovation.
                         </Text>
@@ -156,7 +156,7 @@ const Home: NextPage = () => {
                             lineHeight={1.6}
                         >
                             Honeywell will provide mentors during the course of
-                            the event,guide the teams and also judge the
+                            the event, guide the teams and also judge the
                             solutions.
                         </Text>
                     </MotionStack>
@@ -209,7 +209,7 @@ const Home: NextPage = () => {
                             padding="1rem"
                             transform="translateZ(-10px)"
                         >
-                            THEMES
+                            DOMAINS
                         </Heading>
                     </Box>
                     <MotionDivider
@@ -511,7 +511,7 @@ const Home: NextPage = () => {
                                         >
                                             The submitted team profile will be
                                             screened to shortlist the teams for
-                                            phase 2
+                                            phase 2.
                                         </Text>
                                     </Box>
                                 </Box>
@@ -539,7 +539,7 @@ const Home: NextPage = () => {
                                             lineHeight={1.6}
                                         >
                                             The shortlisted teams for phase 2
-                                            will receive a conformation email.
+                                            will receive a confirmation email.
                                         </Text>
                                     </Box>
                                     <Image
@@ -590,7 +590,7 @@ const Home: NextPage = () => {
                                             textTransform={'uppercase'}
                                             fontSize={{ base: 'lg', lg: '2xl' }}
                                         >
-                                            fee payment
+                                            Fee Payment
                                         </Heading>
                                         <Text
                                             fontSize={{ base: 'sm', lg: 'md' }}
@@ -598,7 +598,7 @@ const Home: NextPage = () => {
                                             lineHeight={1.6}
                                         >
                                             Shortlisted students must pay a
-                                            registration fee of inr 250.
+                                            registration fee of INR 250.
                                         </Text>
                                     </Box>
                                     <Image
@@ -631,7 +631,7 @@ const Home: NextPage = () => {
                                             textTransform={'uppercase'}
                                             fontSize={{ base: 'lg', lg: '2xl' }}
                                         >
-                                            finally 48 - hour hackathon
+                                            Finally 48 - hour hackathon
                                         </Heading>
                                         <Text
                                             textAlign={'right'}
@@ -639,7 +639,7 @@ const Home: NextPage = () => {
                                             color={'gray.700'}
                                             lineHeight={1.6}
                                         >
-                                            the shortlisted teams will be
+                                            The shortlisted teams will be
                                             hacking on the problem statements
                                             given on the day of the event.
                                         </Text>
@@ -725,7 +725,7 @@ const Home: NextPage = () => {
                                 fontSize={{ base: '1.2rem', lg: '3xl' }}
                                 px={4}
                             >
-                                14th - 20th
+                                12th - 21st
                             </Heading>
                             <Text
                                 color={'gray.500'}
@@ -764,14 +764,14 @@ const Home: NextPage = () => {
                                 fontSize={{ base: '1.2rem', lg: '3xl' }}
                                 px={4}
                             >
-                                20th - 25th
+                                22nd - 25th
                             </Heading>
                             <Text
                                 color={'gray.500'}
                                 textTransform="uppercase"
                                 textAlign={'center'}
                             >
-                                announcement of shortlisted Teams
+                                Announcement of Shortlisted Teams
                             </Text>
                         </MotionStack>
                         <MotionStack
@@ -803,7 +803,7 @@ const Home: NextPage = () => {
                                 fontSize={{ base: '1.2rem', lg: '3xl' }}
                                 px={4}
                             >
-                                28th
+                                27th
                             </Heading>
                             <Text
                                 color={'gray.500'}
