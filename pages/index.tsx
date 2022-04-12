@@ -93,7 +93,7 @@ const Home: NextPage = () => {
                             padding="1rem"
                             transform="translateZ(-10px)"
                         >
-                            ABOUT HACKWELL
+                            ABOUT HACKWELL 3.0
                         </Heading>
                     </Box>
                     <MotionDivider
@@ -135,7 +135,9 @@ const Home: NextPage = () => {
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                         >
-                            Honeywell will be driving the event and also sponsor
+                            Honeywell will be driving the event, provide mentors during the course of
+                            the event, guide the teams, judge the
+                            solutions and also sponsor
                             the cash prize worth INR 1,50,000 to the winner.
                         </Text>
                         <Text
@@ -149,16 +151,7 @@ const Home: NextPage = () => {
                             foster a culture of learning, team work and
                             innovation.
                         </Text>
-                        <Text
-                            fontSize={{ base: 'md', lg: 'lg' }}
-                            color={'gray.200'}
-                            textAlign={{ base: 'center', lg: 'left' }}
-                            lineHeight={1.6}
-                        >
-                            Honeywell will provide mentors during the course of
-                            the event, guide the teams and also judge the
-                            solutions.
-                        </Text>
+                       
                     </MotionStack>
                     <MotionImage
                         whileInView="whileInView"
@@ -460,7 +453,7 @@ const Home: NextPage = () => {
                                                 lineHeight={1.6}
                                                 mr={2}
                                             >
-                                                register your team(1-4)
+                                                Register your team(1-4)
                                             </Text>
                                             <Link
                                                 color={'#CC01FF'}
