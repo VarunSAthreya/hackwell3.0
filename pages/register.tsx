@@ -35,6 +35,9 @@ interface IMember {
     year: number;
     address: string;
     tsize: number;
+    language: string;
+    project: string;
+
     // resume: File;
 }
 
@@ -546,6 +549,66 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
+                                        
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member1?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Language:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="C++,Python,Java..."
+                                                    {...register(
+                                                        'member1.language',
+                                                        {
+                                                            required:
+                                                                'Please enter valid languages',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member1?.language &&
+                                                    errors.member1?.language
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member1?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Project Details:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Project: Description"
+                                                    {...register(
+                                                        'member1.project',
+                                                        {
+                                                            required:
+                                                                'Please enter your project Details',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member1?.project &&
+                                                    errors.member1?.project
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                    
                                     </GridItem>
                                     {/* <GridItem p={4}>
                                         <FormControl
@@ -785,6 +848,64 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member2?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Language:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="C++,Python,Java..."
+                                                    {...register(
+                                                        'member1.language',
+                                                        {
+                                                            required:
+                                                                'Please enter valid languages',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member2?.language &&
+                                                    errors.member2?.language
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member2?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Project Details:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Project: Description"
+                                                    {...register(
+                                                        'member1.project',
+                                                        {
+                                                            required:
+                                                                'Please enter your project Details',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member2?.project &&
+                                                    errors.member2?.project
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
                                     </GridItem>
                                     {/* <GridItem p={4}>
                                         <FormControl
@@ -1017,6 +1138,64 @@ const Register: NextPage = () => {
                                             <FormErrorMessage>
                                                 {errors.member3?.year &&
                                                     errors.member3?.year
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member3?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Language:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="C++,Python,Java..."
+                                                    {...register(
+                                                        'member3.language',
+                                                        {
+                                                            required:
+                                                                'Please enter valid languages',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member3?.language &&
+                                                    errors.member3?.language
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member3?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Project Details:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Project: Description"
+                                                    {...register(
+                                                        'member3.project',
+                                                        {
+                                                            required:
+                                                                'Please enter your project Details',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member3?.project &&
+                                                    errors.member3?.project
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
@@ -1255,6 +1434,64 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member4?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Language:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="C++,Python,Java..."
+                                                    {...register(
+                                                        'member1.language',
+                                                        {
+                                                            required:
+                                                                'Please enter valid languages',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member4?.language &&
+                                                    errors.member4?.language
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member4?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Project Details:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Project: Description"
+                                                    {...register(
+                                                        'member4.project',
+                                                        {
+                                                            required:
+                                                                'Please enter your project Details',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member4?.project &&
+                                                    errors.member4?.project
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
                                     </GridItem>
                                     {/* <GridItem p={4}>
                                         <FormControl
@@ -1286,7 +1523,7 @@ const Register: NextPage = () => {
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem> */}
-                                    <GridItem
+                                    {/*<GridItem
                                         p={{ base: 1, md: 4 }}
                                         py={5}
                                         colSpan={2}
@@ -1369,7 +1606,7 @@ const Register: NextPage = () => {
                                                 Click Here To Pay
                                             </Link>
                                         </Box>
-                                    </GridItem>
+                                    </GridItem>*/}
                                 </Grid>
                                 <Grid templateColumns="repeat(2, 1fr)">
                                     <GridItem p={4} colSpan={2} mt={4}>
