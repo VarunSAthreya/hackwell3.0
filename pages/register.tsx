@@ -862,7 +862,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
-                                                        'member1.language',
+                                                        'member2.language',
                                                         {
                                                             required:
                                                                 'Please enter valid languages',
@@ -891,7 +891,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="Project: Description"
                                                     {...register(
-                                                        'member1.project',
+                                                        'member2.project',
                                                         {
                                                             required:
                                                                 'Please enter your project Details',
@@ -1448,7 +1448,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
-                                                        'member1.language',
+                                                        'member4.language',
                                                         {
                                                             required:
                                                                 'Please enter valid languages',
