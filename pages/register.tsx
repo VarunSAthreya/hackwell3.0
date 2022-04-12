@@ -45,7 +45,7 @@ type FormValues = {
     teamName: string;
     college: string;
     teamSize: number;
-    paymentId: string;
+   // paymentId: string;
     member1: IMember;
     member2?: IMember;
     member3?: IMember;
@@ -61,7 +61,7 @@ const Register: NextPage = () => {
     } = useForm<FormValues>();
     const router = useRouter();
 
-    const tsize = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
+    const tsize = ['S', 'M', 'L'];
     const teamSize = [1, 2, 3, 4];
     const year = [1, 2, 3, 4];
     const [isLoading, setIsLoading] = useState(false);
@@ -1625,6 +1625,7 @@ const Register: NextPage = () => {
                                                 type="submit"
                                                 textTransform={'uppercase'}
                                                 disabled={isLoading}
+                                                
                                             >
                                                 Register
                                                 {isLoading && (
