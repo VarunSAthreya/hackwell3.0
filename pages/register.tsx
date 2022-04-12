@@ -863,10 +863,7 @@ const Register: NextPage = () => {
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
                                                         'member2.language',
-                                                        {
-                                                            required:
-                                                                'Please enter valid languages',
-                                                        }
+                                                       
                                                     )}
                                                 />
                                             </InputGroup>
@@ -892,10 +889,7 @@ const Register: NextPage = () => {
                                                     placeholder="Project: Description"
                                                     {...register(
                                                         'member2.project',
-                                                        {
-                                                            required:
-                                                                'Please enter your project Details',
-                                                        }
+                                                       
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1156,10 +1150,7 @@ const Register: NextPage = () => {
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
                                                         'member3.language',
-                                                        {
-                                                            required:
-                                                                'Please enter valid languages',
-                                                        }
+                                                       
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1185,10 +1176,7 @@ const Register: NextPage = () => {
                                                     placeholder="Project: Description"
                                                     {...register(
                                                         'member3.project',
-                                                        {
-                                                            required:
-                                                                'Please enter your project Details',
-                                                        }
+                                                       
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1449,10 +1437,7 @@ const Register: NextPage = () => {
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
                                                         'member4.language',
-                                                        {
-                                                            required:
-                                                                'Please enter valid languages',
-                                                        }
+                                                       
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1478,10 +1463,7 @@ const Register: NextPage = () => {
                                                     placeholder="Project: Description"
                                                     {...register(
                                                         'member4.project',
-                                                        {
-                                                            required:
-                                                                'Please enter your project Details',
-                                                        }
+                                                       
                                                     )}
                                                 />
                                             </InputGroup>
