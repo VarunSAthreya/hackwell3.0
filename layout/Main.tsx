@@ -19,7 +19,7 @@ const Main = () => {
     const [seconds, setSeconds] = useState(0);
 
     useEffect(() => {
-        const target = new Date('04/28/2022 00:00:00');
+        const target = new Date('04/27/2022 00:00:00');
         const interval = setInterval(() => {
             const now = new Date();
             const difference = target.getTime() - now.getTime();
@@ -60,7 +60,8 @@ const Main = () => {
                         alignSelf={'flex-start'}
                         rounded={'md'}
                     >
-                        JSSATE-B Centre For Interdisciplinary Research PRESENTS
+                        JSSATE-B Centre For Interdisciplinary Research,  PRESENTS 
+                       
                     </Text>
                     <Box>
                         <Image

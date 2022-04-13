@@ -37,6 +37,8 @@ interface IMember {
     tsize: number;
     language: string;
     project: string;
+    hackathonprev: string;
+
 
     // resume: File;
 }
@@ -608,7 +610,35 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
-                                    
+                                    <FormControl
+                                            isInvalid={
+                                                errors.member1?.hackathonprev !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Previous Hackathon:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Other Hackathons attended..."
+                                                    {...register(
+                                                        'member1.hackathonprev',
+                                                        {
+                                                            required:
+                                                                'Please enter your project Details',
+                                                        }
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member1?.hackathonprev &&
+                                                    errors.member1?.hackathonprev
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
                                     </GridItem>
                                     {/* <GridItem p={4}>
                                         <FormControl
@@ -900,6 +930,32 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member2?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Previous Hackathon:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Other Hackathons attended..."
+                                                    {...register(
+                                                        'member2.hackathonprev',
+                                                       
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member2?.hackathonprev &&
+                                                    errors.member2?.hackathonprev
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
                                     </GridItem>
                                     {/* <GridItem p={4}>
                                         <FormControl
@@ -1187,6 +1243,32 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member2?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Previous Hackathon:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Other Hackathons attended..."
+                                                    {...register(
+                                                        'member3.hackathonprev',
+                                                       
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member3?.hackathonprev &&
+                                                    errors.member3?.hackathonprev
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
                                     </GridItem>
                                     {/* <GridItem p={4}>
                                         <FormControl
@@ -1471,6 +1553,32 @@ const Register: NextPage = () => {
                                             <FormErrorMessage>
                                                 {errors.member4?.project &&
                                                     errors.member4?.project
+                                                        .message}
+                                            </FormErrorMessage>
+                                        </FormControl>
+                                        <FormControl
+                                            isInvalid={
+                                                errors.member2?.address !==
+                                                undefined
+                                            }
+                                        >
+                                            <InputGroup pt={8}>
+                                                <InputLeftAddon>
+                                                    Previous Hackathon:
+                                                </InputLeftAddon>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Other Hackathons attended..."
+                                                    {...register(
+                                                        'member4.hackathonprev',
+                                                       
+                                                    )}
+                                                />
+                                            </InputGroup>
+
+                                            <FormErrorMessage>
+                                                {errors.member4?.hackathonprev &&
+                                                    errors.member4?.hackathonprev
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
