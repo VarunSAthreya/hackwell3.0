@@ -60,7 +60,7 @@ const Main = () => {
                         alignSelf={'flex-start'}
                         rounded={'md'}
                     >
-                        JSSATE-B PRESENTS
+                        JSSATE-B Centre For Interdisciplinary Research PRESENTS
                     </Text>
                     <Box>
                         <Image
