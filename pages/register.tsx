@@ -23,32 +23,8 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { ITeam } from '../@types';
 import { db } from '../lib/firebase';
-
-interface IMember {
-    name: string;
-    email: string;
-    phone: string;
-    year: number;
-    address: string;
-    tsize: number;
-    language: string;
-    project: string;
-    hackathonprev: string;
-
-    // resume: File;
-}
-
-type FormValues = {
-    teamName: string;
-    college: string;
-    teamSize: number;
-    // paymentId: string;
-    member1: IMember;
-    member2?: IMember;
-    member3?: IMember;
-    member4?: IMember;
-};
 
 const Register: NextPage = () => {
     const {
@@ -56,7 +32,7 @@ const Register: NextPage = () => {
         handleSubmit,
         setError,
         formState: { errors },
-    } = useForm<FormValues>();
+    } = useForm<ITeam>();
     const router = useRouter();
 
     const tsize = ['S', 'M', 'L'];
@@ -65,7 +41,7 @@ const Register: NextPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const toast = useToast();
 
-    const onSubmit = async (data: FormValues) => {
+    const onSubmit = async (data: ITeam) => {
         console.log({ data });
         setIsLoading(true);
         const documentSnapshot = await getDoc(

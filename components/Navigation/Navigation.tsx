@@ -21,7 +21,7 @@ import { BiRegistered } from 'react-icons/bi';
 import Logo from '../UI/Logo/Logo';
 import NavLink from './NavLinks/NavLinks';
 
-const Links = ['Hackwell 3.0', 'Themes', 'Phases', 'Sponsor', 'About JSSATEB'];
+const Links = ['Hackwell 3.0', 'Domains', 'Phases', 'Sponsor', 'About JSSATEB'];
 
 const Navigation: FC = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
