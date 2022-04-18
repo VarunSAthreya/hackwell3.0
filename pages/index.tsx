@@ -61,7 +61,7 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
-                id="contact us"
+                id="about jssateb"
                 spacing={12}
                 variants={stack}
                 initial="hidden"
