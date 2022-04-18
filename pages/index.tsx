@@ -58,10 +58,10 @@ const Home: NextPage = () => {
             <Main />
             {/*ABOUT JSSATEB*/}
             <MotionStack
-                minH={'75vh'}
+                minH={'65vh'}
                 direction={{ base: 'column' }}
-                my={10}
-                id="contact us"
+                my={12}
+                id="about jssate-b"
                 spacing={12}
                 variants={stack}
                 initial="hidden"
@@ -143,14 +143,14 @@ const Home: NextPage = () => {
                         <MotionStack
                             spacing={6}
                             maxW={'lg'}
-                            align="flex-start"
+                            align={{base:'center',md:'flex-start'}}
                             whileInView="whileInView"
                             viewport={{ once: true }}
                             variants={secondaryStack}
                         >
                             <Heading
                                 fontSize={{ base: '2xl' }}
-                                textAlign="left"
+                                textAlign={{base:'center',lg:'left'}}
                             >
                                 JSS ACADEMY OF TECHNICAL EDUCATION BENGALURU
                             </Heading>
@@ -158,7 +158,7 @@ const Home: NextPage = () => {
                                 fontSize={{ base: 'md', lg: 'lg' }}
                                 color={'gray.200'}
                                 lineHeight={1.6}
-                                textAlign="left"
+                                textAlign={{base:'center',lg:'left'}}
                             >
                                 JSS Academy of Technical Education (JSSATE) was
                                 established in the year 1997 at Bengaluru and is
@@ -237,7 +237,7 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
-                id="about"
+                id="hackwell 3.0"
                 spacing={{ base: 10, lg: 20 }}
                 variants={stack}
                 initial="hidden"
@@ -378,7 +378,7 @@ const Home: NextPage = () => {
                             padding="1rem"
                             transform="translateZ(-10px)"
                         >
-                            DOMAINS
+                            THEMES
                         </Heading>
                     </Box>
                     <MotionDivider
@@ -1026,7 +1026,7 @@ const Home: NextPage = () => {
             </MotionStack>
             {/*SPONSORS */}
             <MotionStack
-                minH={{ base: '40vh', lg: '75vh' }}
+                minH={{ base: '40vh', lg: '60vh' }}
                 direction={{ base: 'column' }}
                 my={20}
                 spacing={12}
@@ -1149,175 +1149,6 @@ const Home: NextPage = () => {
                             src={'../assests/images/Logo/Honeywell_logo.png'}
                         />
                     </Flex>
-                </Stack>
-            </MotionStack>
-            {/*CONTACT US*/}
-            <MotionStack
-                minH={'75vh'}
-                direction={{ base: 'column' }}
-                my={10}
-                id="contact us"
-                spacing={12}
-                variants={stack}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-            >
-                <Flex alignItems={'center'} justifyContent={'center'}>
-                    <MotionDivider
-                        bg={'#CC01FF'}
-                        height={'2px'}
-                        initial="hidden"
-                        whileInView="whileInView"
-                        viewport={{ once: true }}
-                        variants={divider}
-                    />
-                    <Box
-                        border="2px solid #CC01FF"
-                        width={{ base: '200px', lg: '500px' }}
-                    >
-                        <Heading
-                            fontSize={{ base: '2xl', md: '4xl' }}
-                            textAlign={'center'}
-                            border={'2px solid #CC01FF'}
-                            p={3}
-                            width={{ base: '200px', lg: '500px' }}
-                            position="relative"
-                            top="7px"
-                            left="7px"
-                            padding="1rem"
-                            transform="translateZ(-10px)"
-                        >
-                            CONTACT US
-                        </Heading>
-                    </Box>
-                    <MotionDivider
-                        bg={'#CC01FF'}
-                        height={'2px'}
-                        initial="hidden"
-                        whileInView="whileInView"
-                        viewport={{ once: true }}
-                        variants={divider}
-                    />
-                </Flex>
-                <Stack
-                    spacing={{ base: 5, lg: 12 }}
-                    justifyContent={'space-around'}
-                    direction={{ base: 'column', lg: 'row' }}
-                >
-                    <Box
-                        width={{ base: '100%', lg: '45%' }}
-                        padding={{ base: 5, lg: 16 }}
-                        ml={{ base: 0, lg: 14 }}
-                    >
-                        <MotionAspectRatio
-                            ratio={14 / 12}
-                            whileInView="whileInView"
-                            viewport={{ once: true }}
-                            variants={aspectRatio}
-                        >
-                            <iframe
-                                style={{ borderRadius: '15px' }}
-                                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=JSSATE-B%20Campus,%20Dr.Vishnuvardhan%20Rd%20Uttarahalli-Kengeri%20Main%20Road,%20JSS%20Campus%20Rd,%20Srinivaspura,%20Bengaluru,%20Karnataka%20560060+(JSSATE-B)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                            />
-                        </MotionAspectRatio>
-                    </Box>
-                    <Box
-                        borderRadius="lg"
-                        mr={{ base: 5 }}
-                        p={{ base: 5, lg: 16 }}
-                        width={{ base: '100%', lg: '55%' }}
-                    >
-                        <MotionStack
-                            spacing={6}
-                            maxW={'lg'}
-                            align="flex-start"
-                            whileInView="whileInView"
-                            viewport={{ once: true }}
-                            variants={secondaryStack}
-                        >
-                            <Heading
-                                fontSize={{ base: '2xl' }}
-                                textAlign="left"
-                            >
-                                JSS ACADEMY OF TECHNICAL EDUCATION BENGALURU
-                            </Heading>
-                            <Text
-                                fontSize={{ base: 'md', lg: 'lg' }}
-                                color={'gray.200'}
-                                lineHeight={1.6}
-                                textAlign="left"
-                            >
-                                JSS Academy of Technical Education (JSSATE) was
-                                established in the year 1997 at Bengaluru and is
-                                under the umbrella of JSS Mahavidyapeetha,
-                                Mysuru. JSSATE is the result of the vision of
-                                our President, His Holiness Jagadguru Sri
-                                Shivarathri Deshikendra Mahaswamiji to
-                                proactively participate in establishing a world
-                                class Institution for Technical Education. The
-                                Campus is located on a sprawling 21.17 acres
-                                land surrounded by lush green plantation on the
-                                South-Western edge of Bangalore City. The
-                                institution is affiliated to Visvesvaraya
-                                Technological University (VTU), Belgaum, India.
-                            </Text>
-                            <Stack direction={'row'} spacing={5}>
-                                <Link
-                                    href="mailto:info@jssateb.ac.in"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    <IconButton
-                                        aria-label="email"
-                                        variant="ghost"
-                                        size="lg"
-                                        fontSize="3xl"
-                                        icon={<MdEmail />}
-                                        _hover={{
-                                            bg: '#CC01FF',
-                                            color: 'white',
-                                        }}
-                                        _focus={{ outline: 'none' }}
-                                        _active={{ bg: '#CC01FF' }}
-                                        isRound
-                                    />
-                                </Link>
-
-                                <Link
-                                    href="tel:+918028611702"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    <IconButton
-                                        aria-label="github"
-                                        variant="ghost"
-                                        size="lg"
-                                        fontSize="2xl"
-                                        icon={<BsTelephoneFill />}
-                                        _hover={{
-                                            bg: '#CC01FF',
-                                            color: 'white',
-                                        }}
-                                        isRound
-                                    />
-                                </Link>
-                                <Link href="https://www.linkedin.com/in/jssateb-bengaluru-3a432520a/?originalSubdomain=in">
-                                    <IconButton
-                                        aria-label="linkedin"
-                                        variant="ghost"
-                                        size="lg"
-                                        icon={<BsLinkedin size="28px" />}
-                                        _hover={{
-                                            bg: '#CC01FF',
-                                            color: 'white',
-                                        }}
-                                        isRound
-                                    />
-                                </Link>
-                            </Stack>
-                        </MotionStack>
-                    </Box>
                 </Stack>
             </MotionStack>
         </>
