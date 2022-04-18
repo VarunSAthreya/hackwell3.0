@@ -345,7 +345,7 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
-                id="themes"
+                id="domains"
                 spacing={10}
                 variants={stack}
                 initial="hidden"
