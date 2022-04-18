@@ -45,7 +45,7 @@ const Main = () => {
             <Stack
                 spacing={{ base: 10, md: 12, lg: 16 }}
                 pos={'absolute'}
-                top={{ base: '3%', md: '4%', lg: '4%' }}
+                top={{ base: '3.5%', md: '4%', lg: '4%' }}
                 left={{ base: '8%', lg: '15%' }}
                 zIndex={20}
             >
@@ -55,7 +55,7 @@ const Main = () => {
                         bgGradient={'linear(to-l, #00FFDD,#CC01FF)'}
                         bgClip="text"
                         fontWeight={600}
-                        fontSize={{ base: '1.5rem', md: '2xl' }}
+                        fontSize={{ base: '1rem', md: '2xl' }}
                         p={2}
                         alignSelf={'flex-start'}
                         rounded={'md'}
