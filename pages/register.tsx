@@ -8,11 +8,9 @@ import {
     Grid,
     GridItem,
     Heading,
-    Icon,
     Input,
     InputGroup,
     InputLeftAddon,
-    Link,
     Select,
     Spinner,
     Stack,
@@ -25,34 +23,8 @@ import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { BiNotepad } from 'react-icons/bi';
+import { ITeam } from '../@types';
 import { db } from '../lib/firebase';
-
-interface IMember {
-    name: string;
-    email: string;
-    phone: string;
-    year: number;
-    address: string;
-    tsize: number;
-    language: string;
-    project: string;
-    hackathonprev: string;
-
-
-    // resume: File;
-}
-
-type FormValues = {
-    teamName: string;
-    college: string;
-    teamSize: number;
-   // paymentId: string;
-    member1: IMember;
-    member2?: IMember;
-    member3?: IMember;
-    member4?: IMember;
-};
 
 const Register: NextPage = () => {
     const {
@@ -60,7 +32,7 @@ const Register: NextPage = () => {
         handleSubmit,
         setError,
         formState: { errors },
-    } = useForm<FormValues>();
+    } = useForm<ITeam>();
     const router = useRouter();
 
     const tsize = ['S', 'M', 'L'];
@@ -69,7 +41,7 @@ const Register: NextPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const toast = useToast();
 
-    const onSubmit = async (data: FormValues) => {
+    const onSubmit = async (data: ITeam) => {
         console.log({ data });
         setIsLoading(true);
         const documentSnapshot = await getDoc(
@@ -551,7 +523,7 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
-                                        
+
                                         <FormControl
                                             isInvalid={
                                                 errors.member1?.address !==
@@ -610,9 +582,10 @@ const Register: NextPage = () => {
                                                         .message}
                                             </FormErrorMessage>
                                         </FormControl>
-                                    <FormControl
+                                        <FormControl
                                             isInvalid={
-                                                errors.member1?.hackathonprev !==
+                                                errors.member1
+                                                    ?.hackathonprev !==
                                                 undefined
                                             }
                                         >
@@ -634,9 +607,10 @@ const Register: NextPage = () => {
                                             </InputGroup>
 
                                             <FormErrorMessage>
-                                                {errors.member1?.hackathonprev &&
-                                                    errors.member1?.hackathonprev
-                                                        .message}
+                                                {errors.member1
+                                                    ?.hackathonprev &&
+                                                    errors.member1
+                                                        ?.hackathonprev.message}
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
@@ -892,8 +866,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
-                                                        'member2.language',
-                                                       
+                                                        'member2.language'
                                                     )}
                                                 />
                                             </InputGroup>
@@ -918,8 +891,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="Project: Description"
                                                     {...register(
-                                                        'member2.project',
-                                                       
+                                                        'member2.project'
                                                     )}
                                                 />
                                             </InputGroup>
@@ -944,16 +916,16 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="Other Hackathons attended..."
                                                     {...register(
-                                                        'member2.hackathonprev',
-                                                       
+                                                        'member2.hackathonprev'
                                                     )}
                                                 />
                                             </InputGroup>
 
                                             <FormErrorMessage>
-                                                {errors.member2?.hackathonprev &&
-                                                    errors.member2?.hackathonprev
-                                                        .message}
+                                                {errors.member2
+                                                    ?.hackathonprev &&
+                                                    errors.member2
+                                                        ?.hackathonprev.message}
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
@@ -1205,8 +1177,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
-                                                        'member3.language',
-                                                       
+                                                        'member3.language'
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1231,8 +1202,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="Project: Description"
                                                     {...register(
-                                                        'member3.project',
-                                                       
+                                                        'member3.project'
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1257,16 +1227,16 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="Other Hackathons attended..."
                                                     {...register(
-                                                        'member3.hackathonprev',
-                                                       
+                                                        'member3.hackathonprev'
                                                     )}
                                                 />
                                             </InputGroup>
 
                                             <FormErrorMessage>
-                                                {errors.member3?.hackathonprev &&
-                                                    errors.member3?.hackathonprev
-                                                        .message}
+                                                {errors.member3
+                                                    ?.hackathonprev &&
+                                                    errors.member3
+                                                        ?.hackathonprev.message}
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
@@ -1518,8 +1488,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="C++,Python,Java..."
                                                     {...register(
-                                                        'member4.language',
-                                                       
+                                                        'member4.language'
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1544,8 +1513,7 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="Project: Description"
                                                     {...register(
-                                                        'member4.project',
-                                                       
+                                                        'member4.project'
                                                     )}
                                                 />
                                             </InputGroup>
@@ -1570,16 +1538,16 @@ const Register: NextPage = () => {
                                                     type="text"
                                                     placeholder="Other Hackathons attended..."
                                                     {...register(
-                                                        'member4.hackathonprev',
-                                                       
+                                                        'member4.hackathonprev'
                                                     )}
                                                 />
                                             </InputGroup>
 
                                             <FormErrorMessage>
-                                                {errors.member4?.hackathonprev &&
-                                                    errors.member4?.hackathonprev
-                                                        .message}
+                                                {errors.member4
+                                                    ?.hackathonprev &&
+                                                    errors.member4
+                                                        ?.hackathonprev.message}
                                             </FormErrorMessage>
                                         </FormControl>
                                     </GridItem>
@@ -1715,7 +1683,6 @@ const Register: NextPage = () => {
                                                 type="submit"
                                                 textTransform={'uppercase'}
                                                 disabled={isLoading}
-                                                
                                             >
                                                 Register
                                                 {isLoading && (
