@@ -1,4 +1,6 @@
+import { DownloadIcon } from '@chakra-ui/icons';
 import {
+    Button,
     Center,
     HStack,
     Table,
@@ -16,6 +18,7 @@ import React from 'react';
 import { ITeam } from '../@types';
 import Card from '../components/UI/Card';
 import { db } from '../lib/firebase';
+const XLSX = require('xlsx');
 
 type Props = {
     teams: ITeam[];
@@ -34,6 +37,47 @@ const Admin: NextPage<Props> = ({ teams }) => {
             jssTeams++;
         }
     }
+
+    const generateExcel = () => {
+        // Deep copy
+        let temp: ITeam[] = JSON.parse(JSON.stringify(teams));
+        const flatten = (data) => {
+            var result = {};
+            function recurse(cur, prop) {
+                if (Object(cur) !== cur) {
+                    result[prop] = cur;
+                } else if (Array.isArray(cur)) {
+                    for (var i = 0, l = cur.length; i < l; i++)
+                        recurse(cur[i], prop + '[' + i + ']');
+                    if (l == 0) result[prop] = [];
+                } else {
+                    var isEmpty = true;
+                    for (var p in cur) {
+                        isEmpty = false;
+                        recurse(cur[p], prop ? prop + '.' + p : p);
+                    }
+                    if (isEmpty && prop) result[prop] = {};
+                }
+            }
+            recurse(data, '');
+            return result;
+        };
+        const res = [];
+        temp.forEach((t) => {
+            res.push(flatten(t));
+        });
+
+        const workSheet = XLSX.utils.json_to_sheet(res);
+        const workBook = XLSX.utils.book_new();
+
+        XLSX.utils.book_append_sheet(workBook, workSheet, 'teams');
+        XLSX.write(workBook, { bookType: 'xlsx', type: 'buffer' });
+
+        XLSX.write(workBook, { bookType: 'xlsx', type: 'binary' });
+
+        XLSX.writeFile(workBook, 'TeamData.xlsx');
+    };
+
     return (
         <Center pt={120}>
             <VStack>
@@ -45,6 +89,22 @@ const Admin: NextPage<Props> = ({ teams }) => {
                     />
                     <Card title="JSS Teams" number={jssTeams} />
                 </HStack>
+                <Button
+                    rightIcon={<DownloadIcon />}
+                    color="black"
+                    bg="white"
+                    p={2}
+                    m={2}
+                    _hover={{
+                        bg: '#CC01FF',
+                        color: 'white',
+                    }}
+                    _focus={{ outline: 'none' }}
+                    _active={{ bg: '#CC01FF' }}
+                    onClick={generateExcel}
+                >
+                    Download Excel
+                </Button>
                 <TableContainer>
                     <Table variant="simple">
                         <Thead>
