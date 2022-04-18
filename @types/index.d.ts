@@ -5,3 +5,28 @@ interface ISocialMedia {
     url: string;
     label: string;
 }
+
+interface IMember {
+    name: string;
+    email: string;
+    phone: string;
+    year: number;
+    address: string;
+    tsize: number;
+    language: string;
+    project: string;
+    hackathonprev: string;
+
+    // resume: File;
+}
+
+interface ITeam {
+    teamName: string;
+    college: string;
+    teamSize: number;
+    // paymentId: string;
+    member1: IMember;
+    member2?: IMember;
+    member3?: IMember;
+    member4?: IMember;
+}

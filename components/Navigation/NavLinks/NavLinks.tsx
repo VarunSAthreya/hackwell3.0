@@ -62,7 +62,7 @@ const NavLink: FC = ({ children }: { children: ReactNode }) => {
                 },
             }}
             to={children.toString().toLowerCase()}
-            href={'#' + children.toString().toLowerCase()}
+            href={'/' + children.toString().toLowerCase()}
         >
             {children}
         </Link>

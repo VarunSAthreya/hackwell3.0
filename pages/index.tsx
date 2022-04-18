@@ -122,16 +122,17 @@ const Home: NextPage = () => {
                             variants={aspectRatio}
                         >
                             <MotionImage
-                            
-                        whileInView="whileInView"
-                        viewport={{ once: true }}
-                        variants={image}
-                        alt={'hackwell'}
-                        rounded={8}
-                        w={{ base: '300px', lg: '600px' }}
-                        h={{ base: '200px', lg: '400px' }}
-                        src={'../assests/images/Main/CollegeLogo-01.png'}
-                    />
+                                whileInView="whileInView"
+                                viewport={{ once: true }}
+                                variants={image}
+                                alt={'hackwell'}
+                                rounded={8}
+                                w={{ base: '300px', lg: '600px' }}
+                                h={{ base: '200px', lg: '400px' }}
+                                src={
+                                    '../assests/images/Main/CollegeLogo-01.png'
+                                }
+                            />
                         </MotionAspectRatio>
                     </Box>
                     <Box
@@ -302,8 +303,8 @@ const Home: NextPage = () => {
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                         >
-                            Hackwell 3.0 is a 48-hour Hackathon hosted by JSSATEB
-                            in association with Honeywell.
+                            Hackwell 3.0 is a 48-hour Hackathon hosted by
+                            JSSATEB in association with Honeywell.
                         </Text>
                         <Text
                             fontSize={{ base: 'md', lg: 'lg' }}
@@ -311,10 +312,10 @@ const Home: NextPage = () => {
                             textAlign={{ base: 'center', lg: 'left' }}
                             lineHeight={1.6}
                         >
-                            Honeywell will be driving the event, provide mentors during the course of
-                            the event, guide the teams, judge the
-                            solutions and also sponsor
-                            the cash prize worth INR 1,50,000 to the winner.
+                            Honeywell will be driving the event, provide mentors
+                            during the course of the event, guide the teams,
+                            judge the solutions and also sponsor the cash prize
+                            worth INR 1,50,000 to the winner.
                         </Text>
                         <Text
                             fontSize={{ base: 'md', lg: 'lg' }}
@@ -323,11 +324,9 @@ const Home: NextPage = () => {
                             lineHeight={1.6}
                         >
                             This event is intended to create a platform for
-                            student's self-expression and creativity to
-                            foster a culture of learning, team work and
-                            innovation.
+                            student's self-expression and creativity to foster a
+                            culture of learning, team work and innovation.
                         </Text>
-                       
                     </MotionStack>
                     <MotionImage
                         whileInView="whileInView"
@@ -346,7 +345,7 @@ const Home: NextPage = () => {
                 minH={'75vh'}
                 direction={{ base: 'column' }}
                 my={10}
-                id="themes"
+                id="domains"
                 spacing={10}
                 variants={stack}
                 initial="hidden"
