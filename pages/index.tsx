@@ -377,7 +377,7 @@ const Home: NextPage = () => {
                             padding="1rem"
                             transform="translateZ(-10px)"
                         >
-                            THEMES
+                            DOMAINS
                         </Heading>
                     </Box>
                     <MotionDivider
