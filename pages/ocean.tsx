@@ -12,7 +12,7 @@ import {
     Tr,
     VStack,
 } from '@chakra-ui/react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { GetServerSideProps, NextPage } from 'next/types';
 import React from 'react';
 import { ITeam } from '../@types';
@@ -27,6 +27,7 @@ type Props = {
 const Admin: NextPage<Props> = ({ teams }) => {
     let totalParticipants: number = 0;
     let jssTeams: number = 0;
+    // let emails = [];
     for (let team of teams) {
         totalParticipants += Number(team.teamSize);
         if (
@@ -36,7 +37,15 @@ const Admin: NextPage<Props> = ({ teams }) => {
         ) {
             jssTeams++;
         }
+        // emails.push(team.member1.email);
+        // emails.push(team.member2.email);
+        // emails.push(team.member3.email);
+        // emails.push(team.member4.email);
     }
+    // const filteredEmails = emails.filter(function (e) {
+    //     return e !== '';
+    // });
+    // console.log(filteredEmails);
 
     const generateExcel = () => {
         // Deep copy
@@ -133,13 +142,17 @@ const Admin: NextPage<Props> = ({ teams }) => {
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-    const querySnapshot = await getDocs(collection(db, 'registered_teams'));
+    const querySnapshot = await getDocs(
+        query(collection(db, 'registered_teams'), orderBy('teamName'))
+    );
+
     let teams = [];
     querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         console.log(doc.id, ' => ', doc.data());
         teams.push(doc.data());
     });
+
     return {
         props: {
             teams,
