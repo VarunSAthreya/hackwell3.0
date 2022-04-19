@@ -1,11 +1,4 @@
-import {
-    Box,
-    Center,
-    Heading,
-    Stack,
-    Text,
-    useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Center, Heading, Stack, Text } from '@chakra-ui/react';
 
 export default function Card({ title, number }) {
     return (
@@ -13,13 +6,14 @@ export default function Card({ title, number }) {
             <Box
                 maxW={'270px'}
                 w={'full'}
-                bg={useColorModeValue('white', 'gray.800')}
-                boxShadow={'2xl'}
+                bg={'white'}
+                color="black"
+                boxShadow={'#CC01FF 0px 3px 9px'}
                 rounded={'md'}
                 overflow={'hidden'}
             >
                 <Box p={6}>
-                    <Stack spacing={0} align={'center'} mb={5}>
+                    <Stack spacing={2} align={'center'}>
                         <Heading
                             fontSize={'2xl'}
                             fontWeight={500}
@@ -27,7 +21,7 @@ export default function Card({ title, number }) {
                         >
                             {title}
                         </Heading>
-                        <Text color={'gray.500'}>{number}</Text>
+                        <Text color={'gray.800'}>{number}</Text>
                     </Stack>
 
                     {/* <Stack direction={'row'} justify={'center'} spacing={6}>
