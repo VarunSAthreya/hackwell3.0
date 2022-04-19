@@ -79,8 +79,8 @@ const Admin: NextPage<Props> = ({ teams }) => {
     };
 
     return (
-        <Center pt={120}>
-            <VStack>
+        <Center pt={140}>
+            <VStack spacing={10}>
                 <HStack>
                     <Card title="Total Teams" number={teams.length} />
                     <Card
@@ -109,9 +109,11 @@ const Admin: NextPage<Props> = ({ teams }) => {
                     <Table variant="simple">
                         <Thead>
                             <Tr>
-                                <Th>Team Name</Th>
-                                <Th>College</Th>
-                                <Th isNumeric>Team Size</Th>
+                                <Th align="center">Team Name</Th>
+                                <Th align="center">College</Th>
+                                <Th isNumeric align="center">
+                                    Team Size
+                                </Th>
                             </Tr>
                         </Thead>
                         <Tbody>
