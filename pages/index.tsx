@@ -144,14 +144,14 @@ const Home: NextPage = () => {
                         <MotionStack
                             spacing={6}
                             maxW={'lg'}
-                            align={{base:'center',md:'flex-start'}}
+                            align={{ base: 'center', md: 'flex-start' }}
                             whileInView="whileInView"
                             viewport={{ once: true }}
                             variants={secondaryStack}
                         >
                             <Heading
                                 fontSize={{ base: '2xl' }}
-                                textAlign={{base:'center',lg:'left'}}
+                                textAlign={{ base: 'center', lg: 'left' }}
                             >
                                 JSS ACADEMY OF TECHNICAL EDUCATION BENGALURU
                             </Heading>
@@ -159,7 +159,7 @@ const Home: NextPage = () => {
                                 fontSize={{ base: 'md', lg: 'lg' }}
                                 color={'gray.200'}
                                 lineHeight={1.6}
-                                textAlign={{base:'center',lg:'left'}}
+                                textAlign={{ base: 'center', lg: 'left' }}
                             >
                                 JSS Academy of Technical Education (JSSATE) was
                                 established in the year 1997 at Bengaluru and is
@@ -390,7 +390,7 @@ const Home: NextPage = () => {
                     />
                 </Flex>
                 <MotionSimpleGrid
-                    columns={{ base: 2, lg: 3 }}
+                    columns={{ base: 2 }}
                     p={{ base: 0, lg: 10 }}
                     backgroundImage={'./assests/images/Main/theme.png'}
                     backgroundPosition={'center'}
