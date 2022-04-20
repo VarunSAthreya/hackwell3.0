@@ -29,6 +29,7 @@ const Admin: NextPage<Props> = ({ teams }) => {
     let jssTeams: number = 0;
     let newRegistrations: number = 0;
     let newParticipants: number = 0;
+    let newTeam: ITeam[] = [];
     let emails = {};
     for (let team of teams) {
         totalParticipants += Number(team.teamSize);
@@ -40,6 +41,7 @@ const Admin: NextPage<Props> = ({ teams }) => {
             jssTeams++;
         }
         if (team.sendRegisterMail !== true) {
+            newTeam.push(team);
             emails[team.teamName] = [];
             emails[team.teamName].push(team.member1.email);
             emails[team.teamName].push(team.member2.email);
@@ -54,9 +56,9 @@ const Admin: NextPage<Props> = ({ teams }) => {
     }
     console.log({ emails });
 
-    const generateExcel = () => {
+    const generateExcel = (data) => {
         // Deep copy
-        let temp: ITeam[] = JSON.parse(JSON.stringify(teams));
+        let temp: ITeam[] = JSON.parse(JSON.stringify(data));
         const flatten = (data) => {
             var result = {};
             function recurse(cur, prop) {
@@ -109,22 +111,44 @@ const Admin: NextPage<Props> = ({ teams }) => {
                     <Card title="New Registration" number={newRegistrations} />
                     <Card title="New Participants" number={newParticipants} />
                 </HStack>
-                <Button
-                    rightIcon={<DownloadIcon />}
-                    color="black"
-                    bg="white"
-                    p={2}
-                    m={2}
-                    _hover={{
-                        bg: '#CC01FF',
-                        color: 'white',
-                    }}
-                    _focus={{ outline: 'none' }}
-                    _active={{ bg: '#CC01FF' }}
-                    onClick={generateExcel}
-                >
-                    Download Excel
-                </Button>
+                <HStack>
+                    <Button
+                        rightIcon={<DownloadIcon />}
+                        color="black"
+                        bg="white"
+                        p={2}
+                        m={2}
+                        _hover={{
+                            bg: '#CC01FF',
+                            color: 'white',
+                        }}
+                        _focus={{ outline: 'none' }}
+                        _active={{ bg: '#CC01FF' }}
+                        onClick={() => {
+                            generateExcel(teams);
+                        }}
+                    >
+                        Download Excel
+                    </Button>
+                    <Button
+                        rightIcon={<DownloadIcon />}
+                        color="black"
+                        bg="white"
+                        p={2}
+                        m={2}
+                        _hover={{
+                            bg: '#CC01FF',
+                            color: 'white',
+                        }}
+                        _focus={{ outline: 'none' }}
+                        _active={{ bg: '#CC01FF' }}
+                        onClick={() => {
+                            generateExcel(newTeam);
+                        }}
+                    >
+                        Download New Team Excel
+                    </Button>
+                </HStack>
                 <TableContainer>
                     <Table variant="simple">
                         <Thead>
