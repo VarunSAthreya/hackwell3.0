@@ -158,6 +158,7 @@ const Admin: NextPage<Props> = ({ teams }) => {
                                 <Th isNumeric align="center">
                                     Team Size
                                 </Th>
+                                <Th align="center">Sent Mail</Th>
                             </Tr>
                         </Thead>
                         <Tbody>
@@ -166,6 +167,7 @@ const Admin: NextPage<Props> = ({ teams }) => {
                                     <Td>{team.teamName}</Td>
                                     <Td>{team.college}</Td>
                                     <Td isNumeric>{team.teamSize}</Td>
+                                    <Td>{team.sendRegisterMail.toString()}</Td>
                                 </Tr>
                             ))}
                         </Tbody>
@@ -185,7 +187,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     querySnapshot.forEach((docs) => {
         // doc.data() is never undefined for query doc snapshots
 
-        console.log(docs.id, ' => ', docs.data());
+        // console.log(docs.id, ' => ', docs.data());
         teams.push(docs.data());
     });
 
