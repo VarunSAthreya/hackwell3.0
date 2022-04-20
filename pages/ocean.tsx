@@ -27,7 +27,9 @@ type Props = {
 const Admin: NextPage<Props> = ({ teams }) => {
     let totalParticipants: number = 0;
     let jssTeams: number = 0;
-    // let emails = [];
+    let newRegistrations: number = 0;
+    let newParticipants: number = 0;
+    let emails = {};
     for (let team of teams) {
         totalParticipants += Number(team.teamSize);
         if (
@@ -37,15 +39,20 @@ const Admin: NextPage<Props> = ({ teams }) => {
         ) {
             jssTeams++;
         }
-        // emails.push(team.member1.email);
-        // emails.push(team.member2.email);
-        // emails.push(team.member3.email);
-        // emails.push(team.member4.email);
+        if (team.sendRegisterMail !== true) {
+            emails[team.teamName] = [];
+            emails[team.teamName].push(team.member1.email);
+            emails[team.teamName].push(team.member2.email);
+            emails[team.teamName].push(team.member3.email);
+            emails[team.teamName].push(team.member4.email);
+            emails[team.teamName] = emails[team.teamName].filter(function (e) {
+                return e !== '';
+            });
+            newRegistrations++;
+            newParticipants += Number(team.teamSize);
+        }
     }
-    // const filteredEmails = emails.filter(function (e) {
-    //     return e !== '';
-    // });
-    // console.log(filteredEmails);
+    console.log({ emails });
 
     const generateExcel = () => {
         // Deep copy
@@ -97,6 +104,12 @@ const Admin: NextPage<Props> = ({ teams }) => {
                         number={totalParticipants}
                     />
                     <Card title="JSS Teams" number={jssTeams} />
+                    <Card title="New Registration" number={newRegistrations} />
+                    <Card title="New Participants" number={newParticipants} />
+                </HStack>
+                <HStack>
+                    <Card title="New Registration" number={newRegistrations} />
+                    <Card title="New Participants" number={newParticipants} />
                 </HStack>
                 <Button
                     rightIcon={<DownloadIcon />}
@@ -147,10 +160,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
     );
 
     let teams = [];
-    querySnapshot.forEach((doc) => {
+    querySnapshot.forEach((docs) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, ' => ', doc.data());
-        teams.push(doc.data());
+
+        console.log(docs.id, ' => ', docs.data());
+        teams.push(docs.data());
     });
 
     return {
