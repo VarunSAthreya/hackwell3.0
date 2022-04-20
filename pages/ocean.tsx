@@ -104,8 +104,6 @@ const Admin: NextPage<Props> = ({ teams }) => {
                         number={totalParticipants}
                     />
                     <Card title="JSS Teams" number={jssTeams} />
-                    <Card title="New Registration" number={newRegistrations} />
-                    <Card title="New Participants" number={newParticipants} />
                 </HStack>
                 <HStack>
                     <Card title="New Registration" number={newRegistrations} />
