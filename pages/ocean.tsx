@@ -156,7 +156,7 @@ const Admin: NextPage<Props> = ({ teams }) => {
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
     const querySnapshot = await getDocs(
-        query(collection(db, 'registered_teams'), orderBy('teamName'))
+        query(collection(db, 'registered_teams'), orderBy('createdAt', 'desc'))
     );
 
     let teams = [];
