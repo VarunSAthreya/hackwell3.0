@@ -25,6 +25,8 @@ interface ITeam {
     college: string;
     teamSize: number;
     // paymentId: string;
+    sendRegisterMail: boolean;
+    createdAt: string;
     member1: IMember;
     member2?: IMember;
     member3?: IMember;

@@ -43,6 +43,8 @@ const Register: NextPage = () => {
 
     const onSubmit = async (data: ITeam) => {
         console.log({ data });
+        data.createdAt = new Date().toISOString();
+        data.sendRegisterMail = false;
         setIsLoading(true);
         const documentSnapshot = await getDoc(
             doc(db, 'registered_teams', data.teamName)
