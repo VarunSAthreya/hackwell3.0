@@ -1,4 +1,4 @@
-import { DownloadIcon } from '@chakra-ui/icons';
+import { CopyIcon, DownloadIcon } from '@chakra-ui/icons';
 import {
     Button,
     Center,
@@ -10,6 +10,7 @@ import {
     Th,
     Thead,
     Tr,
+    useToast,
     VStack,
 } from '@chakra-ui/react';
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
@@ -30,9 +31,17 @@ const Admin: NextPage<Props> = ({ teams }) => {
     let newRegistrations: number = 0;
     let newParticipants: number = 0;
     let newTeam: ITeam[] = [];
-    let emails = {};
+    let teamEmails = {};
+    let newEmails = [];
+    let allEmails = [];
+    const toast = useToast();
+
     for (let team of teams) {
         totalParticipants += Number(team.teamSize);
+        allEmails.push(team.member1.email);
+        allEmails.push(team.member2.email);
+        allEmails.push(team.member3.email);
+        allEmails.push(team.member4.email);
         if (
             team.college.includes('JSS') ||
             team.college.includes('jss') ||
@@ -42,19 +51,25 @@ const Admin: NextPage<Props> = ({ teams }) => {
         }
         if (team.sendRegisterMail !== true) {
             newTeam.push(team);
-            emails[team.teamName] = [];
-            emails[team.teamName].push(team.member1.email);
-            emails[team.teamName].push(team.member2.email);
-            emails[team.teamName].push(team.member3.email);
-            emails[team.teamName].push(team.member4.email);
-            emails[team.teamName] = emails[team.teamName].filter(function (e) {
-                return e !== '';
-            });
+            teamEmails[team.teamName] = [];
+            teamEmails[team.teamName].push(team.member1.email);
+            teamEmails[team.teamName].push(team.member2.email);
+            teamEmails[team.teamName].push(team.member3.email);
+            teamEmails[team.teamName].push(team.member4.email);
+            teamEmails[team.teamName] = teamEmails[team.teamName].filter(
+                function (e) {
+                    return e !== '';
+                }
+            );
+            newEmails.push(teamEmails[team.teamName]);
             newRegistrations++;
             newParticipants += Number(team.teamSize);
         }
     }
-    console.log({ emails });
+    console.log({ emails: newEmails });
+    allEmails = allEmails.filter(function (e) {
+        return e !== '';
+    });
 
     const generateExcel = (data) => {
         // Deep copy
@@ -128,8 +143,34 @@ const Admin: NextPage<Props> = ({ teams }) => {
                             generateExcel(teams);
                         }}
                     >
-                        Download Excel
+                        Download All team Excel
                     </Button>
+                    <Button
+                        rightIcon={<CopyIcon />}
+                        color="black"
+                        bg="white"
+                        p={2}
+                        m={2}
+                        _hover={{
+                            bg: '#CC01FF',
+                            color: 'white',
+                        }}
+                        _focus={{ outline: 'none' }}
+                        _active={{ bg: '#CC01FF' }}
+                        onClick={() => {
+                            navigator.clipboard.writeText(allEmails.join(','));
+                            toast({
+                                title: 'Copied to clipboard',
+                                status: 'success',
+                                duration: 1000,
+                            });
+                        }}
+                    >
+                        Copy All team members emails
+                    </Button>
+                </HStack>
+
+                <HStack>
                     <Button
                         rightIcon={<DownloadIcon />}
                         color="black"
@@ -147,6 +188,29 @@ const Admin: NextPage<Props> = ({ teams }) => {
                         }}
                     >
                         Download New Team Excel
+                    </Button>
+                    <Button
+                        rightIcon={<CopyIcon />}
+                        color="black"
+                        bg="white"
+                        p={2}
+                        m={2}
+                        _hover={{
+                            bg: '#CC01FF',
+                            color: 'white',
+                        }}
+                        _focus={{ outline: 'none' }}
+                        _active={{ bg: '#CC01FF' }}
+                        onClick={() => {
+                            navigator.clipboard.writeText(newEmails.join(','));
+                            toast({
+                                title: 'Copied to clipboard',
+                                status: 'success',
+                                duration: 1000,
+                            });
+                        }}
+                    >
+                        Copy New team members emails
                     </Button>
                 </HStack>
                 <TableContainer>
@@ -185,9 +249,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
     let teams = [];
     querySnapshot.forEach((docs) => {
-        // doc.data() is never undefined for query doc snapshots
-
-        // console.log(docs.id, ' => ', docs.data());
         teams.push(docs.data());
     });
 
