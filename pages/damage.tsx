@@ -1,11 +1,12 @@
 import { RepeatClockIcon } from '@chakra-ui/icons';
-import { Button, Center, Spinner } from '@chakra-ui/react';
+import { Button, Center, Spinner, useToast } from '@chakra-ui/react';
 import { collection, doc, getDocs, updateDoc } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 
 const Damage = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const toast = useToast();
 
     const reset = async () => {
         setIsLoading(true);
@@ -16,6 +17,11 @@ const Damage = () => {
             });
         });
         setIsLoading(false);
+        toast({
+            title: 'Reset Successful',
+            status: 'success',
+            duration: 2000,
+        });
     };
 
     return (
