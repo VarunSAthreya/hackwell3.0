@@ -42,6 +42,17 @@ const Register: NextPage = () => {
     const toast = useToast();
 
     const onSubmit = async (data: ITeam) => {
+        if (new Date() > new Date('2022-04-26')) {
+            toast({
+                title: 'Registration Closed',
+                description: 'Sorry, registration is closed for this year',
+                status: 'error',
+                duration: 5000,
+                isClosable: true,
+            });
+            return;
+        }
+
         console.log({ data });
         data.createdAt = new Date().toISOString();
         data.sendRegisterMail = false;
